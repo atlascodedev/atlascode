@@ -14,7 +14,13 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
@@ -29,6 +35,10 @@
   "projects": {
     "components": {
       "tags": []
+    },
+    "components-e2e": {
+      "tags": [],
+      "implicitDependencies": ["components"]
     },
     "olympus": {
       "tags": []
