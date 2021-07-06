@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/olympus'],
+  projects: ['<rootDir>/apps/olympus', '<rootDir>/libs/components'],
 };
