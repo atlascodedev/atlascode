@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@atlascode/components": ["libs/components/src/index.ts"]
+      "@atlascode/components": ["libs/atlascode-components/src/index.ts"],
+      "out": ["libs/components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

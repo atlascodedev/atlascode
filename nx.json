@@ -33,12 +33,8 @@
     ]
   },
   "projects": {
-    "components": {
+    "atlascode-components": {
       "tags": []
-    },
-    "components-e2e": {
-      "tags": [],
-      "implicitDependencies": ["components"]
     },
     "olympus": {
       "tags": []

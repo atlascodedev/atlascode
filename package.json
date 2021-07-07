@@ -23,7 +23,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "new:component": "nx g @nrwl/react:component --project=components && nx g @nrwl/react:storybook-configuration --name=components"
   },
   "private": true,
   "dependencies": {

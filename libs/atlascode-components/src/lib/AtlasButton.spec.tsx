@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Components from './components';
+import AtlasButton from './AtlasButton';
 
-describe('Components', () => {
+describe('AtlasButton', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Components />);
+    const { baseElement } = render(<AtlasButton />);
     expect(baseElement).toBeTruthy();
   });
 });
