@@ -1,7 +1,355 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "helpers-assertions": {
+      "root": "libs/helpers/assertions",
+      "sourceRoot": "libs/helpers/assertions/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/helpers/assertions",
+            "tsConfig": "libs/helpers/assertions/tsconfig.lib.json",
+            "packageJson": "libs/helpers/assertions/package.json",
+            "main": "libs/helpers/assertions/src/index.ts",
+            "assets": ["libs/helpers/assertions/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/helpers/assertions/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/helpers/assertions"],
+          "options": {
+            "jestConfig": "libs/helpers/assertions/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "helpers-browser": {
+      "root": "libs/helpers/browser",
+      "sourceRoot": "libs/helpers/browser/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/helpers/browser",
+            "tsConfig": "libs/helpers/browser/tsconfig.lib.json",
+            "packageJson": "libs/helpers/browser/package.json",
+            "main": "libs/helpers/browser/src/index.ts",
+            "assets": ["libs/helpers/browser/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/helpers/browser/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/helpers/browser"],
+          "options": {
+            "jestConfig": "libs/helpers/browser/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "helpers-node": {
+      "root": "libs/helpers/node",
+      "sourceRoot": "libs/helpers/node/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/helpers/node",
+            "tsConfig": "libs/helpers/node/tsconfig.lib.json",
+            "packageJson": "libs/helpers/node/package.json",
+            "main": "libs/helpers/node/src/index.ts",
+            "assets": ["libs/helpers/node/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/helpers/node/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/helpers/node"],
+          "options": {
+            "jestConfig": "libs/helpers/node/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "hooks": {
+      "root": "libs/hooks",
+      "sourceRoot": "libs/hooks/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/hooks",
+            "tsConfig": "libs/hooks/tsconfig.lib.json",
+            "project": "libs/hooks/package.json",
+            "entryFile": "libs/hooks/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/hooks/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/hooks/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/hooks"],
+          "options": {
+            "jestConfig": "libs/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "olympus-core": {
+      "root": "apps/olympus/core",
+      "sourceRoot": "apps/olympus/core",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/olympus/core",
+            "outputPath": "dist/apps/olympus/core"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "olympus-core:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "olympus-core:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "olympus-core:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/olympus/core"],
+          "options": {
+            "jestConfig": "apps/olympus/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/olympus/core/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "olympus-core-e2e": {
+      "root": "apps/olympus/core-e2e",
+      "sourceRoot": "apps/olympus/core-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/olympus/core-e2e/cypress.json",
+            "tsConfig": "apps/olympus/core-e2e/tsconfig.e2e.json",
+            "devServerTarget": "olympus-core:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "olympus-core:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/olympus/core-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui-components": {
+      "root": "libs/ui/components",
+      "sourceRoot": "libs/ui/components/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ui/components",
+            "tsConfig": "libs/ui/components/tsconfig.lib.json",
+            "project": "libs/ui/components/package.json",
+            "entryFile": "libs/ui/components/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/ui/components/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/components/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/components"],
+          "options": {
+            "jestConfig": "libs/ui/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-layouts": {
+      "root": "libs/ui/layouts",
+      "sourceRoot": "libs/ui/layouts/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ui/layouts",
+            "tsConfig": "libs/ui/layouts/tsconfig.lib.json",
+            "project": "libs/ui/layouts/package.json",
+            "entryFile": "libs/ui/layouts/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/ui/layouts/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/layouts/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/layouts"],
+          "options": {
+            "jestConfig": "libs/ui/layouts/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-pages": {
+      "root": "libs/ui/pages",
+      "sourceRoot": "libs/ui/pages/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ui/pages",
+            "tsConfig": "libs/ui/pages/tsconfig.lib.json",
+            "project": "libs/ui/pages/package.json",
+            "entryFile": "libs/ui/pages/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/ui/pages/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/pages/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/pages"],
+          "options": {
+            "jestConfig": "libs/ui/pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/next"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "olympus-core"
 }

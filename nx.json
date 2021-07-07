@@ -14,12 +14,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -31,5 +26,34 @@
       }
     ]
   },
-  "projects": {}
+  "projects": {
+    "helpers-assertions": {
+      "tags": []
+    },
+    "helpers-browser": {
+      "tags": []
+    },
+    "helpers-node": {
+      "tags": []
+    },
+    "hooks": {
+      "tags": []
+    },
+    "olympus-core": {
+      "tags": []
+    },
+    "olympus-core-e2e": {
+      "tags": [],
+      "implicitDependencies": ["olympus-core"]
+    },
+    "ui-components": {
+      "tags": []
+    },
+    "ui-layouts": {
+      "tags": []
+    },
+    "ui-pages": {
+      "tags": []
+    }
+  }
 }

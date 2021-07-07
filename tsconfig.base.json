@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@atlascode/assertions": ["libs/helpers/assertions/src/index.ts"],
+      "@atlascode/browser-helpers": ["libs/helpers/browser/src/index.ts"],
+      "@atlascode/components": ["libs/ui/components/src/index.ts"],
+      "@atlascode/hooks": ["libs/hooks/src/index.ts"],
+      "@atlascode/layouts": ["libs/ui/layouts/src/index.ts"],
+      "@atlascode/node-helpers": ["libs/helpers/node/src/index.ts"],
+      "@atlascode/pages": ["libs/ui/pages/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
