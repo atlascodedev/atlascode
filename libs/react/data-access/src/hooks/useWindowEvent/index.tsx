@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 function useWindowEvent<T extends keyof WindowEventMap>(
   type: T,
   listener: (this: Window, event: WindowEventMap[T]) => any,
   options?: boolean | AddEventListenerOptions
 ) {
-  let listenerRef = React.useRef(listener);
+  const listenerRef = React.useRef(listener);
 
   listenerRef.current = listener;
 

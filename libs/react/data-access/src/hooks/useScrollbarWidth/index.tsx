@@ -1,5 +1,5 @@
-import React from "react";
-import { scrollbarWidth } from "@xobotyi/scrollbar-width";
+import React from 'react';
+import { scrollbarWidth } from '@xobotyi/scrollbar-width';
 
 const useScrollbarWidth = (): number | undefined => {
   const [scrollbarWidthState, setScrollbarWidthState] = React.useState(
@@ -7,7 +7,7 @@ const useScrollbarWidth = (): number | undefined => {
   );
 
   React.useEffect(() => {
-    if (typeof scrollbarWidthState === "undefined") {
+    if (typeof scrollbarWidthState === 'undefined') {
       return;
     }
 

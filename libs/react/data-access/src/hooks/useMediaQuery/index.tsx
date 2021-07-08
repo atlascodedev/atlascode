@@ -1,16 +1,13 @@
-import React from "react";
-import { isBrowser } from "@atlascode/helpers";
+import React from 'react';
+import { isBrowser } from '@atlascode/helpers';
 
-const useMediaQuery = (
-  query: string,
-  defaultState: boolean = false
-): boolean => {
+const useMediaQuery = (query: string, defaultState = false): boolean => {
   const [state, setState] = React.useState<boolean>(
     isBrowser ? () => window.matchMedia(query).matches : defaultState
   );
 
   React.useEffect(() => {
-    let isMounted = true;
+    const isMounted = true;
 
     const mediaQuery = window.matchMedia(query);
 

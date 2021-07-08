@@ -1,18 +1,19 @@
-import React from "react";
+import React from 'react';
 import {
   windowAddListener,
   windowRemoveListener,
   isIosDevice,
-} from "@atlascode/helpers";
+  noOperation,
+} from '@atlascode/helpers';
 
 export function getClosestBody(
   el: Element | HTMLElement | HTMLIFrameElement | null
 ): HTMLElement | null {
   if (!el) {
     return null;
-  } else if (el.tagName === "BODY") {
+  } else if (el.tagName === 'BODY') {
     return el as HTMLElement;
-  } else if (el.tagName === "IFRAME") {
+  } else if (el.tagName === 'IFRAME') {
     const document = (el as HTMLIFrameElement).contentDocument;
     return document ? document.body : null;
   } else if (!(el as HTMLElement).offsetParent) {
@@ -34,29 +35,31 @@ function preventDefault(rawEvent: TouchEvent): boolean {
 
 export interface BodyInfoItem {
   counter: number;
-  initialOverflow: CSSStyleDeclaration["overflow"];
+  initialOverflow: CSSStyleDeclaration['overflow'];
 }
 
 const bodies: Map<HTMLElement, BodyInfoItem> = new Map();
 
 const doc: Document | undefined =
-  typeof document === "object" ? document : undefined;
+  typeof document === 'object' ? document : undefined;
 
 let documentListenerAdded = false;
 
 export default !doc
   ? function useLockBodyMock(
-      _locked: boolean = true,
+      _locked = true,
       _elementRef?: React.RefObject<HTMLElement>
-    ) {}
+    ) {
+      noOperation();
+    }
   : function useLockBody(
-      locked: boolean = true,
+      locked = true,
       elementRef?: React.RefObject<HTMLElement>
     ) {
       const bodyRef = React.useRef(doc!.body);
       elementRef = elementRef || bodyRef;
 
-      const lock = (body: any) => {
+      const lock = (body: HTMLElement) => {
         const bodyInfo = bodies.get(body);
         if (!bodyInfo) {
           bodies.set(body, {
@@ -65,14 +68,14 @@ export default !doc
           });
           if (isIosDevice) {
             if (!documentListenerAdded) {
-              windowAddListener(document, "touchmove", preventDefault, {
+              windowAddListener(document, 'touchmove', preventDefault, {
                 passive: false,
               });
 
               documentListenerAdded = true;
             }
           } else {
-            body.style.overflow = "hidden";
+            body.style.overflow = 'hidden';
           }
         } else {
           bodies.set(body, {
@@ -91,7 +94,7 @@ export default !doc
               body.ontouchmove = null;
 
               if (documentListenerAdded) {
-                windowRemoveListener(document, "touchmove", preventDefault);
+                windowRemoveListener(document, 'touchmove', preventDefault);
                 documentListenerAdded = false;
               }
             } else {

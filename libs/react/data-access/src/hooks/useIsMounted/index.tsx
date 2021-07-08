@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const useIsMounted = () => {
-  let mounted = React.useRef(false);
+  const mounted = React.useRef(false);
 
   React.useEffect(() => {
     mounted.current = true;

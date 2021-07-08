@@ -368,6 +368,11 @@
     "@nrwl/react": {
       "application": {
         "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled",
+        "pascalCaseFiles": "true",
+        "export": true
       }
     },
     "@nrwl/next": {

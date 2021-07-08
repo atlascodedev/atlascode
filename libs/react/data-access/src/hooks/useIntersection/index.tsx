@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { noOperation } from '@atlascode/helpers';
 
 const useIntersection = (
   ref: React.RefObject<HTMLElement>,
@@ -8,7 +9,7 @@ const useIntersection = (
     React.useState<IntersectionObserverEntry | null>(null);
 
   React.useEffect(() => {
-    if (ref.current && typeof IntersectionObserver === "function") {
+    if (ref.current && typeof IntersectionObserver === 'function') {
       const handler = (entries: IntersectionObserverEntry[]) => {
         setIntersectionObserverEntry(entries[0]);
       };
@@ -21,7 +22,7 @@ const useIntersection = (
         observer.disconnect();
       };
     }
-    return () => {};
+    return () => noOperation();
   }, [ref.current, options.threshold, options.root, options.rootMargin]);
 
   return intersectionObserverEntry;

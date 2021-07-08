@@ -1,4 +1,5 @@
-import React from "react";
+import { noOperation } from '@atlascode/helpers';
+import React from 'react';
 
 export interface UseTitleOptions {
   restoreOnMount?: boolean;
@@ -27,6 +28,6 @@ const useTitle = (
   }, []);
 };
 
-export default typeof document !== "undefined"
+export default typeof document !== 'undefined'
   ? useTitle
-  : (_title: string) => {};
+  : (_title: string) => noOperation();

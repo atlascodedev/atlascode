@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 function useIsOnScreen<T extends Element>(
   ref: React.MutableRefObject<T>,
-  rootMargin: string = "0px"
+  rootMargin = '0px'
 ): boolean {
   const [isIntersecting, setIsIntersecting] = React.useState<boolean>(false);
 
