@@ -1,14 +1,13 @@
 module.exports = {
   projects: [
     '<rootDir>/apps/olympus/core',
-    '<rootDir>/libs/ui/components',
-    '<rootDir>/libs/ui/pages',
-    '<rootDir>/libs/ui/layouts',
-    '<rootDir>/libs/hooks',
-    '<rootDir>/libs/helpers/node',
-    '<rootDir>/libs/helpers/browser',
-    '<rootDir>/libs/helpers/assertions',
-    '<rootDir>/libs/ui/animations',
-    '<rootDir>/libs/ui/lotties',
+    '<rootDir>/libs/react/ui/components',
+    '<rootDir>/libs/react/data-access/hooks',
+    '<rootDir>/libs/react/features/pages',
+    '<rootDir>/libs/react/features/sections',
+    '<rootDir>/libs/react/features/layouts',
+    '<rootDir>/libs/react/ui/animations',
+    '<rootDir>/libs/react/data-access/render-props',
+    '<rootDir>/libs/react/data-access/hoc',
   ],
 };

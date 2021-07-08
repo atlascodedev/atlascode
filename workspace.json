@@ -1,142 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "helpers-assertions": {
-      "root": "libs/helpers/assertions",
-      "sourceRoot": "libs/helpers/assertions/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/helpers/assertions",
-            "tsConfig": "libs/helpers/assertions/tsconfig.lib.json",
-            "packageJson": "libs/helpers/assertions/package.json",
-            "main": "libs/helpers/assertions/src/index.ts",
-            "assets": ["libs/helpers/assertions/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/helpers/assertions/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/helpers/assertions"],
-          "options": {
-            "jestConfig": "libs/helpers/assertions/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "helpers-browser": {
-      "root": "libs/helpers/browser",
-      "sourceRoot": "libs/helpers/browser/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/helpers/browser",
-            "tsConfig": "libs/helpers/browser/tsconfig.lib.json",
-            "packageJson": "libs/helpers/browser/package.json",
-            "main": "libs/helpers/browser/src/index.ts",
-            "assets": ["libs/helpers/browser/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/helpers/browser/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/helpers/browser"],
-          "options": {
-            "jestConfig": "libs/helpers/browser/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "helpers-node": {
-      "root": "libs/helpers/node",
-      "sourceRoot": "libs/helpers/node/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/helpers/node",
-            "tsConfig": "libs/helpers/node/tsconfig.lib.json",
-            "packageJson": "libs/helpers/node/package.json",
-            "main": "libs/helpers/node/src/index.ts",
-            "assets": ["libs/helpers/node/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/helpers/node/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/helpers/node"],
-          "options": {
-            "jestConfig": "libs/helpers/node/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "hooks": {
-      "root": "libs/hooks",
-      "sourceRoot": "libs/hooks/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/hooks",
-            "tsConfig": "libs/hooks/tsconfig.lib.json",
-            "project": "libs/hooks/package.json",
-            "entryFile": "libs/hooks/src/index.ts",
-            "external": ["react/jsx-runtime"],
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "libs/hooks/README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/hooks/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/hooks"],
-          "options": {
-            "jestConfig": "libs/hooks/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "olympus-core": {
       "root": "apps/olympus/core",
       "sourceRoot": "apps/olympus/core",
@@ -214,24 +78,24 @@
         }
       }
     },
-    "ui-animations": {
-      "root": "libs/ui/animations",
-      "sourceRoot": "libs/ui/animations/src",
+    "react-data-access-hoc": {
+      "root": "libs/react/data-access/hoc",
+      "sourceRoot": "libs/react/data-access/hoc/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/ui/animations",
-            "tsConfig": "libs/ui/animations/tsconfig.lib.json",
-            "project": "libs/ui/animations/package.json",
-            "entryFile": "libs/ui/animations/src/index.ts",
+            "outputPath": "dist/libs/react/data-access/hoc",
+            "tsConfig": "libs/react/data-access/hoc/tsconfig.lib.json",
+            "project": "libs/react/data-access/hoc/package.json",
+            "entryFile": "libs/react/data-access/hoc/src/index.ts",
             "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
-                "glob": "libs/ui/animations/README.md",
+                "glob": "libs/react/data-access/hoc/README.md",
                 "input": ".",
                 "output": "."
               }
@@ -241,37 +105,39 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/animations/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/react/data-access/hoc/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/animations"],
+          "outputs": ["coverage/libs/react/data-access/hoc"],
           "options": {
-            "jestConfig": "libs/ui/animations/jest.config.js",
+            "jestConfig": "libs/react/data-access/hoc/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "ui-components": {
-      "root": "libs/ui/components",
-      "sourceRoot": "libs/ui/components/src",
+    "react-data-access-hooks": {
+      "root": "libs/react/data-access/hooks",
+      "sourceRoot": "libs/react/data-access/hooks/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/ui/components",
-            "tsConfig": "libs/ui/components/tsconfig.lib.json",
-            "project": "libs/ui/components/package.json",
-            "entryFile": "libs/ui/components/src/index.ts",
+            "outputPath": "dist/libs/react/data-access/hooks",
+            "tsConfig": "libs/react/data-access/hooks/tsconfig.lib.json",
+            "project": "libs/react/data-access/hooks/package.json",
+            "entryFile": "libs/react/data-access/hooks/src/index.ts",
             "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
-                "glob": "libs/ui/components/README.md",
+                "glob": "libs/react/data-access/hooks/README.md",
                 "input": ".",
                 "output": "."
               }
@@ -281,37 +147,39 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/components/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/react/data-access/hooks/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/components"],
+          "outputs": ["coverage/libs/react/data-access/hooks"],
           "options": {
-            "jestConfig": "libs/ui/components/jest.config.js",
+            "jestConfig": "libs/react/data-access/hooks/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "ui-layouts": {
-      "root": "libs/ui/layouts",
-      "sourceRoot": "libs/ui/layouts/src",
+    "react-data-access-render-props": {
+      "root": "libs/react/data-access/render-props",
+      "sourceRoot": "libs/react/data-access/render-props/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/ui/layouts",
-            "tsConfig": "libs/ui/layouts/tsconfig.lib.json",
-            "project": "libs/ui/layouts/package.json",
-            "entryFile": "libs/ui/layouts/src/index.ts",
+            "outputPath": "dist/libs/react/data-access/render-props",
+            "tsConfig": "libs/react/data-access/render-props/tsconfig.lib.json",
+            "project": "libs/react/data-access/render-props/package.json",
+            "entryFile": "libs/react/data-access/render-props/src/index.ts",
             "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
-                "glob": "libs/ui/layouts/README.md",
+                "glob": "libs/react/data-access/render-props/README.md",
                 "input": ".",
                 "output": "."
               }
@@ -321,37 +189,39 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/layouts/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/react/data-access/render-props/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/layouts"],
+          "outputs": ["coverage/libs/react/data-access/render-props"],
           "options": {
-            "jestConfig": "libs/ui/layouts/jest.config.js",
+            "jestConfig": "libs/react/data-access/render-props/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "ui-lotties": {
-      "root": "libs/ui/lotties",
-      "sourceRoot": "libs/ui/lotties/src",
+    "react-features-layouts": {
+      "root": "libs/react/features/layouts",
+      "sourceRoot": "libs/react/features/layouts/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/ui/lotties",
-            "tsConfig": "libs/ui/lotties/tsconfig.lib.json",
-            "project": "libs/ui/lotties/package.json",
-            "entryFile": "libs/ui/lotties/src/index.ts",
+            "outputPath": "dist/libs/react/features/layouts",
+            "tsConfig": "libs/react/features/layouts/tsconfig.lib.json",
+            "project": "libs/react/features/layouts/package.json",
+            "entryFile": "libs/react/features/layouts/src/index.ts",
             "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
-                "glob": "libs/ui/lotties/README.md",
+                "glob": "libs/react/features/layouts/README.md",
                 "input": ".",
                 "output": "."
               }
@@ -361,37 +231,39 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/lotties/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/react/features/layouts/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/lotties"],
+          "outputs": ["coverage/libs/react/features/layouts"],
           "options": {
-            "jestConfig": "libs/ui/lotties/jest.config.js",
+            "jestConfig": "libs/react/features/layouts/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "ui-pages": {
-      "root": "libs/ui/pages",
-      "sourceRoot": "libs/ui/pages/src",
+    "react-features-pages": {
+      "root": "libs/react/features/pages",
+      "sourceRoot": "libs/react/features/pages/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/ui/pages",
-            "tsConfig": "libs/ui/pages/tsconfig.lib.json",
-            "project": "libs/ui/pages/package.json",
-            "entryFile": "libs/ui/pages/src/index.ts",
+            "outputPath": "dist/libs/react/features/pages",
+            "tsConfig": "libs/react/features/pages/tsconfig.lib.json",
+            "project": "libs/react/features/pages/package.json",
+            "entryFile": "libs/react/features/pages/src/index.ts",
             "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
-                "glob": "libs/ui/pages/README.md",
+                "glob": "libs/react/features/pages/README.md",
                 "input": ".",
                 "output": "."
               }
@@ -401,14 +273,142 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/pages/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/react/features/pages/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/pages"],
+          "outputs": ["coverage/libs/react/features/pages"],
           "options": {
-            "jestConfig": "libs/ui/pages/jest.config.js",
+            "jestConfig": "libs/react/features/pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "react-features-sections": {
+      "root": "libs/react/features/sections",
+      "sourceRoot": "libs/react/features/sections/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/react/features/sections",
+            "tsConfig": "libs/react/features/sections/tsconfig.lib.json",
+            "project": "libs/react/features/sections/package.json",
+            "entryFile": "libs/react/features/sections/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/react/features/sections/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react/features/sections/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/react/features/sections"],
+          "options": {
+            "jestConfig": "libs/react/features/sections/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "react-ui-animations": {
+      "root": "libs/react/ui/animations",
+      "sourceRoot": "libs/react/ui/animations/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/react/ui/animations",
+            "tsConfig": "libs/react/ui/animations/tsconfig.lib.json",
+            "project": "libs/react/ui/animations/package.json",
+            "entryFile": "libs/react/ui/animations/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/react/ui/animations/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react/ui/animations/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/react/ui/animations"],
+          "options": {
+            "jestConfig": "libs/react/ui/animations/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "react-ui-components": {
+      "root": "libs/react/ui/components",
+      "sourceRoot": "libs/react/ui/components/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/react/ui/components",
+            "tsConfig": "libs/react/ui/components/tsconfig.lib.json",
+            "project": "libs/react/ui/components/package.json",
+            "entryFile": "libs/react/ui/components/src/index.ts",
+            "external": ["react/jsx-runtime", "@emotion/styled/base"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/react/ui/components/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react/ui/components/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/react/ui/components"],
+          "options": {
+            "jestConfig": "libs/react/ui/components/jest.config.js",
             "passWithNoTests": true
           }
         }

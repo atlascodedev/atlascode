@@ -27,18 +27,6 @@
     ]
   },
   "projects": {
-    "helpers-assertions": {
-      "tags": []
-    },
-    "helpers-browser": {
-      "tags": []
-    },
-    "helpers-node": {
-      "tags": []
-    },
-    "hooks": {
-      "tags": []
-    },
     "olympus-core": {
       "tags": []
     },
@@ -46,19 +34,28 @@
       "tags": [],
       "implicitDependencies": ["olympus-core"]
     },
-    "ui-animations": {
+    "react-data-access-hoc": {
       "tags": []
     },
-    "ui-components": {
+    "react-data-access-hooks": {
       "tags": []
     },
-    "ui-layouts": {
+    "react-data-access-render-props": {
       "tags": []
     },
-    "ui-lotties": {
+    "react-features-layouts": {
       "tags": []
     },
-    "ui-pages": {
+    "react-features-pages": {
+      "tags": []
+    },
+    "react-features-sections": {
+      "tags": []
+    },
+    "react-ui-animations": {
+      "tags": []
+    },
+    "react-ui-components": {
       "tags": []
     }
   }

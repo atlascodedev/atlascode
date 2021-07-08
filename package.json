@@ -37,6 +37,7 @@
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-spring": "^9.2.3",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.0.0"
   },
@@ -48,11 +49,13 @@
     "@emotion/babel-plugin": "11.2.0",
     "@nrwl/cli": "12.5.7",
     "@nrwl/cypress": "12.5.7",
+    "@nrwl/devkit": "12.5.7",
     "@nrwl/eslint-plugin-nx": "12.5.7",
     "@nrwl/jest": "12.5.7",
     "@nrwl/linter": "12.5.7",
     "@nrwl/next": "^12.5.7",
     "@nrwl/node": "^12.5.7",
+    "@nrwl/nx-plugin": "^12.5.7",
     "@nrwl/react": "^12.5.7",
     "@nrwl/tao": "12.5.7",
     "@nrwl/web": "12.5.7",
@@ -78,6 +81,7 @@
     "prettier": "^2.3.1",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
+    "tslib": "^2.0.0",
     "typescript": "~4.2.4"
   }
 }
