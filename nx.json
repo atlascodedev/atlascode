@@ -58,13 +58,7 @@
     "react-ui-components": {
       "tags": []
     },
-    "shared-assertions": {
-      "tags": []
-    },
-    "shared-browser": {
-      "tags": []
-    },
-    "shared-server": {
+    "shared": {
       "tags": []
     }
   }

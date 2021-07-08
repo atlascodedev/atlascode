@@ -9,8 +9,6 @@ module.exports = {
     '<rootDir>/libs/react/ui/animations',
     '<rootDir>/libs/react/data-access/render-props',
     '<rootDir>/libs/react/data-access/hoc',
-    '<rootDir>/libs/shared/assertions',
-    '<rootDir>/libs/shared/browser',
-    '<rootDir>/libs/shared/server',
+    '<rootDir>/libs/shared',
   ],
 };

@@ -1,1 +1,1 @@
-export * from './lib/ReactUiComponents';
+export * from './lib/Button/Button';
