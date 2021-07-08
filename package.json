@@ -30,6 +30,7 @@
     "@emotion/react": "11.1.5",
     "@emotion/server": "11.0.0",
     "@emotion/styled": "11.1.5",
+    "@material-ui/core": "^5.0.0-beta.0",
     "@nrwl/next": "12.5.7",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",

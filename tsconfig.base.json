@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@atlascode/animations": ["libs/ui/animations/src/index.ts"],
       "@atlascode/assertions": ["libs/helpers/assertions/src/index.ts"],
       "@atlascode/browser-helpers": ["libs/helpers/browser/src/index.ts"],
       "@atlascode/components": ["libs/ui/components/src/index.ts"],

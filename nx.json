@@ -46,6 +46,9 @@
       "tags": [],
       "implicitDependencies": ["olympus-core"]
     },
+    "ui-animations": {
+      "tags": []
+    },
     "ui-components": {
       "tags": []
     },

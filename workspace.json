@@ -214,6 +214,46 @@
         }
       }
     },
+    "ui-animations": {
+      "root": "libs/ui/animations",
+      "sourceRoot": "libs/ui/animations/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ui/animations",
+            "tsConfig": "libs/ui/animations/tsconfig.lib.json",
+            "project": "libs/ui/animations/package.json",
+            "entryFile": "libs/ui/animations/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/ui/animations/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/animations/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/animations"],
+          "options": {
+            "jestConfig": "libs/ui/animations/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "ui-components": {
       "root": "libs/ui/components",
       "sourceRoot": "libs/ui/components/src",
