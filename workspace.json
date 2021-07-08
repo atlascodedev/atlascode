@@ -78,24 +78,24 @@
         }
       }
     },
-    "react-data-access-hoc": {
-      "root": "libs/react/data-access/hoc",
-      "sourceRoot": "libs/react/data-access/hoc/src",
+    "react-data-access": {
+      "root": "libs/react/data-access",
+      "sourceRoot": "libs/react/data-access/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/react/data-access/hoc",
-            "tsConfig": "libs/react/data-access/hoc/tsconfig.lib.json",
-            "project": "libs/react/data-access/hoc/package.json",
-            "entryFile": "libs/react/data-access/hoc/src/index.ts",
+            "outputPath": "dist/libs/react/data-access",
+            "tsConfig": "libs/react/data-access/tsconfig.lib.json",
+            "project": "libs/react/data-access/package.json",
+            "entryFile": "libs/react/data-access/src/index.ts",
             "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
-                "glob": "libs/react/data-access/hoc/README.md",
+                "glob": "libs/react/data-access/README.md",
                 "input": ".",
                 "output": "."
               }
@@ -105,100 +105,14 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/react/data-access/hoc/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/react/data-access/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/react/data-access/hoc"],
+          "outputs": ["coverage/libs/react/data-access"],
           "options": {
-            "jestConfig": "libs/react/data-access/hoc/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "react-data-access-hooks": {
-      "root": "libs/react/data-access/hooks",
-      "sourceRoot": "libs/react/data-access/hooks/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/react/data-access/hooks",
-            "tsConfig": "libs/react/data-access/hooks/tsconfig.lib.json",
-            "project": "libs/react/data-access/hooks/package.json",
-            "entryFile": "libs/react/data-access/hooks/src/index.ts",
-            "external": ["react/jsx-runtime"],
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "libs/react/data-access/hooks/README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/react/data-access/hooks/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/react/data-access/hooks"],
-          "options": {
-            "jestConfig": "libs/react/data-access/hooks/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "react-data-access-render-props": {
-      "root": "libs/react/data-access/render-props",
-      "sourceRoot": "libs/react/data-access/render-props/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/react/data-access/render-props",
-            "tsConfig": "libs/react/data-access/render-props/tsconfig.lib.json",
-            "project": "libs/react/data-access/render-props/package.json",
-            "entryFile": "libs/react/data-access/render-props/src/index.ts",
-            "external": ["react/jsx-runtime"],
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "libs/react/data-access/render-props/README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/react/data-access/render-props/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/react/data-access/render-props"],
-          "options": {
-            "jestConfig": "libs/react/data-access/render-props/jest.config.js",
+            "jestConfig": "libs/react/data-access/jest.config.js",
             "passWithNoTests": true
           }
         }

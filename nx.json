@@ -34,13 +34,7 @@
       "tags": [],
       "implicitDependencies": ["olympus-core"]
     },
-    "react-data-access-hoc": {
-      "tags": []
-    },
-    "react-data-access-hooks": {
-      "tags": []
-    },
-    "react-data-access-render-props": {
+    "react-data-access": {
       "tags": []
     },
     "react-features-layouts": {
