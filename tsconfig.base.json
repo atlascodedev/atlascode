@@ -24,7 +24,12 @@
       "@atlascode/react-render-props": [
         "libs/react/data-access/render-props/src/index.ts"
       ],
-      "@atlascode/react-sections": ["libs/react/features/sections/src/index.ts"]
+      "@atlascode/react-sections": [
+        "libs/react/features/sections/src/index.ts"
+      ],
+      "@atlascode/utility-assertions": ["libs/shared/assertions/src/index.ts"],
+      "@atlascode/utility-browser": ["libs/shared/browser/src/index.ts"],
+      "@atlascode/utility-server": ["libs/shared/server/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

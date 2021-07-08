@@ -413,6 +413,102 @@
           }
         }
       }
+    },
+    "shared-assertions": {
+      "root": "libs/shared/assertions",
+      "sourceRoot": "libs/shared/assertions/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/assertions",
+            "tsConfig": "libs/shared/assertions/tsconfig.lib.json",
+            "packageJson": "libs/shared/assertions/package.json",
+            "main": "libs/shared/assertions/src/index.ts",
+            "assets": ["libs/shared/assertions/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/assertions/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/assertions"],
+          "options": {
+            "jestConfig": "libs/shared/assertions/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-browser": {
+      "root": "libs/shared/browser",
+      "sourceRoot": "libs/shared/browser/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/browser",
+            "tsConfig": "libs/shared/browser/tsconfig.lib.json",
+            "packageJson": "libs/shared/browser/package.json",
+            "main": "libs/shared/browser/src/index.ts",
+            "assets": ["libs/shared/browser/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/browser/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/browser"],
+          "options": {
+            "jestConfig": "libs/shared/browser/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-server": {
+      "root": "libs/shared/server",
+      "sourceRoot": "libs/shared/server/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/server",
+            "tsConfig": "libs/shared/server/tsconfig.lib.json",
+            "packageJson": "libs/shared/server/package.json",
+            "main": "libs/shared/server/src/index.ts",
+            "assets": ["libs/shared/server/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/server/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/server"],
+          "options": {
+            "jestConfig": "libs/shared/server/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
