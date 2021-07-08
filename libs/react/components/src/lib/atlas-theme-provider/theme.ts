@@ -7,7 +7,8 @@ const theme: ThemeOptions = {
         {
           props: { variant: 'rounded' },
           style: {
-            borderRadius: '8px',
+            borderRadius: '50%',
+            backgroundColor: 'red',
           },
         },
 
