@@ -334,6 +334,46 @@
         }
       }
     },
+    "ui-lotties": {
+      "root": "libs/ui/lotties",
+      "sourceRoot": "libs/ui/lotties/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ui/lotties",
+            "tsConfig": "libs/ui/lotties/tsconfig.lib.json",
+            "project": "libs/ui/lotties/package.json",
+            "entryFile": "libs/ui/lotties/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/ui/lotties/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/lotties/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/lotties"],
+          "options": {
+            "jestConfig": "libs/ui/lotties/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "ui-pages": {
       "root": "libs/ui/pages",
       "sourceRoot": "libs/ui/pages/src",

@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/libs/helpers/browser',
     '<rootDir>/libs/helpers/assertions',
     '<rootDir>/libs/ui/animations',
+    '<rootDir>/libs/ui/lotties',
   ],
 };

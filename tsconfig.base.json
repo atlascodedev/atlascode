@@ -21,6 +21,7 @@
       "@atlascode/components": ["libs/ui/components/src/index.ts"],
       "@atlascode/hooks": ["libs/hooks/src/index.ts"],
       "@atlascode/layouts": ["libs/ui/layouts/src/index.ts"],
+      "@atlascode/lotties": ["libs/ui/lotties/src/index.ts"],
       "@atlascode/node-helpers": ["libs/helpers/node/src/index.ts"],
       "@atlascode/pages": ["libs/ui/pages/src/index.ts"]
     }
