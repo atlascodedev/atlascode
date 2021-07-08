@@ -33,27 +33,6 @@
     "olympus-core-e2e": {
       "tags": [],
       "implicitDependencies": ["olympus-core"]
-    },
-    "react-data-access": {
-      "tags": []
-    },
-    "react-features-layouts": {
-      "tags": []
-    },
-    "react-features-pages": {
-      "tags": []
-    },
-    "react-features-sections": {
-      "tags": []
-    },
-    "react-ui-animations": {
-      "tags": []
-    },
-    "react-ui-components": {
-      "tags": []
-    },
-    "shared": {
-      "tags": []
     }
   }
 }

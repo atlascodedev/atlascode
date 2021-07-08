@@ -14,15 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@atlascode/helpers": ["libs/shared/src/index.ts"],
-      "@atlascode/react-animations": ["libs/react/ui/animations/src/index.ts"],
-      "@atlascode/react-components": ["libs/react/ui/components/src/index.ts"],
-      "@atlascode/react-data-access": ["libs/react/data-access/src/index.ts"],
-      "@atlascode/react-layouts": ["libs/react/features/layouts/src/index.ts"],
-      "@atlascode/react-pages": ["libs/react/features/pages/src/index.ts"],
-      "@atlascode/react-sections": ["libs/react/features/sections/src/index.ts"]
-    }
+    "paths": {}
   },
   "exclude": ["node_modules", "tmp"]
 }
