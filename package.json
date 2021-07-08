@@ -68,6 +68,7 @@
     "@svgr/webpack": "^5.4.0",
     "@testing-library/react": "11.2.6",
     "@types/jest": "26.0.8",
+    "@types/lodash": "^4.14.171",
     "@types/node": "14.14.33",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
