@@ -18,7 +18,8 @@
           "build",
           "lint",
           "test",
-          "e2e"
+          "e2e",
+          "build-storybook"
         ]
       }
     }
@@ -31,5 +32,40 @@
       }
     ]
   },
-  "projects": {}
+  "projects": {
+    "helpers": {
+      "tags": []
+    },
+    "olympus-core": {
+      "tags": []
+    },
+    "olympus-core-e2e": {
+      "tags": [],
+      "implicitDependencies": ["olympus-core"]
+    },
+    "react-animations": {
+      "tags": []
+    },
+    "react-components": {
+      "tags": []
+    },
+    "react-hooks": {
+      "tags": []
+    },
+    "react-layouts": {
+      "tags": []
+    },
+    "react-lotties": {
+      "tags": []
+    },
+    "react-pages": {
+      "tags": []
+    },
+    "react-sections": {
+      "tags": []
+    },
+    "react-utility": {
+      "tags": []
+    }
+  }
 }
