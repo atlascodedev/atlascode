@@ -1,7 +1,9 @@
-import { ComponentsPropsList } from '@material-ui/core';
+import { ComponentsPropsList, BoxProps } from '@material-ui/core';
 import { CSSInterpolation } from '@material-ui/system';
 import _ from 'lodash';
 import defaultThemePalette, { AtlasPalette } from './default-palette';
+
+export type AtlasCSSVariant = Pick<BoxProps, 'sx'>['sx'];
 
 export type ComponentsVariantSingle = {
   [Name in keyof ComponentsPropsList]?: {

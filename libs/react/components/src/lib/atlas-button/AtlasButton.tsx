@@ -1,10 +1,15 @@
-import { Button, ButtonProps, Box } from '@material-ui/core';
-import { SystemCssProperties, Theme, alpha } from '@material-ui/system';
+import { Button, ButtonProps, Box, styled } from '@material-ui/core';
+import { alpha } from '@material-ui/system';
+import { AtlasCSSVariant } from '../atlas-theme-provider/theme-utilities';
+import React from 'react';
+import { ThemeProvider } from '@storybook/theming';
 
 export type RoundedButtonProps = Omit<
   ButtonProps,
   'variant' | 'color' | 'children'
 >;
+
+const AtlasButtonTest = styled(Button)({});
 
 /* eslint-disable-next-line */
 export interface AtlasButtonProps extends RoundedButtonProps {
@@ -20,6 +25,20 @@ export function AtlasButton({
   disableElevation = false,
   ...props
 }: AtlasButtonProps) {
+  const variants: Record<typeof variant, AtlasCSSVariant> = {
+    contained: {
+      backgroundColor: (theme) => theme.palette[color].main,
+      color: (theme) => theme.palette[color].contrastText,
+    },
+    outlined: {
+      backgroundColor: 'transparent',
+      color: (theme) => theme.palette[color].main,
+      borderColor: (theme) =>
+        props.disabled ? 'transparent' : theme.palette[color].main,
+      border: '1px solid',
+    },
+  };
+
   return (
     <Box
       {...props}
@@ -29,15 +48,7 @@ export function AtlasButton({
         borderRadius: '15px',
         px: '15px',
         textTransform: 'inherit',
-        backgroundColor:
-          variant === 'contained' ? `${color}.main` : 'transparent',
-        color:
-          variant === 'contained' ? `${color}.contrastText` : `${color}.main`,
-        border: variant === 'outlined' ? `1px solid` : 'none',
-        borderColor:
-          variant === 'outlined' && !props.disabled
-            ? `${color}.main`
-            : 'transparent',
+        ...variants[variant],
         boxShadow: (theme) =>
           disableElevation || variant === 'outlined'
             ? theme.shadows[0]
