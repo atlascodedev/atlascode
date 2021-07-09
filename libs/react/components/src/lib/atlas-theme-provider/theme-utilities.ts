@@ -1,4 +1,4 @@
-import { ComponentsPropsList, ThemeOptions } from '@material-ui/core';
+import { ComponentsPropsList } from '@material-ui/core';
 import { CSSInterpolation } from '@material-ui/system';
 import _ from 'lodash';
 import defaultThemePalette, { AtlasPalette } from './default-palette';
@@ -27,8 +27,8 @@ export const getPaletteColor = <
 >(
   paletteVariaton: T,
   paletteInnerVariation: R,
-  defaultPalette: AtlasPalette = defaultThemePalette,
-  paletteOverride: AtlasPalette | ThemeOptions['palette'] = {}
+  paletteOverride: Partial<AtlasPalette> = {},
+  defaultPalette: AtlasPalette = defaultThemePalette
 ) => {
   const path = `${paletteVariaton}.${paletteInnerVariation}`;
 

@@ -1,14 +1,15 @@
-import { Button } from '@material-ui/core';
+import { Button, ButtonProps } from '@material-ui/core';
+import { SystemCssProperties, Theme } from '@material-ui/system';
+
+const roundedStyles: SystemCssProperties<Theme> = {
+  color: 'primary.main',
+};
 
 /* eslint-disable-next-line */
-export interface AtlasButtonProps {}
+export interface AtlasButtonProps extends ButtonProps {}
 
 export function AtlasButton(props: AtlasButtonProps) {
-  return (
-    <Button color="primary" variant="rounded">
-      hello world
-    </Button>
-  );
+  return <Button {...props}>hello world</Button>;
 }
 
 export default AtlasButton;
