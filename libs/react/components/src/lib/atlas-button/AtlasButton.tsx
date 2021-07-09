@@ -1,7 +1,7 @@
+import React from 'react';
 import { Button, ButtonProps, Box } from '@material-ui/core';
 import { alpha, lighten } from '@material-ui/system';
 import { AtlasCSSVariant } from '../atlas-theme-provider/theme-utilities';
-import React from 'react';
 
 export type RoundedButtonProps = Omit<
   ButtonProps,
@@ -12,6 +12,7 @@ export type RoundedButtonProps = Omit<
 export interface AtlasButtonProps extends RoundedButtonProps {
   color?: 'primary' | 'secondary';
   variant?: 'outlined' | 'contained';
+  compact?: boolean;
   children?: React.ReactNode;
 }
 
@@ -20,6 +21,7 @@ export function AtlasButton({
   variant = 'contained',
   children,
   disableElevation = false,
+  compact = false,
   ...props
 }: AtlasButtonProps) {
   const variantMemo = React.useMemo(() => {
@@ -57,6 +59,7 @@ export function AtlasButton({
         transition: 'all 0.5s ease',
         borderRadius: '15px',
         px: '15px',
+        py: !compact ? '7px' : '1px',
         textTransform: 'inherit',
         ...variantMemo()[variant],
         ':disabled': {
@@ -65,6 +68,7 @@ export function AtlasButton({
           boxShadow: (theme) => theme.shadows[0],
           cursor: 'not-allowed',
         },
+        ...props.sx,
       }}
     >
       {children}

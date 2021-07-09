@@ -22,6 +22,7 @@ Primary.parameters = {
       'disabled',
       'size',
       'variant',
+      'compact',
     ] as Array<keyof AtlasButtonProps>,
   },
 };
