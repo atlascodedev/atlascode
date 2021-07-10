@@ -16,14 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@atlascode/helpers": ["libs/helpers/src/index.ts"],
-      "@atlascode/react-animations": ["libs/react/animations/src/index.ts"],
-      "@atlascode/react-components": ["libs/react/components/src/index.ts"],
-      "@atlascode/react-hooks": ["libs/react/hooks/src/index.ts"],
-      "@atlascode/react-layouts": ["libs/react/layouts/src/index.ts"],
-      "@atlascode/react-lotties": ["libs/react/lotties/src/index.ts"],
-      "@atlascode/react-pages": ["libs/react/pages/src/index.ts"],
-      "@atlascode/react-sections": ["libs/react/sections/src/index.ts"],
-      "@atlascode/react-utility": ["libs/react/utility/src/index.ts"]
+      "@atlascode/react-core": ["libs/react/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

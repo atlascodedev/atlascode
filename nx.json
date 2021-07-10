@@ -50,25 +50,7 @@
       "tags": [],
       "implicitDependencies": ["olympus-core"]
     },
-    "react-animations": {
-      "tags": []
-    },
-    "react-components": {
-      "tags": []
-    },
-    "react-hooks": {
-      "tags": []
-    },
-    "react-layouts": {
-      "tags": []
-    },
-    "react-lotties": {
-      "tags": []
-    },
-    "react-pages": {
-      "tags": []
-    },
-    "react-sections": {
+    "react": {
       "tags": []
     }
   }
