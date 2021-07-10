@@ -1,4 +1,4 @@
-import { AtlasButton } from '@atlascode/react-components';
+import { AtlasButton } from '@atlascode/react-core';
 
 export function Index() {
   return (

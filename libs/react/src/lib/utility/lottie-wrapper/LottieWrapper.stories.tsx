@@ -1,16 +1,16 @@
 import { Story, Meta } from '@storybook/react';
 import LottieAnimation, { ILottieAnimation } from '.';
-import successAnimationData from '../Success/data.json';
-import errorAnimationData from '../Error/data.json';
-import favoriteAnimationData from '../Favorite/data.json';
-import fluidLoadAnimationData from '../FluidLoad/data.json';
-import likeAnimationData from '../Like/data.json';
-import mailSentOutlinedAnimationData from '../MailSentOutlined/data.json';
-import reactAnimationData from '../React/data.json';
-import successAltAnimationData from '../SuccessAlt/data.json';
-import taskCompleteAnimationData from '../TaskComplete/data.json';
-import confettiAnimationData from '../Confetti/data.json';
-import emailLoopedAnimationData from '../EmailLooped/data.json';
+import successAnimationData from '../../lotties/Success/data.json';
+import errorAnimationData from '../../lotties/Error/data.json';
+import favoriteAnimationData from '../../lotties/Favorite/data.json';
+import fluidLoadAnimationData from '../../lotties/FluidLoad/data.json';
+import likeAnimationData from '../../lotties/Like/data.json';
+import mailSentOutlinedAnimationData from '../../lotties/MailSentOutlined/data.json';
+import reactAnimationData from '../../lotties/React/data.json';
+import successAltAnimationData from '../../lotties/SuccessAlt/data.json';
+import taskCompleteAnimationData from '../../lotties/TaskComplete/data.json';
+import confettiAnimationData from '../../lotties/Confetti/data.json';
+import emailLoopedAnimationData from '../../lotties/EmailLooped/data.json';
 
 export default {
   title: 'AtlasCode Lotties/Animations',

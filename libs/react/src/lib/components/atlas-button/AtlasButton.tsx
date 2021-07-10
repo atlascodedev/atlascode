@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, ButtonProps, Box } from '@material-ui/core';
 import { alpha, darken } from '@material-ui/system';
-import { AtlasCSSVariant } from '../atlas-theme-provider/theme-utilities';
+import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 
 export type RoundedButtonProps = Omit<
   ButtonProps,
