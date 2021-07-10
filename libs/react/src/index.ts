@@ -1,3 +1,4 @@
+export * from './lib/components/default-themed-button/DefaultThemedButton';
 export * from './lib/components/product-card/ProductCard';
 export * from './lib/components/product-card/ProductCard';
 export * from './lib/components/atlas-button/AtlasButton';
