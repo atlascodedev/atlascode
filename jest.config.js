@@ -10,5 +10,7 @@ module.exports = {
     '<rootDir>/libs/react/lotties',
     '<rootDir>/libs/react/pages',
     '<rootDir>/libs/helpers',
+    '<rootDir>/apps/gnosis/core',
+    '<rootDir>/apps/teste/core',
   ],
 };

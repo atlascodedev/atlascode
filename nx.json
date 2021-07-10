@@ -33,6 +33,13 @@
     ]
   },
   "projects": {
+    "gnosis-core": {
+      "tags": []
+    },
+    "gnosis-core-e2e": {
+      "tags": [],
+      "implicitDependencies": ["gnosis-core"]
+    },
     "helpers": {
       "tags": []
     },

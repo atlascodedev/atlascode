@@ -1,6 +1,83 @@
 {
   "version": 2,
   "projects": {
+    "gnosis-core": {
+      "root": "apps/gnosis/core",
+      "sourceRoot": "apps/gnosis/core",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/gnosis/core",
+            "outputPath": "dist/apps/gnosis/core"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "gnosis-core:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "gnosis-core:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "gnosis-core:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/gnosis/core"],
+          "options": {
+            "jestConfig": "apps/gnosis/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/gnosis/core/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "gnosis-core-e2e": {
+      "root": "apps/gnosis/core-e2e",
+      "sourceRoot": "apps/gnosis/core-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/gnosis/core-e2e/cypress.json",
+            "tsConfig": "apps/gnosis/core-e2e/tsconfig.e2e.json",
+            "devServerTarget": "gnosis-core:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gnosis-core:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/gnosis/core-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "helpers": {
       "root": "libs/helpers",
       "sourceRoot": "libs/helpers/src",
