@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, ButtonProps, Box } from '@material-ui/core';
-import { alpha, lighten } from '@material-ui/system';
+import { alpha, darken } from '@material-ui/system';
 import { AtlasCSSVariant } from '../atlas-theme-provider/theme-utilities';
 
 export type RoundedButtonProps = Omit<
@@ -33,7 +33,7 @@ export function AtlasButton({
           boxShadow: (theme) =>
             disableElevation ? theme.shadows[0] : theme.shadows[3],
           ':hover': {
-            backgroundColor: (theme) => lighten(theme.palette[color].main, 0.2),
+            backgroundColor: (theme) => darken(theme.palette[color].main, 0.2),
             boxShadow: (theme) => theme.shadows[0],
           },
         },
@@ -58,8 +58,8 @@ export function AtlasButton({
       sx={{
         transition: 'all 0.5s ease',
         borderRadius: '15px',
-        px: '15px',
-        py: !compact ? '7px' : '1px',
+        px: '20px',
+        py: !compact ? '5px' : '1px',
         textTransform: 'inherit',
         ...variantMemo()[variant],
         ':disabled': {

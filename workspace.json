@@ -161,9 +161,10 @@
           "options": {
             "outputPath": "dist/libs/react/components",
             "tsConfig": "libs/react/components/tsconfig.lib.json",
+            "buildableProjectDepsInPackageJsonType": "dependencies",
             "project": "libs/react/components/package.json",
             "entryFile": "libs/react/components/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": ["react/jsx-runtime", "react-is"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {

@@ -1,5 +1,5 @@
-function isFunction(value: any): value is Function {
-  return typeof value === "function";
+function isFunction(value: any): value is never {
+  return typeof value === 'function';
 }
 
 export default isFunction;
