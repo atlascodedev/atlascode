@@ -6,7 +6,6 @@ module.exports = {
     '<rootDir>/libs/react/hooks',
     '<rootDir>/libs/react/layouts',
     '<rootDir>/libs/react/sections',
-    '<rootDir>/libs/react/utility',
     '<rootDir>/libs/react/lotties',
     '<rootDir>/libs/react/pages',
     '<rootDir>/libs/helpers',
