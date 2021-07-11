@@ -3,7 +3,7 @@ import { AtlasButton, AtlasButtonProps } from './AtlasButton';
 
 export default {
   component: AtlasButton,
-  title: 'AtlasButton',
+  title: 'AtlasCode Buttons/Rounded',
 } as Meta;
 
 const Template: Story<AtlasButtonProps> = (args) => <AtlasButton {...args} />;
@@ -26,3 +26,12 @@ Primary.parameters = {
     ] as Array<keyof AtlasButtonProps>,
   },
 };
+Primary.storyName = 'Contained';
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  ...Primary.args,
+  variant: 'outlined',
+};
+Secondary.parameters = { ...Primary.parameters };
+Secondary.storyName = ' Outlined';

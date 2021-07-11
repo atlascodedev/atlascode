@@ -1,3 +1,4 @@
+export * from './lib/components/neon-button/NeonButton';
 export * from './lib/components/product-card/ProductCard';
 export * from './lib/components/product-card/ProductCard';
 export * from './lib/components/atlas-button/AtlasButton';
