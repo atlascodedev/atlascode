@@ -4,10 +4,30 @@ import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilit
 import MotionBox from '../../utility/motion-box/MotionBox';
 
 /* eslint-disable-next-line */
-export interface KotaBurguerProps {}
+export interface KotaBurguerProps {
+  colorClosed?: string;
+  colorOpen?: string;
+}
 
-export function KotaBurguer(props: KotaBurguerProps) {
+export function KotaBurguer({
+  colorClosed = 'rgb(135, 135, 135)',
+  colorOpen = colorClosed,
+}: KotaBurguerProps) {
   const [open, setOpen] = React.useState(false);
+
+  const lineStyleMemo = React.useMemo(() => {
+    return () =>
+      ({
+        display: 'inline-block',
+        cursor: 'pointer',
+        userSelect: 'none',
+        width: '100%',
+        height: '0.3em',
+        backgroundColor: open ? colorOpen : colorClosed,
+        position: 'relative',
+        transformOrigin: 'center',
+      } as AtlasCSSVariant);
+  }, [colorClosed, colorOpen, open]);
 
   return (
     <MotionBox
@@ -46,7 +66,7 @@ export function KotaBurguer(props: KotaBurguerProps) {
         }
         component="span"
         sx={{
-          ...lineStyles,
+          ...lineStyleMemo(),
         }}
       ></MotionBox>
       <MotionBox
@@ -55,14 +75,14 @@ export function KotaBurguer(props: KotaBurguerProps) {
         }
         component="span"
         sx={{
-          ...lineStyles,
+          ...lineStyleMemo(),
         }}
       ></MotionBox>
       <MotionBox
         animate={open ? { opacity: 0 } : { opacity: 1 }}
         component="span"
         sx={{
-          ...lineStyles,
+          ...lineStyleMemo(),
           width: '60%',
           marginLeft: 'auto',
         }}
