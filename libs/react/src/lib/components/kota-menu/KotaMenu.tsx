@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { Box, Button } from '@material-ui/core';
 import React from 'react';
 import MotionBox from '../../utility/motion-box/MotionBox';
