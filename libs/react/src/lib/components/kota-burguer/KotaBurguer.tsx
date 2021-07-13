@@ -7,14 +7,16 @@ import MotionBox from '../../utility/motion-box/MotionBox';
 export interface KotaBurguerProps {
   colorClosed?: string;
   colorOpen?: string;
+  onClick?: (...args: unknown[]) => void;
+  open: boolean;
 }
 
 export function KotaBurguer({
   colorClosed = 'rgb(135, 135, 135)',
   colorOpen = colorClosed,
+  open,
+  onClick,
 }: KotaBurguerProps) {
-  const [open, setOpen] = React.useState(false);
-
   const lineStyleMemo = React.useMemo(() => {
     return () =>
       ({
@@ -32,7 +34,7 @@ export function KotaBurguer({
   return (
     <MotionBox
       layout
-      onClick={() => setOpen((prevState) => !prevState)}
+      onClick={onClick}
       sx={{
         backgroundColor: 'transparent',
         width: '3.4em',
@@ -62,7 +64,12 @@ export function KotaBurguer({
     >
       <MotionBox
         animate={
-          open ? { rotate: '45deg', position: 'absolute' } : { rotate: '0deg' }
+          open
+            ? {
+                rotate: ['0deg', '0deg', '45deg'],
+                position: ['relative', 'absolute', 'absolute'],
+              }
+            : { rotate: '0deg', position: 'relative' }
         }
         component="span"
         sx={{
@@ -71,7 +78,12 @@ export function KotaBurguer({
       ></MotionBox>
       <MotionBox
         animate={
-          open ? { rotate: '-45deg', position: 'absolute' } : { rotate: '0deg' }
+          open
+            ? {
+                rotate: ['0deg', '0deg', '-45deg'],
+                position: ['relative', 'absolute', 'absolute'],
+              }
+            : { rotate: '0deg', position: 'relative' }
         }
         component="span"
         sx={{
@@ -79,7 +91,7 @@ export function KotaBurguer({
         }}
       ></MotionBox>
       <MotionBox
-        animate={open ? { opacity: 0 } : { opacity: 1 }}
+        animate={open ? { opacity: 0, position: 'absolute' } : { opacity: 1 }}
         component="span"
         sx={{
           ...lineStyleMemo(),
