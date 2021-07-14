@@ -1,9 +1,5 @@
-import {
-  useMotionValue,
-  Variants,
-  useAnimation,
-  MotionConfig,
-} from 'framer-motion';
+import { MotionConfig, useAnimation } from 'framer-motion';
+import { noop } from 'lodash';
 import React from 'react';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 import MotionBox from '../../utility/motion-box/MotionBox';
@@ -31,6 +27,8 @@ export function KotaBurguer({
   open,
   onClick,
 }: KotaBurguerProps) {
+  const lineAnimationControl = useAnimation();
+
   const lineStyleMemo = React.useMemo(() => {
     return () =>
       ({
@@ -44,6 +42,19 @@ export function KotaBurguer({
         transformOrigin: '50% 50%',
       } as AtlasCSSVariant);
   }, [colorClosed, colorOpen, open]);
+
+  const animationSequence = React.useCallback(async () => {
+    await lineAnimationControl.start('translate');
+    await lineAnimationControl.start('rotate');
+  }, [lineAnimationControl]);
+
+  React.useEffect(() => {
+    if (open) {
+      animationSequence();
+    } else {
+      lineAnimationControl.start('initial');
+    }
+  }, [open, animationSequence, lineAnimationControl]);
 
   return (
     <MotionBox
@@ -60,18 +71,29 @@ export function KotaBurguer({
         position: 'relative',
         rowGap: '5px',
       }}
-      initial="initial"
       layout
-      whileHover={!open ? { rowGap: '10px' } : undefined}
-      animate={open ? 'open' : 'initial'}
+      animate={lineAnimationControl}
     >
-      <MotionConfig transition={{ times: [0, 0.3, 1] }}>
+      <MotionConfig
+        transition={{
+          type: 'spring',
+          damping: 15,
+          stiffness: 600,
+          mass: 0.5,
+        }}
+      >
         <MotionBox
           component="span"
           variants={{
-            open: {
+            initial: {
+              rotate: '0deg',
+              translateY: '0px',
+            },
+            translate: {
               translateY: valueToCSSUnit(lineHeight, 'em'),
-              rotate: ['0deg', '0deg', '45deg'],
+            },
+            rotate: {
+              rotate: '45deg',
             },
           }}
           sx={{
@@ -81,9 +103,15 @@ export function KotaBurguer({
         <MotionBox
           component="span"
           variants={{
-            open: {
+            initial: {
+              rotate: '0deg',
+              translateY: '0px',
+            },
+            translate: {
               translateY: valueToCSSUnit(-lineHeight, 'em'),
-              rotate: ['0deg', '0deg', '-45deg'],
+            },
+            rotate: {
+              rotate: '-45deg',
             },
           }}
           sx={{
@@ -97,9 +125,13 @@ export function KotaBurguer({
             width: '60%',
           }}
           variants={{
-            open: {
+            initial: {
+              translateY: '0px',
+              opacity: 1,
+            },
+            translate: {
               translateY: valueToCSSUnit(-lineHeight * 3, 'em'),
-              opacity: [1, 0, 0],
+              opacity: 0,
             },
           }}
         ></MotionBox>
