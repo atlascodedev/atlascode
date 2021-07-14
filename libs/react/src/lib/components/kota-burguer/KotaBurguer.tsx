@@ -27,7 +27,7 @@ export function KotaBurguer({
   open,
   onClick,
 }: KotaBurguerProps) {
-  const animation = useAnimation();
+  const lineAnimationControl = useAnimation();
 
   const lineStyleMemo = React.useMemo(() => {
     return () =>
@@ -43,19 +43,18 @@ export function KotaBurguer({
       } as AtlasCSSVariant);
   }, [colorClosed, colorOpen, open]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const animationSequence = async () => {
-    await animation.start('translate');
-    await animation.start('rotate');
-  };
+  const animationSequence = React.useCallback(async () => {
+    await lineAnimationControl.start('translate');
+    await lineAnimationControl.start('rotate');
+  }, [lineAnimationControl]);
 
   React.useEffect(() => {
     if (open) {
       animationSequence();
     } else {
-      animation.start('initial');
+      lineAnimationControl.start('initial');
     }
-  }, [open, animationSequence, animation]);
+  }, [open, animationSequence, lineAnimationControl]);
 
   return (
     <MotionBox
@@ -73,7 +72,7 @@ export function KotaBurguer({
         rowGap: '5px',
       }}
       layout
-      animate={animation}
+      animate={lineAnimationControl}
     >
       <MotionConfig
         transition={{
