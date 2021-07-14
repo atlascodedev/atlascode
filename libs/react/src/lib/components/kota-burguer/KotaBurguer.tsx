@@ -77,8 +77,9 @@ export function KotaBurguer({
       <MotionConfig
         transition={{
           type: 'spring',
-          damping: 25,
-          stiffness: 300,
+          damping: 15,
+          stiffness: 600,
+          mass: 0.5,
         }}
       >
         <MotionBox
