@@ -6,7 +6,8 @@ import MotionBox from '../../utility/motion-box/MotionBox';
 export interface KotaBurguerProps {
   colorClosed?: string;
   colorOpen?: string;
-  onClick?: (...args: unknown[]) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onClick?: (...args: any[]) => void;
   wobbly?: boolean;
   open: boolean;
 }
@@ -69,10 +70,10 @@ export function KotaBurguer({
         alignItems: 'flex-end',
         justifyContent: 'center',
         position: 'relative',
-        rowGap: '5px',
+        rowGap: '6px',
       }}
       layout
-      whileHover={{ rowGap: '8px' }}
+      whileHover={!open ? { rowGap: '8px' } : undefined}
       animate={lineAnimationControl}
     >
       <MotionConfig

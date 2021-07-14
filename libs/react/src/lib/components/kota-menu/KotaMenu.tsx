@@ -1,28 +1,52 @@
 import { Box, Button } from '@material-ui/core';
 import React from 'react';
 import MotionBox from '../../utility/motion-box/MotionBox';
+import KotaBurguer from '../kota-burguer/KotaBurguer';
 
-/* eslint-disable-next-line */
-export interface KotaMenuProps {}
+export type KotaMenuItem =
+  | string
+  | { label: string; subItemsList: KotaMenuItem[] };
+
+export interface KotaMenuProps {
+  logo?: string;
+  logoOpen?: string;
+  open?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onOpen?: (...args: any[]) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onClose?: (...args: any[]) => void;
+  menuItems: KotaMenuItem[];
+}
 
 export function KotaMenu(props: KotaMenuProps) {
-  return (
-    <React.Fragment>
-      <Box component={'button'}>Open me</Box>
+  const [open, setOpen] = React.useState(false);
 
-      <MotionBox
-        component={Button}
+  const toggleOpen = () => {
+    setOpen((prevState) => !prevState);
+  };
+
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        top: '10%',
+        width: '100%',
+        display: 'flex',
+        px: '60px',
+        alignItems: 'center',
+        zIndex: (theme) => theme.zIndex.appBar,
+      }}
+    >
+      <Box
         sx={{
-          width: '100px',
-          height: '100px',
-          backgroundColor: (theme) => theme.palette.primary.main,
-          borderRadius: '4px',
-          ':hover': {
-            backgroundColor: (theme) => theme.palette.primary.dark,
-          },
+          flexGrow: 1,
         }}
-      ></MotionBox>
-    </React.Fragment>
+      >
+        Logo here
+      </Box>
+
+      <KotaBurguer open={open} onClick={toggleOpen} />
+    </Box>
   );
 }
 

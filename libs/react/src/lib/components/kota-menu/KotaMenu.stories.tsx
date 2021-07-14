@@ -4,6 +4,21 @@ import { KotaMenu, KotaMenuProps } from './KotaMenu';
 export default {
   component: KotaMenu,
   title: 'KotaMenu',
+  decorators: [
+    (Story) => {
+      return (
+        <div
+          style={{
+            width: '100vw',
+            height: '150vh',
+            overflowX: 'hidden',
+          }}
+        >
+          <Story />
+        </div>
+      );
+    },
+  ],
 } as Meta;
 
 const Template: Story<KotaMenuProps> = (args) => <KotaMenu {...args} />;
