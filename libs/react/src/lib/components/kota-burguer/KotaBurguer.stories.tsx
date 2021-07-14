@@ -8,6 +8,7 @@ export default {
     (Story) => (
       <div
         style={{
+          fontSize: '22px',
           margin: '25px',
         }}
       >

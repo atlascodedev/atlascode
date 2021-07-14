@@ -1,14 +1,13 @@
 import { MotionConfig, useAnimation } from 'framer-motion';
-import { noop } from 'lodash';
 import React from 'react';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 import MotionBox from '../../utility/motion-box/MotionBox';
 
-/* eslint-disable-next-line */
 export interface KotaBurguerProps {
   colorClosed?: string;
   colorOpen?: string;
   onClick?: (...args: unknown[]) => void;
+  wobbly?: boolean;
   open: boolean;
 }
 
@@ -26,6 +25,7 @@ export function KotaBurguer({
   colorOpen = colorClosed,
   open,
   onClick,
+  wobbly,
 }: KotaBurguerProps) {
   const lineAnimationControl = useAnimation();
 
@@ -61,7 +61,7 @@ export function KotaBurguer({
       onClick={onClick}
       sx={{
         backgroundColor: 'transparent',
-        width: '3.4em',
+        width: '3em',
         height: 'auto',
         cursor: 'pointer',
         display: 'flex',
@@ -72,14 +72,15 @@ export function KotaBurguer({
         rowGap: '5px',
       }}
       layout
+      whileHover={{ rowGap: '8px' }}
       animate={lineAnimationControl}
     >
       <MotionConfig
         transition={{
           type: 'spring',
-          damping: 15,
-          stiffness: 600,
-          mass: 0.5,
+          damping: wobbly ? 5 : 15,
+          stiffness: 200,
+          mass: 0.25,
         }}
       >
         <MotionBox
@@ -123,6 +124,7 @@ export function KotaBurguer({
           sx={{
             ...lineStyleMemo(),
             width: '60%',
+            height: '0.25em',
           }}
           variants={{
             initial: {
