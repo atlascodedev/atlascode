@@ -3,6 +3,7 @@ import React from 'react';
 import { Scrollbar } from 'smooth-scrollbar/scrollbar';
 import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 import { isBrowser } from '@atlascode/helpers';
+import { Box } from '@material-ui/core';
 
 /* eslint-disable-next-line */
 export interface SmoothScrollWrapperProps {
@@ -42,7 +43,8 @@ export function SmoothScrollWrapper({
   }, [damping]);
 
   return (
-    <main
+    <Box
+      component={'main'}
       ref={wrapperRef}
       tabIndex={-1}
       style={{
@@ -54,9 +56,14 @@ export function SmoothScrollWrapper({
         bottom: 0,
         left: 0,
       }}
+      sx={{
+        '.scrollbar-track .scrollbar-thumb': {
+          background: (theme) => theme.palette.secondary.main,
+        },
+      }}
     >
       {children}
-    </main>
+    </Box>
   );
 }
 
