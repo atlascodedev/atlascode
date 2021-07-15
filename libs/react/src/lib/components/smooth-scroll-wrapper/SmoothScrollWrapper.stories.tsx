@@ -1,5 +1,6 @@
-import { Box, ImageList } from '@material-ui/core';
+import { Box, ImageList, ImageListItem } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
+import mockImageList from '../../mock/mockImageList/mockImageList';
 import {
   SmoothScrollWrapper,
   SmoothScrollWrapperProps,
@@ -18,8 +19,19 @@ const Template: Story<SmoothScrollWrapperProps> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
   children: (
-    <ImageList sx={{ width: '100%' }} cols={3} rowHeight={150}>
-      {}
+    <ImageList sx={{ width: '100%' }} cols={3} rowHeight={'auto'}>
+      {mockImageList(50).map((image, index) => {
+        return (
+          <ImageListItem key={index}>
+            <img
+              srcSet={`${image}?w=164&h=164&fit=crop&auto=format 1x,
+                ${image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+              alt=""
+              loading="lazy"
+            />
+          </ImageListItem>
+        );
+      })}
     </ImageList>
   ),
 };
