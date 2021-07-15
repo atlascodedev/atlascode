@@ -10,14 +10,6 @@ export interface SmoothScrollWrapperProps {
   damping?: number;
 }
 
-const overscrollOptions = {
-  enable: true,
-  effect: !navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
-  damping: 0.2,
-  maxOverscroll: 150,
-  glowColor: '#222a2d',
-};
-
 export function SmoothScrollWrapper({
   children,
   damping = 0.1,
@@ -31,22 +23,16 @@ export function SmoothScrollWrapper({
 
       scrollbarInitializerRef.current = ScrollBar.init(
         wrapperRef.current as HTMLElement,
-        {
-          renderByPixels: true,
-          continuousScrolling: true,
-          alwaysShowTracks: false,
-          damping: 0.1,
-          plugins: {
-            overscroll: { ...overscrollOptions },
-          },
-        }
+        defaultOptions
       );
     }
-
-    console.log(scrollbarInitializerRef.current?.containerEl);
   }, []);
 
   React.useEffect(() => {
+    if (damping > 1 || damping < 0) {
+      throw new Error(' "damping" must be a value between 0 and 1');
+    }
+
     if (
       scrollbarInitializerRef.current &&
       scrollbarInitializerRef.current.options.damping
@@ -75,3 +61,21 @@ export function SmoothScrollWrapper({
 }
 
 export default SmoothScrollWrapper;
+
+const overscrollOptions = {
+  enable: true,
+  effect: !navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
+  damping: 0.2,
+  maxOverscroll: 150,
+  glowColor: '#222a2d',
+};
+
+const defaultOptions: Partial<Scrollbar['options']> = {
+  renderByPixels: true,
+  continuousScrolling: true,
+  alwaysShowTracks: false,
+  damping: 0.1,
+  plugins: {
+    overscroll: { ...overscrollOptions },
+  },
+};

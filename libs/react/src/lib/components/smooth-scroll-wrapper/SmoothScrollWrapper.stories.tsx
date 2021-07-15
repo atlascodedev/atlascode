@@ -6,7 +6,7 @@ import {
 
 export default {
   component: SmoothScrollWrapper,
-  title: 'SmoothScrollWrapper',
+  title: 'AtlasCode Utility/SmoothScrollWrapper',
   parameters: { layout: 'fullscreen' },
 } as Meta;
 
