@@ -1,3 +1,4 @@
+import { Box, ImageList } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
 import {
   SmoothScrollWrapper,
@@ -17,8 +18,9 @@ const Template: Story<SmoothScrollWrapperProps> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
   children: (
-    <div
-      style={{ height: '1500px', width: '100%', backgroundColor: 'red' }}
-    ></div>
+    <ImageList sx={{ width: '100%' }} cols={3} rowHeight={150}>
+      {}
+    </ImageList>
   ),
 };
+Primary.storyName = 'Smooth Scroll Wrapper';
