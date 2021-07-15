@@ -1,7 +1,7 @@
 import React from 'react';
 import * as lottie from 'lottie-web';
 import { Box } from '@material-ui/core';
-import _ from 'lodash';
+import _, { isUndefined } from 'lodash';
 
 export interface ILottieAnimation {
   animationData: unknown;
@@ -43,7 +43,9 @@ const LottieAnimation = ({
     });
 
     return () => {
-      animationRef?.current?.destroy() ?? _.noop();
+      !isUndefined(animationRef?.current?.destroy())
+        ? animationRef?.current?.destroy()
+        : _.noop();
     };
   }, []);
 
