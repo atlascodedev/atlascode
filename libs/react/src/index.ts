@@ -1,3 +1,4 @@
+export * from './lib/components/kota-dropdown/KotaDropdown';
 export * from './lib/components/kota-burguer/KotaBurguer';
 export * from './lib/components/kota-menu/KotaMenu';
 export * from './lib/components/neon-button/NeonButton';
