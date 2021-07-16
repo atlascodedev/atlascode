@@ -4,7 +4,7 @@ type FakerImageCategory = keyof typeof faker['image'];
 
 export const mockImageList = (
   amount: number,
-  category: FakerImageCategory = 'business'
+  category: FakerImageCategory = 'animals'
 ) => {
   const resultArray = [];
 
