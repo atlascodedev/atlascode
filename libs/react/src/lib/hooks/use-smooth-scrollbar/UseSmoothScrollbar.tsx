@@ -4,6 +4,7 @@ import { Scrollbar as IScrollbar } from 'smooth-scrollbar/scrollbar';
 import Scrollbar from 'smooth-scrollbar';
 import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 import ScrollbarModalPlugin from '../../utility/smooth-scroll-wrapper/SmoothScrollModalPlugin';
+import { isString } from 'lodash';
 
 export type SmoothScrollHook = (
   ref: React.RefObject<HTMLElement>,
@@ -42,10 +43,24 @@ export const useSmoothScrollbar = (
     scrollbarInstance?.updatePluginOptions('modal', { open: false });
   }, [scrollbarInstance]);
 
+  const scrollIntoView = React.useCallback(
+    (ref: React.RefObject<HTMLElement> | string) => {
+      if (isString(ref)) {
+        const elementReference = document.querySelector(ref);
+
+        scrollbarInstance?.scrollIntoView(elementReference as HTMLElement);
+      } else {
+        scrollbarInstance?.scrollIntoView(ref.current as HTMLElement);
+      }
+    },
+    [scrollbarInstance]
+  );
+
   return {
     scrollbarInstance: scrollbarInstance,
     disableScroll: disableScroll,
     enableScroll: enableScroll,
+    scrollIntoView: scrollIntoView,
   };
 };
 

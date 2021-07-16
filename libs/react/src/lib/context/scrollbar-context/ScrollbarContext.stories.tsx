@@ -10,7 +10,7 @@ const Demo = (props: DemoProps) => {
 
   return (
     <div style={{ height: '3000px', position: 'fixed' }}>
-      <button onClick={() => scrollbarContextState.disableScroll()}>
+      <button id="hello" onClick={() => scrollbarContextState.disableScroll()}>
         Disable scroll
       </button>
       <button onClick={() => scrollbarContextState.enableScroll()}>
@@ -18,7 +18,7 @@ const Demo = (props: DemoProps) => {
       </button>
 
       <div
-        onClick={() => console.log(scrollbarContextState.scrollbarInstance)}
+        onClick={() => scrollbarContextState.scrollIntoView('#hello')}
         style={{ bottom: 0, position: 'absolute' }}
       >
         You've reached the bottom
