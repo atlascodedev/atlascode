@@ -4,13 +4,15 @@ type FakerImageCategory = keyof typeof faker['image'];
 
 export const mockImageList = (
   amount: number,
+  width = 500,
+  height = 500,
   category: FakerImageCategory = 'animals'
 ) => {
   const resultArray = [];
 
   for (let i = 0; i < amount; i++) {
     resultArray.push(
-      `${faker.image[category](500, 500)}?random=${Math.round(
+      `${faker.image[category](width, height)}?random=${Math.round(
         Math.random() * 1000
       )}`
     );

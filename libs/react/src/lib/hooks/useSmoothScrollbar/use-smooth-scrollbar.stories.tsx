@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react';
 import { useSmoothScrollbar } from './use-smooth-scrollbar';
 import React from 'react';
+import { ImageList, ImageListItem } from '@material-ui/core';
+import mockImageList from '../../mock/mockImageList/mockImageList';
 
 const Demo = () => {
   const demoRef = React.useRef<HTMLElement>(null);
@@ -11,17 +13,20 @@ const Demo = () => {
   return (
     <main
       style={{
-        overflow: 'hidden',
-        outline: 'none',
-        position: 'fixed',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
+        width: '100%',
+        height: '500px',
       }}
       ref={demoRef}
     >
-      <div style={{ height: '3000px', backgroundColor: 'violet' }}></div>
+      <ImageList sx={{ width: '100%' }} cols={3} rowHeight={'auto'}>
+        {mockImageList(50, 500, 500).map((image, index) => {
+          return (
+            <ImageListItem key={index}>
+              <img src={image} alt="" loading="lazy" />
+            </ImageListItem>
+          );
+        })}
+      </ImageList>
     </main>
   );
 };
