@@ -8,11 +8,23 @@ interface DemoProps {}
 const Demo = (props: DemoProps) => {
   const scrollbarContextState = useScrollbarContext();
 
-  React.useEffect(() => {
-    console.log(scrollbarContextState);
-  }, [scrollbarContextState]);
+  return (
+    <div style={{ height: '3000px', position: 'fixed' }}>
+      <button onClick={() => scrollbarContextState.disableScroll()}>
+        Disable scroll
+      </button>
+      <button onClick={() => scrollbarContextState.enableScroll()}>
+        Enable scroll
+      </button>
 
-  return <div style={{ height: '3000px' }}>hell hello</div>;
+      <div
+        onClick={() => console.log(scrollbarContextState.scrollbarInstance)}
+        style={{ bottom: 0, position: 'absolute' }}
+      >
+        You've reached the bottom
+      </div>
+    </div>
+  );
 };
 
 export default {

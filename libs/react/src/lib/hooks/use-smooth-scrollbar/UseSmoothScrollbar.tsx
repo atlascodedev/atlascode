@@ -14,29 +14,36 @@ export const useSmoothScrollbar = (
   ref: React.RefObject<HTMLElement>,
   options?: IScrollbar['options']
 ) => {
-  const scrollbarRef = React.useRef<IScrollbar>();
+  const [scrollbarInstance, setScrollbarInstance] =
+    React.useState<IScrollbar>();
 
   React.useEffect(() => {
     if (isBrowser) {
       Scrollbar.use(OverscrollPlugin, ScrollbarModalPlugin);
 
-      scrollbarRef.current = Scrollbar.init(ref.current as HTMLElement, {
-        ...defaultOptions,
-        ...options,
-      });
+      setScrollbarInstance(
+        Scrollbar.init(ref.current as HTMLElement, {
+          ...defaultOptions,
+          ...options,
+        })
+      );
     }
-  }, [ref, options]);
+
+    return () => {
+      scrollbarInstance?.destroy();
+    };
+  }, [scrollbarInstance, options, ref]);
 
   const disableScroll = React.useCallback(() => {
-    scrollbarRef.current?.updatePluginOptions('modal', { open: true });
-  }, []);
+    scrollbarInstance?.updatePluginOptions('modal', { open: true });
+  }, [scrollbarInstance]);
 
   const enableScroll = React.useCallback(() => {
-    scrollbarRef.current?.updatePluginOptions('modal', { open: false });
-  }, []);
+    scrollbarInstance?.updatePluginOptions('modal', { open: false });
+  }, [scrollbarInstance]);
 
   return {
-    scrollbarInstance: scrollbarRef.current,
+    scrollbarInstance: scrollbarInstance,
     disableScroll: disableScroll,
     enableScroll: enableScroll,
   };
