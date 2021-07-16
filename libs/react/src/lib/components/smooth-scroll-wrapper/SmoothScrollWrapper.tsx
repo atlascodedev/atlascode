@@ -4,6 +4,7 @@ import { Scrollbar } from 'smooth-scrollbar/scrollbar';
 import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 import { isBrowser } from '@atlascode/helpers';
 import { Box } from '@material-ui/core';
+import ScrollbarModalPlugin from './SmoothScrollModalPlugin';
 
 /* eslint-disable-next-line */
 export interface SmoothScrollWrapperProps {
@@ -20,7 +21,7 @@ export function SmoothScrollWrapper({
 
   React.useEffect(() => {
     if (isBrowser) {
-      ScrollBar.use(OverscrollPlugin);
+      ScrollBar.use(OverscrollPlugin, ScrollbarModalPlugin);
 
       scrollbarInitializerRef.current = ScrollBar.init(
         wrapperRef.current as HTMLElement,
