@@ -3,7 +3,7 @@ import React from 'react';
 import { Scrollbar as IScrollbar } from 'smooth-scrollbar/scrollbar';
 import Scrollbar from 'smooth-scrollbar';
 import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
-import ScrollbarModalPlugin from '../../components/smooth-scroll-wrapper/SmoothScrollModalPlugin';
+import ScrollbarModalPlugin from '../../utility/smooth-scroll-wrapper/SmoothScrollModalPlugin';
 
 export type SmoothScrollHook = (
   ref: React.RefObject<HTMLElement>,
