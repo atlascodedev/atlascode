@@ -1,10 +1,18 @@
 import {
-  Color,
-  Solver,
-  hexToRgbFilter,
   generateCSSFilter,
+  hexToRgbFilter,
+  rgbToHex,
 } from '@atlascode/helpers';
-import { Box, Button, colors, Container, Typography } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  colors,
+  Container,
+  hslToRgb,
+  Typography,
+  useTheme,
+} from '@material-ui/core';
+import SvgBlob from '../../../assets/svg/SvgBlob';
 import React from 'react';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 
@@ -22,20 +30,23 @@ export function HeroScreenWhiteDots({
   backgroundColor = '#fff',
   styleOverride,
 }: HeroScreenWhiteDotsProps) {
-  // React.useEffect(() => {
-  //   const rgb = hexToRgbFilter('#00a4d6');
+  const theme = useTheme();
+  const [filteredThemeColor, setFilteredThemeColor] = React.useState(
+    generateCSSFilter('#fff')
+  );
 
-  //   const color = new Color(rgb?.[0], rgb?.[1], rgb?.[2]);
-  //   const solver = new Solver(color);
+  React.useEffect(() => {
+    const themeColor = rgbToHex(hslToRgb(theme.palette.primary.main));
+    let trimmedHex;
 
-  //   const result = solver.solve();
+    if (themeColor.length > 6) {
+      trimmedHex = themeColor.split('', 6 + 1).join('');
 
-  //   console.log(result.filter.split('filter: ').pop());
-  // }, []);
-
-  const cssFilter = generateCSSFilter('#00a4d6');
-
-  console.log(cssFilter);
+      setFilteredThemeColor(generateCSSFilter(trimmedHex));
+    } else {
+      setFilteredThemeColor(generateCSSFilter(themeColor));
+    }
+  }, [theme.palette.primary.main]);
 
   return (
     <Box
@@ -106,8 +117,17 @@ export function HeroScreenWhiteDots({
             display: 'flex',
             position: 'relative',
             margin: '0px',
+            alignSelf: 'stretch',
           }}
-        ></Box>
+        >
+          <Box sx={{}}>
+            <SvgBlob
+              sx={{
+                filter: filteredThemeColor,
+              }}
+            />
+          </Box>
+        </Box>
       </Container>
     </Box>
   );
