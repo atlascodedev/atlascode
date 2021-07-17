@@ -1,20 +1,7 @@
-import {
-  generateCSSFilter,
-  hexToRgbFilter,
-  rgbToHex,
-} from '@atlascode/helpers';
-import {
-  Box,
-  Button,
-  colors,
-  Container,
-  hslToRgb,
-  Typography,
-  useTheme,
-} from '@material-ui/core';
-import SvgBlob from '../../../assets/svg/SvgBlob';
-import React from 'react';
+import { generateCSSFilter } from '@atlascode/helpers';
+import { Box, Button, Container, Typography } from '@material-ui/core';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
+import blob from './blob.svg';
 
 /* eslint-disable-next-line */
 export interface HeroScreenWhiteDotsProps {
@@ -30,24 +17,6 @@ export function HeroScreenWhiteDots({
   backgroundColor = '#fff',
   styleOverride,
 }: HeroScreenWhiteDotsProps) {
-  const theme = useTheme();
-  const [filteredThemeColor, setFilteredThemeColor] = React.useState(
-    generateCSSFilter('#fff')
-  );
-
-  React.useEffect(() => {
-    const themeColor = rgbToHex(hslToRgb(theme.palette.primary.main));
-    let trimmedHex;
-
-    if (themeColor.length > 6) {
-      trimmedHex = themeColor.split('', 6 + 1).join('');
-
-      setFilteredThemeColor(generateCSSFilter(trimmedHex));
-    } else {
-      setFilteredThemeColor(generateCSSFilter(themeColor));
-    }
-  }, [theme.palette.primary.main]);
-
   return (
     <Box
       sx={{
@@ -66,7 +35,8 @@ export function HeroScreenWhiteDots({
           gridTemplateRows: { xs: '50% 50%', md: 'none' },
           alignContent: 'center',
           height: '100%',
-          px: { xs: '0px', md: '55px' },
+          px: { xs: '20px', md: '55px' },
+          pt: { xs: '55px', md: '0px' },
         }}
         maxWidth="xl"
       >
@@ -75,7 +45,8 @@ export function HeroScreenWhiteDots({
             display: 'flex',
             flexDirection: 'column',
             alignItems: { xs: 'flex-start' },
-            gap: { xs: '0px', md: '30px' },
+            justifyContent: 'center',
+            gap: { xs: '30px', md: '30px' },
           }}
         >
           <Typography
@@ -116,17 +87,20 @@ export function HeroScreenWhiteDots({
           sx={{
             display: 'flex',
             position: 'relative',
-            margin: '0px',
-            alignSelf: 'stretch',
+            justifyContent: 'center',
+            margin: { xs: '0px', md: '0px 0px 0px 50px' },
+            transform: 'translate3D(0px, 0px, 0px)',
           }}
         >
-          <Box sx={{}}>
-            <SvgBlob
-              sx={{
-                filter: filteredThemeColor,
-              }}
-            />
-          </Box>
+          <Box
+            sx={{
+              width: '100%',
+              height: '100%',
+              filter: (theme) => generateCSSFilter(theme.palette.primary.main),
+            }}
+            component="img"
+            src={blob}
+          ></Box>
         </Box>
       </Container>
     </Box>

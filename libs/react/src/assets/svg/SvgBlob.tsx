@@ -1,18 +1,28 @@
-import { Box, BoxProps } from '@material-ui/core';
+import { Box, BoxProps, useTheme } from '@material-ui/core';
 import * as React from 'react';
 
-export interface SvgBlobProps extends BoxProps {
+export interface SvgBlobProps extends Pick<BoxProps, 'sx'> {
   width?: number;
   height?: number;
+  color?: 'primary' | 'secondary';
 }
 
-const SvgBlob = ({ width, height, ...props }: SvgBlobProps) => {
+const SvgBlob = ({
+  width = 300,
+  height = 200,
+  color = 'primary',
+  ...props
+}: SvgBlobProps) => {
+  const theme = useTheme();
+
   return (
     <Box
       component="svg"
-      width={732}
-      height={558}
       fill="none"
+      width={'10%'}
+      preserveAspectRatio="xMidYMid meet"
+      height={'10%'}
+      viewBox={`0 0 350 350`}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -29,8 +39,12 @@ const SvgBlob = ({ width, height, ...props }: SvgBlobProps) => {
           y2={762}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FF9700" />
-          <stop offset={1} stopColor="#FF9700" stopOpacity={0} />
+          <stop stopColor={theme.palette[color].main} />
+          <stop
+            offset={1}
+            stopColor={theme.palette[color].main}
+            stopOpacity={0}
+          />
         </linearGradient>
       </defs>
     </Box>
