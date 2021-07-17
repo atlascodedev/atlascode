@@ -1,3 +1,4 @@
+export * from './lib/screens/hero-screen-white-dots/HeroScreenWhiteDots';
 export * from './lib/utility/smooth-scroll-wrapper/SmoothScrollWrapper';
 export * from './lib/components/kota-dropdown/KotaDropdown';
 export * from './lib/components/kota-burguer/KotaBurguer';

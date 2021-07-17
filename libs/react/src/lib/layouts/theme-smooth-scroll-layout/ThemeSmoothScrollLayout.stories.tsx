@@ -1,15 +1,17 @@
 import { Meta, Story } from '@storybook/react';
-import GeneralLayout, { GeneralLayoutProps } from './ThemeSmoothScrollLayout';
+import ThemeSmoothScrollLayout, {
+  ThemeSmoothScrollLayoutProps,
+} from './ThemeSmoothScrollLayout';
 
 export default {
   title: 'AtlasCode/Utility/General Layout',
-  component: GeneralLayout,
+  component: ThemeSmoothScrollLayout,
 } as Meta;
 
-const Template: Story<GeneralLayoutProps> = (args) => (
-  <GeneralLayout {...args} />
+const Template: Story<ThemeSmoothScrollLayoutProps> = (args) => (
+  <ThemeSmoothScrollLayout {...args} />
 );
 
 export const Primary = Template.bind({});
-Primary.args = {} as GeneralLayoutProps;
+Primary.args = {} as ThemeSmoothScrollLayoutProps;
 Primary.storyName = 'General Layout - Basic';
