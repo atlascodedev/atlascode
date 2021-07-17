@@ -5,9 +5,11 @@ import AtlasCodeThemeProvider from '../../utility/atlas-theme-provider/AtlasThem
 import gnosisTheme from './theme';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface GnosisLayoutProps {}
+export interface GnosisLayoutProps {
+  children?: React.ReactNode;
+}
 
-const GnosisLayout: React.FC<GnosisLayoutProps> = ({ children }) => {
+const GnosisLayout = ({ children }: GnosisLayoutProps) => {
   const mainContainerRef = React.useRef<HTMLElement>(null);
 
   return (
@@ -26,7 +28,7 @@ const GnosisLayout: React.FC<GnosisLayoutProps> = ({ children }) => {
           }}
           sx={{
             '.scrollbar-track .scrollbar-thumb': {
-              background: (theme) => theme.palette.secondary.main,
+              background: (theme) => theme.palette.primary.main,
             },
           }}
           ref={mainContainerRef}

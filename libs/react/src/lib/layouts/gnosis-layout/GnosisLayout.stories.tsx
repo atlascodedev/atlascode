@@ -6,10 +6,10 @@ export default {
   component: GnosisLayout,
 } as Meta;
 
-const Template: Story<GnosisLayoutProps> = (...args) => (
-  <GnosisLayout {...args} />
-);
+const Template: Story<GnosisLayoutProps> = (args) => <GnosisLayout {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {} as GnosisLayoutProps;
+Primary.args = {
+  children: <div style={{ height: '3000px', width: '100%' }}>hello</div>,
+} as GnosisLayoutProps;
 Primary.storyName = 'Instituto Gnosis Layout - Mains';
