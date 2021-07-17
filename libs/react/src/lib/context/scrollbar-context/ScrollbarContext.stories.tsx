@@ -23,6 +23,13 @@ const Demo = (props: DemoProps) => {
       >
         You've reached the bottom
       </div>
+
+      <div
+        onClick={() => scrollbarContextState.scrollTop()}
+        style={{ bottom: 0, position: 'absolute', right: 0 }}
+      >
+        Scroll to top
+      </div>
     </div>
   );
 };

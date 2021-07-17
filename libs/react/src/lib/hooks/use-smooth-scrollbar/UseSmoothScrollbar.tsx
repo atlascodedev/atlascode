@@ -56,11 +56,19 @@ export const useSmoothScrollbar = (
     [scrollbarInstance]
   );
 
+  const scrollTop = React.useCallback(
+    (duration = 1000) => {
+      scrollbarInstance?.scrollTo(0, 0, duration);
+    },
+    [scrollbarInstance]
+  );
+
   return {
     scrollbarInstance: scrollbarInstance,
     disableScroll: disableScroll,
     enableScroll: enableScroll,
     scrollIntoView: scrollIntoView,
+    scrollTop: scrollTop,
   };
 };
 
