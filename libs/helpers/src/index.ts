@@ -33,3 +33,4 @@ export { default as isNull } from './assertions/isNull';
 export { default as isString } from './assertions/isString';
 export { default as isEmpty } from './assertions/isEmpty';
 export { default as isDevEnvironment } from './assertions/isDevEnvironment';
+export * from './colorManipulation/cssFilterGenerator';

@@ -1,4 +1,11 @@
-import { Box, colors, Typography } from '@material-ui/core';
+import {
+  Color,
+  Solver,
+  hexToRgbFilter,
+  generateCSSFilter,
+} from '@atlascode/helpers';
+import { Box, Button, colors, Container, Typography } from '@material-ui/core';
+import React from 'react';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 
 /* eslint-disable-next-line */
@@ -15,51 +22,93 @@ export function HeroScreenWhiteDots({
   backgroundColor = '#fff',
   styleOverride,
 }: HeroScreenWhiteDotsProps) {
+  // React.useEffect(() => {
+  //   const rgb = hexToRgbFilter('#00a4d6');
+
+  //   const color = new Color(rgb?.[0], rgb?.[1], rgb?.[2]);
+  //   const solver = new Solver(color);
+
+  //   const result = solver.solve();
+
+  //   console.log(result.filter.split('filter: ').pop());
+  // }, []);
+
+  const cssFilter = generateCSSFilter('#00a4d6');
+
+  console.log(cssFilter);
+
   return (
     <Box
       sx={{
         height: '100vh',
-        width: '100%',
         backgroundColor: '#fff',
-        display: 'grid',
-        gridTemplateColumns: { xs: '1fr', md: '40% 60%' },
-        gridTemplateRows: { xs: '50% 50%', md: 'none' },
         backgroundImage: `radial-gradient(${patternColor} ${patternSize}, ${backgroundColor} ${patternSize})`,
         backgroundSize: '10px 10px',
+        width: '100%',
         ...styleOverride,
       }}
     >
-      <Box
+      <Container
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: { xs: 'flex-start' },
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: '40% 60%' },
+          gridTemplateRows: { xs: '50% 50%', md: 'none' },
+          alignContent: 'center',
+          height: '100%',
+          px: { xs: '0px', md: '55px' },
         }}
+        maxWidth="xl"
       >
-        <Typography
-          variant="h1"
+        <Box
           sx={{
-            fontSize: { xs: '34px', md: '48px' },
-            fontWeight: 'black',
-            color: (theme) => theme.palette.primary.main,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: { xs: 'flex-start' },
+            gap: { xs: '0px', md: '30px' },
           }}
         >
-          O futuro da sua carreira está em suas mãos.
-        </Typography>
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: '34px', md: '48px' },
+              fontWeight: '900',
+              color: (theme) => theme.palette.primary.main,
+            }}
+          >
+            O futuro da sua carreira está em suas mãos.
+          </Typography>
 
-        <Typography
-          variant="h2"
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '14px', md: '20px' },
+              color: (theme) => theme.palette.grey[600],
+            }}
+          >
+            Conheça os nossos cursos de pós-graduação e extensão em Medicina à
+            distância.
+          </Typography>
+
+          <Button
+            sx={{
+              textTransform: 'inherit',
+            }}
+            color="primary"
+            variant="contained"
+          >
+            Ver cursos
+          </Button>
+        </Box>
+
+        <Box
+          component="figure"
           sx={{
-            fontSize: { xs: '14px', md: '20px' },
-            color: (theme) => theme.palette.grey[600],
+            display: 'flex',
+            position: 'relative',
+            margin: '0px',
           }}
-        >
-          Conheça os nossos cursos de pós-graduação e extensão em Medicina à
-          distância.
-        </Typography>
-      </Box>
-
-      <Box></Box>
+        ></Box>
+      </Container>
     </Box>
   );
 }
