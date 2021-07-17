@@ -3,7 +3,7 @@ import { AtlasButton, AtlasButtonProps } from './AtlasButton';
 
 export default {
   component: AtlasButton,
-  title: 'AtlasCode Buttons/Rounded',
+  title: 'AtlasCode/Buttons/Rounded',
 } as Meta;
 
 const Template: Story<AtlasButtonProps> = (args) => <AtlasButton {...args} />;

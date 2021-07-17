@@ -3,7 +3,7 @@ import { ProductCard, ProductCardProps } from './ProductCard';
 
 export default {
   component: ProductCard,
-  title: 'ProductCard',
+  title: 'AtlasCode/Cards/ProductCard',
 } as Meta;
 
 const Template: Story<ProductCardProps> = (args) => <ProductCard {...args} />;

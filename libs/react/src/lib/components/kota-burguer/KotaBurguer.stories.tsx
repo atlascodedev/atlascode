@@ -3,7 +3,7 @@ import { KotaBurguer, KotaBurguerProps } from './KotaBurguer';
 
 export default {
   component: KotaBurguer,
-  title: 'KotaBurguer',
+  title: 'AtlasCode/Menu/Kota/KotaBurguer',
   decorators: [
     (Story) => (
       <div

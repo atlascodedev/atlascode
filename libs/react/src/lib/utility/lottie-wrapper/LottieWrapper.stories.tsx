@@ -13,7 +13,7 @@ import confettiAnimationData from '../../lotties/Confetti/data.json';
 import emailLoopedAnimationData from '../../lotties/EmailLooped/data.json';
 
 export default {
-  title: 'AtlasCode Lotties/Animations',
+  title: 'AtlasCode/Lotties/Animations',
   component: LottieAnimation,
   decorators: [
     (Story) => (

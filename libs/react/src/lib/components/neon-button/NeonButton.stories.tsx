@@ -3,7 +3,7 @@ import { NeonButton, NeonButtonProps } from './NeonButton';
 
 export default {
   component: NeonButton,
-  title: 'AtlasCode Buttons/NeonButton',
+  title: 'AtlasCode/Buttons/NeonButton',
 } as Meta;
 
 const Template: Story<NeonButtonProps> = (args) => <NeonButton {...args} />;

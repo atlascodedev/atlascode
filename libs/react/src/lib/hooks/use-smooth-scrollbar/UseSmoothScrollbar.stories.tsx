@@ -32,7 +32,7 @@ const Demo = () => {
 };
 
 export default {
-  title: 'Atlas Code Hooks/UseSmoothScrollbar',
+  title: 'AtlasCode/Hooks/UseSmoothScrollbar',
 } as Meta;
 
 const Template: Story<never> = (args) => <Demo {...args} />;

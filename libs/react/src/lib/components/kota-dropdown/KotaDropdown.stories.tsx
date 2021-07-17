@@ -3,7 +3,7 @@ import { KotaDropdown, KotaDropdownProps } from './KotaDropdown';
 
 export default {
   component: KotaDropdown,
-  title: 'KotaDropdown',
+  title: 'AtlasCode/Menu/Kota/KotaDropdown',
   parameters: {
     layout: 'fullscreen',
   },

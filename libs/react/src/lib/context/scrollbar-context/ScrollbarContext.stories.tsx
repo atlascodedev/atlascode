@@ -35,7 +35,7 @@ const Demo = (props: DemoProps) => {
 };
 
 export default {
-  title: 'AtlasCode Context Provider/Smooth Scroll Context',
+  title: 'AtlasCode/React Context/Smooth Scroll Context',
   component: Demo,
   decorators: [
     (Story) => {
