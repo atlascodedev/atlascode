@@ -5,7 +5,7 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface AtlasCodeThemeProviderProps {
+export interface AtlasCodeThemeProviderProps {
   resetCSS?: boolean;
   theme?: Theme;
 }

@@ -1,19 +1,23 @@
 import { Box } from '@material-ui/core';
 import React from 'react';
 import { ScrollbarProvider } from '../../context/scrollbar-context/ScrollbarContext';
-import AtlasCodeThemeProvider from '../../utility/atlas-theme-provider/AtlasThemeProvider';
-import gnosisTheme from './theme';
+import AtlasCodeThemeProvider, {
+  AtlasCodeThemeProviderProps,
+} from '../../utility/atlas-theme-provider/AtlasThemeProvider';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface GnosisLayoutProps {
+export interface ThemeSmoothScrollLayoutProps
+  extends AtlasCodeThemeProviderProps {
   children?: React.ReactNode;
 }
 
-const GnosisLayout = ({ children }: GnosisLayoutProps) => {
+export const ThemeSmoothScrollLayout = ({
+  children,
+  ...props
+}: ThemeSmoothScrollLayoutProps) => {
   const mainContainerRef = React.useRef<HTMLElement>(null);
 
   return (
-    <AtlasCodeThemeProvider theme={gnosisTheme}>
+    <AtlasCodeThemeProvider resetCSS={props.resetCSS} theme={props.theme}>
       <ScrollbarProvider wrapperRef={mainContainerRef}>
         <Box
           component="main"
@@ -40,4 +44,4 @@ const GnosisLayout = ({ children }: GnosisLayoutProps) => {
   );
 };
 
-export default GnosisLayout;
+export default ThemeSmoothScrollLayout;
