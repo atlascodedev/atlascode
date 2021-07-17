@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import ThemeSmoothScrollLayout from '../../layouts/theme-smooth-scroll-layout/ThemeSmoothScrollLayout';
 import {
   HeroScreenWhiteDots,
   HeroScreenWhiteDotsProps,
@@ -6,7 +7,15 @@ import {
 
 export default {
   component: HeroScreenWhiteDots,
-  title: 'HeroScreenWhiteDots',
+  title: 'AtlasCode/Screens/Hero screen - white - dots background pattern',
+  decorators: [
+    (Story) => (
+      <ThemeSmoothScrollLayout>
+        <Story />
+      </ThemeSmoothScrollLayout>
+    ),
+  ],
+  parameters: { layout: 'fullscreen' },
 } as Meta;
 
 const Template: Story<HeroScreenWhiteDotsProps> = (args) => (
