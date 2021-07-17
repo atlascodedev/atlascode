@@ -15,7 +15,12 @@ export default {
       </ThemeSmoothScrollLayout>
     ),
   ],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'brazilDesktop1',
+    },
+  },
 } as Meta;
 
 const Template: Story<HeroScreenWhiteDotsProps> = (args) => (
