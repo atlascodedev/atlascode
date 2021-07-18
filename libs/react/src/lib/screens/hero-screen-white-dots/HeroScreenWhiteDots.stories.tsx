@@ -28,4 +28,6 @@ const Template: Story<HeroScreenWhiteDotsProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  backgroundImage: 'images/hero-doc.png',
+};

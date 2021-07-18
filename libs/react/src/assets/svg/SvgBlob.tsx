@@ -19,10 +19,11 @@ const SvgBlob = ({
     <Box
       component="svg"
       fill="none"
-      width={'10%'}
-      preserveAspectRatio="xMidYMid meet"
-      height={'10%'}
-      viewBox={`0 0 350 350`}
+      // width={'10%'}
+      // preserveAspectRatio="xMidYMid meet"
+      // height={'10%'}
+      viewBox={`0 0 300 295`}
+      style={{ width: 'inherit', height: 'inherit' }}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

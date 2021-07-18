@@ -236,7 +236,8 @@
             "port": 4400,
             "config": {
               "configFolder": "libs/react/.storybook"
-            }
+            },
+            "staticDir": ["libs/react/src/assets"]
           },
           "configurations": {
             "ci": {

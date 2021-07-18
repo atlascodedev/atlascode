@@ -9,6 +9,8 @@ export interface HeroScreenWhiteDotsProps {
   patternSize?: string;
   backgroundColor?: string;
   styleOverride?: AtlasCSSVariant;
+  backgroundImage: string;
+  blobColor?: 'primary' | 'secondary';
 }
 
 export function HeroScreenWhiteDots({
@@ -16,6 +18,8 @@ export function HeroScreenWhiteDots({
   patternSize = '0.8px',
   backgroundColor = '#fff',
   styleOverride,
+  backgroundImage,
+  blobColor = 'secondary',
 }: HeroScreenWhiteDotsProps) {
   return (
     <Box
@@ -33,10 +37,10 @@ export function HeroScreenWhiteDots({
           display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: '40% 60%' },
           gridTemplateRows: { xs: '50% 50%', md: 'none' },
-          alignContent: 'center',
+          alignContent: 'stretch',
           height: '100%',
           px: { xs: '20px', md: '55px' },
-          pt: { xs: '55px', md: '0px' },
+          pr: { xs: '20px', md: '0px' },
         }}
         maxWidth="xl"
       >
@@ -88,19 +92,41 @@ export function HeroScreenWhiteDots({
             display: 'flex',
             position: 'relative',
             justifyContent: 'center',
-            margin: { xs: '0px', md: '0px 0px 0px 50px' },
             transform: 'translate3D(0px, 0px, 0px)',
+            m: '0px',
+            p: { xs: '0px', md: '10px 0px 0px 10px' },
           }}
         >
           <Box
             sx={{
               width: '100%',
+              position: 'absolute',
+              zIndex: -1,
               height: '100%',
-              filter: (theme) => generateCSSFilter(theme.palette.primary.main),
+              filter: (theme) =>
+                generateCSSFilter(theme.palette[blobColor].main),
             }}
             component="img"
             src={blob}
           ></Box>
+
+          <Box
+            sx={{
+              pt: '100px',
+              width: '100%',
+              height: '100%',
+            }}
+          >
+            <Box
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+              component={'img'}
+              src={backgroundImage}
+            />
+          </Box>
         </Box>
       </Container>
     </Box>
