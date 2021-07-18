@@ -19,5 +19,5 @@
       "@atlascode/react-core": ["libs/react/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"],
+  "exclude": ["node_modules", "tmp"]
 }

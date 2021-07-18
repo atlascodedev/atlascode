@@ -4,11 +4,14 @@
     "emitDecoratorMetadata": true,
     "outDir": ""
   },
+  "files": [
+    "../custom.d.ts"
+  ],
   "exclude": [
     "../**/*.spec.ts",
     "../**/*.spec.js",
     "../**/*.spec.tsx",
     "../**/*.spec.jsx"
   ],
-  "include": ["../src/**/*", "*.js", "../custom.d.ts"]
+  "include": ["../src/**/*", "*.js"]
 }
