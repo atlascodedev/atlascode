@@ -1,26 +1,36 @@
 import { generateCSSFilter } from '@atlascode/helpers';
-import { Box, Button, Container, Typography } from '@material-ui/core';
-import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
+import {
+  Box,
+  Button,
+  Container,
+  Typography,
+  useMediaQuery,
+} from '@material-ui/core';
 import blob from './blob.svg';
+import React from 'react';
 
 /* eslint-disable-next-line */
 export interface HeroScreenWhiteDotsProps {
   patternColor?: string;
   patternSize?: string;
   backgroundColor?: string;
-  styleOverride?: AtlasCSSVariant;
-  backgroundImage: string;
+  picture?: JSX.Element;
+  desktopPicture?: JSX.Element;
   blobColor?: 'primary' | 'secondary';
 }
 
 export function HeroScreenWhiteDots({
   patternColor = '#bbbbbb60',
-  patternSize = '0.8px',
+  patternSize = '1px',
   backgroundColor = '#fff',
-  styleOverride,
-  backgroundImage,
   blobColor = 'secondary',
+  desktopPicture,
+  picture,
 }: HeroScreenWhiteDotsProps) {
+  const isDesktop = useMediaQuery('(min-width:1024px)');
+
+  console.log(isDesktop);
+
   return (
     <Box
       sx={{
@@ -29,34 +39,32 @@ export function HeroScreenWhiteDots({
         backgroundImage: `radial-gradient(${patternColor} ${patternSize}, ${backgroundColor} ${patternSize})`,
         backgroundSize: '10px 10px',
         width: '100%',
-        ...styleOverride,
+        overflow: 'hidden',
       }}
     >
-      <Container
+      <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '40% 60%' },
-          gridTemplateRows: { xs: '50% 50%', md: 'none' },
+          gridTemplateColumns: { xs: '1fr', lg: '40% 60%' },
+          gridTemplateRows: { xs: '50% 50%', lg: 'none' },
           alignContent: 'stretch',
           height: '100%',
           px: { xs: '20px', md: '55px' },
-          pr: { xs: '20px', md: '0px' },
         }}
-        maxWidth="xl"
       >
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: { xs: 'flex-start' },
-            justifyContent: 'center',
+            justifyContent: { xs: 'flex-end', md: 'center' },
             gap: { xs: '30px', md: '30px' },
           }}
         >
           <Typography
             variant="h1"
             sx={{
-              fontSize: { xs: '34px', md: '48px' },
+              fontSize: { xs: '34px', md: '48px', xl: '55px' },
               fontWeight: '900',
               color: (theme) => theme.palette.primary.main,
             }}
@@ -112,23 +120,26 @@ export function HeroScreenWhiteDots({
 
           <Box
             sx={{
-              pt: '100px',
               width: '100%',
               height: '100%',
             }}
           >
-            <Box
+            {isDesktop && desktopPicture ? desktopPicture : picture}
+            {/* <Box
+              ref={testRef}
               sx={{
+                paddingTop: '100px',
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
+                position: 'absolute',
               }}
               component={'img'}
-              src={backgroundImage}
-            />
+              src={''}
+            /> */}
           </Box>
         </Box>
-      </Container>
+      </Box>
     </Box>
   );
 }
