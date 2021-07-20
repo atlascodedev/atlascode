@@ -35,6 +35,7 @@
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "framer-motion": "^4.1.17",
+    "immer": "^9.0.5",
     "lodash": "^4.17.21",
     "lottie-web": "^5.7.11",
     "next": "10.2.0",
