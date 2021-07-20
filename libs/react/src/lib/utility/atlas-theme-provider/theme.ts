@@ -1,4 +1,4 @@
-import { createTheme, Theme } from '@material-ui/core';
+import { createTheme, responsiveFontSizes, Theme } from '@material-ui/core';
 
 const outerTheme = createTheme({
   palette: {
@@ -14,6 +14,9 @@ const outerTheme = createTheme({
 const componentsTheme = (theme: Theme) => {
   return createTheme({
     ...theme,
+    typography: {
+      htmlFontSize: 10,
+    },
     components: {
       MuiButton: {
         variants: [],
@@ -22,4 +25,4 @@ const componentsTheme = (theme: Theme) => {
   });
 };
 
-export default componentsTheme(outerTheme);
+export default responsiveFontSizes(componentsTheme(outerTheme));

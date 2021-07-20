@@ -35,7 +35,7 @@ Primary.args = {
       sx={{
         width: '100%',
         height: '100%',
-        objectFit: 'cover',
+        objectFit: ['cover', 'contain', null, null, null],
         position: 'absolute',
       }}
       component="img"

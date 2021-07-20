@@ -27,7 +27,7 @@ export function HeroScreenWhiteDots({
   desktopPicture,
   picture,
 }: HeroScreenWhiteDotsProps) {
-  const isDesktop = useMediaQuery('(min-width:1024px)');
+  const isDesktop = useMediaQuery('(min-width:1280px)');
 
   console.log(isDesktop);
 
@@ -40,6 +40,7 @@ export function HeroScreenWhiteDots({
         backgroundSize: '10px 10px',
         width: '100%',
         overflow: 'hidden',
+        fontSize: '1rem',
       }}
     >
       <Box
@@ -49,7 +50,7 @@ export function HeroScreenWhiteDots({
           gridTemplateRows: { xs: '50% 50%', lg: 'none' },
           alignContent: 'stretch',
           height: '100%',
-          px: { xs: '20px', md: '55px' },
+          px: { xs: '1em', sm: '2em' },
         }}
       >
         <Box
@@ -57,14 +58,19 @@ export function HeroScreenWhiteDots({
             display: 'flex',
             flexDirection: 'column',
             alignItems: { xs: 'flex-start' },
-            justifyContent: { xs: 'flex-end', md: 'center' },
+            justifyContent: { xs: 'flex-end', sm: 'center', lg: 'center' },
             gap: { xs: '30px', md: '30px' },
           }}
         >
           <Typography
             variant="h1"
             sx={{
-              fontSize: { xs: '34px', md: '48px', xl: '55px' },
+              fontSize: {
+                xs: '34px',
+                md: '2.5rem',
+                lg: '3.5rem',
+                xl: '4.5rem',
+              },
               fontWeight: '900',
               color: (theme) => theme.palette.primary.main,
             }}
@@ -75,7 +81,7 @@ export function HeroScreenWhiteDots({
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: '14px', md: '20px' },
+              fontSize: { xs: '14px', sm: '20px', md: '20px' },
               color: (theme) => theme.palette.grey[600],
             }}
           >
@@ -125,18 +131,6 @@ export function HeroScreenWhiteDots({
             }}
           >
             {isDesktop && desktopPicture ? desktopPicture : picture}
-            {/* <Box
-              ref={testRef}
-              sx={{
-                paddingTop: '100px',
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                position: 'absolute',
-              }}
-              component={'img'}
-              src={''}
-            /> */}
           </Box>
         </Box>
       </Box>
