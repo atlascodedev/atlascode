@@ -1,6 +1,7 @@
 import React from 'react';
 import { AtlasCodeThemeProvider } from '../src/index';
 import { StoryContext } from '@storybook/react';
+import { createTheme } from '@material-ui/core';
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   viewport: {
@@ -62,10 +63,18 @@ export const parameters = {
   },
 };
 
+const testTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#F5F55',
+    },
+  },
+});
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 const withChakra = (StoryFn: Function, context: StoryContext) => {
   return (
-    <AtlasCodeThemeProvider>
+    <AtlasCodeThemeProvider theme={testTheme}>
       <StoryFn />
     </AtlasCodeThemeProvider>
   );
