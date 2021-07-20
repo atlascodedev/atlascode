@@ -63,18 +63,21 @@ export const parameters = {
   },
 };
 
-const testTheme = createTheme({
-  palette: {
-    primary: {
-      main: '#F5F55',
-    },
-  },
-});
-
 // eslint-disable-next-line @typescript-eslint/ban-types
 const withChakra = (StoryFn: Function, context: StoryContext) => {
   return (
-    <AtlasCodeThemeProvider theme={testTheme}>
+    <AtlasCodeThemeProvider
+      theme={createTheme({
+        palette: {
+          primary: {
+            main: '#ff55ff',
+          },
+          secondary: {
+            main: '#5128e6',
+          },
+        },
+      })}
+    >
       <StoryFn />
     </AtlasCodeThemeProvider>
   );

@@ -1,14 +1,7 @@
 import { generateCSSFilter } from '@atlascode/helpers';
-import {
-  Box,
-  Button,
-  Container,
-  Typography,
-  useMediaQuery,
-} from '@material-ui/core';
+import { Box, Button, Typography, useMediaQuery } from '@material-ui/core';
 import blob from './blob.svg';
 import React from 'react';
-import { testMeNOW } from '../../utility/atlas-theme-provider/button-variants';
 
 /* eslint-disable-next-line */
 export interface HeroScreenWhiteDotsProps {
@@ -88,8 +81,8 @@ export function HeroScreenWhiteDots({
               textTransform: 'inherit',
               // fontSize: ['2.5vh', null, null, '2.75vh', null],
             }}
-            color="primary"
             variant="kota"
+            color="secondary"
           >
             Ver cursos
           </Button>

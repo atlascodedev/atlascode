@@ -6,7 +6,7 @@ import defaultThemePalette, { AtlasPalette } from './default-palette';
 export type AtlasCSSVariant = Pick<BoxProps, 'sx'>['sx'];
 
 export type ComponentsVariantSingle = {
-  [Name in keyof ComponentsPropsList]?: {
+  [Name in keyof ComponentsPropsList]: {
     props: Partial<ComponentsPropsList[Name]>;
     style: CSSInterpolation;
   };

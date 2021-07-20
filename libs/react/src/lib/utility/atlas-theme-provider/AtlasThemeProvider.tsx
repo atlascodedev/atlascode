@@ -1,4 +1,4 @@
-import defaultTheme from './theme';
+import defaultTheme, { componentsTheme } from './theme';
 import {
   Theme,
   ThemeProvider,
@@ -24,15 +24,21 @@ export const AtlasCodeThemeProvider: React.FC<AtlasCodeThemeProviderProps> = ({
   resetCSS = true,
   theme,
 }) => {
-  const mergeThemeRef = React.useMemo(() => {
-    const mergeDeep = _.merge(defaultTheme, theme);
+  const mergedTheme = React.useMemo(() => {
+    const themeDeepCopy = _.cloneDeep(theme);
+
+    const mergeDeep = _.merge(
+      defaultTheme,
+      themeDeepCopy,
+      componentsTheme(themeDeepCopy || defaultTheme)
+    );
 
     return createTheme(mergeDeep);
   }, [theme]);
 
   return (
     <CacheProvider value={cache}>
-      <ThemeProvider theme={mergeThemeRef}>
+      <ThemeProvider theme={mergedTheme}>
         {resetCSS && <CssBaseline />}
         {children}
       </ThemeProvider>
