@@ -6,5 +6,6 @@ declare module '@material-ui/core/Button' {
     dashed: true;
     rounded: true;
     roundedOutline: true;
+    kota: true;
   }
 }

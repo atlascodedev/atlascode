@@ -1,4 +1,6 @@
 import { ComponentsVariantSingle } from './theme-utilities';
+import { Theme } from '@material-ui/core';
+import theme from './theme';
 
 export const roundedButtonPrimary: ComponentsVariantSingle['MuiButton'] = {
   props: {
@@ -7,52 +9,21 @@ export const roundedButtonPrimary: ComponentsVariantSingle['MuiButton'] = {
   style: {},
 };
 
-// {
-//   props: { variant: 'roundedOutline' },
-//   style: {
-//     padding: '5px 25px',
-//     textTransform: 'inherit',
-//     borderRadius: '15px',
-//     backgroundColor: 'transparent',
-//     color: theme.palette.primary.main,
-//     border: '1px solid',
-//     borderColor: theme.palette.primary.main,
-//     ':hover': {
-//       backgroundColor: alpha(theme.palette.primary.light, 0.1),
-//     },
-//   },
-// },
-// {
-//   props: { variant: 'roundedOutline', color: 'secondary' },
-//   style: {
-//     padding: '5px 25px',
-//     textTransform: 'inherit',
-//     borderRadius: '15px',
-//     backgroundColor: 'transparent',
-//     color: theme.palette.secondary.main,
-//     border: '1px solid',
-//     borderColor: theme.palette.secondary.main,
-//     ':hover': {
-//       backgroundColor: alpha(theme.palette.secondary.light, 0.1),
-//     },
-//   },
-// },
+const withAtlasTheme = <T extends keyof ComponentsVariantSingle>(
+  component: T,
+  foo: (theme: Theme) => ComponentsVariantSingle[T]
+) => {
+  return foo(theme);
+};
 
-// {
-//   props: { variant: 'rounded' },
-//   style: {
-//     padding: '5px 25px',
-//     textTransform: 'inherit',
-//     borderRadius: '15px',
-//     backgroundColor: theme.palette.primary.main,
-//     color: theme.palette.primary.contrastText,
-//     ':hover': {
-//       backgroundColor: darken(theme.palette.primary.main, 0.2),
-//     },
-//     ':disabled': {
-//       backgroundColor: theme.palette.grey[200],
-//       color: theme.palette.grey[500],
-//       cursor: 'not-allowed',
-//     },
-//   },
-// },
+export const testMeNOW = withAtlasTheme('MuiButton', (theme) => {
+  return {
+    props: {
+      variant: 'kota',
+    },
+    style: {
+      color: 'fff',
+      backgroundColor: theme.palette.primary.main,
+    },
+  };
+});

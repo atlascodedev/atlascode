@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import blob from './blob.svg';
 import React from 'react';
+import { testMeNOW } from '../../utility/atlas-theme-provider/button-variants';
 
 /* eslint-disable-next-line */
 export interface HeroScreenWhiteDotsProps {
@@ -29,8 +30,6 @@ export function HeroScreenWhiteDots({
 }: HeroScreenWhiteDotsProps) {
   const isDesktop = useMediaQuery('(min-width:1280px)');
 
-  console.log(isDesktop);
-
   return (
     <Box
       sx={{
@@ -40,7 +39,6 @@ export function HeroScreenWhiteDots({
         backgroundSize: '10px 10px',
         width: '100%',
         overflow: 'hidden',
-        fontSize: '1rem',
       }}
     >
       <Box
@@ -65,12 +63,8 @@ export function HeroScreenWhiteDots({
           <Typography
             variant="h1"
             sx={{
-              fontSize: {
-                xs: '34px',
-                md: '2.5rem',
-                lg: '3.5rem',
-                xl: '4.5rem',
-              },
+              // fontSize: ['5vh', null, null, '6.5vh', null],
+              fontSize: 'clamp(2vw, 20vw, 2rem)',
               fontWeight: '900',
               color: (theme) => theme.palette.primary.main,
             }}
@@ -81,7 +75,7 @@ export function HeroScreenWhiteDots({
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: '14px', sm: '20px', md: '20px' },
+              fontSize: ['2vh', null, null, '2.5vh', '2.75vh'],
               color: (theme) => theme.palette.grey[600],
             }}
           >
@@ -92,9 +86,10 @@ export function HeroScreenWhiteDots({
           <Button
             sx={{
               textTransform: 'inherit',
+              // fontSize: ['2.5vh', null, null, '2.75vh', null],
             }}
             color="primary"
-            variant="contained"
+            variant="kota"
           >
             Ver cursos
           </Button>
