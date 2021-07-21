@@ -1,7 +1,7 @@
 import { ComponentsVariantSingle } from './theme-utilities';
 import { Theme } from '@material-ui/core';
 
-function withEvenBetterTheme<T extends keyof ComponentsVariantSingle>(
+export function withEvenBetterTheme<T extends keyof ComponentsVariantSingle>(
   theme: Theme,
   callback: (innerTheme: Theme) => ComponentsVariantSingle[T]
 ): ComponentsVariantSingle[T] {
@@ -50,6 +50,53 @@ export const kotaSecondary = (
       ':hover': {
         backgroundColor: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
+      },
+    },
+  };
+};
+
+export const kotaInvertedPrimary = (
+  theme: Theme
+): ComponentsVariantSingle['MuiButton'] => {
+  return {
+    props: {
+      variant: 'kotaInverted',
+      color: 'primary',
+    },
+    style: {
+      color: theme.palette.primary.contrastText,
+      minWidth: '20rem',
+      padding: '1.8rem 3.25rem',
+      border: `0.2rem solid ${theme.palette.primary.main}`,
+      backgroundColor: theme.palette.primary.main,
+      letterSpacing: '0.1rem',
+      fontSize: '1.5rem',
+      borderRadius: '3rem',
+
+      ':hover': {
+        backgroundColor: 'transparent',
+        color: theme.palette.primary.main,
+      },
+    },
+  };
+};
+
+export const kotaInvertedSecondary = (
+  theme: Theme
+): ComponentsVariantSingle['MuiButton'] => {
+  return {
+    props: {
+      variant: 'kotaInverted',
+      color: 'secondary',
+    },
+    style: {
+      ...(kotaInvertedPrimary(theme).style as Record<string, unknown>),
+      color: theme.palette.secondary.contrastText,
+      backgroundColor: theme.palette.secondary.main,
+      border: `0.2rem solid ${theme.palette.secondary.main}`,
+
+      ':hover': {
+        color: theme.palette.secondary.main,
       },
     },
   };

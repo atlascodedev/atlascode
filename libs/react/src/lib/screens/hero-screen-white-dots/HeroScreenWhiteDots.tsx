@@ -1,5 +1,11 @@
 import { generateCSSFilter } from '@atlascode/helpers';
-import { Box, Button, Typography, useMediaQuery } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
 import blob from './blob.svg';
 import React from 'react';
 
@@ -81,7 +87,7 @@ export function HeroScreenWhiteDots({
               textTransform: 'inherit',
               // fontSize: ['2.5vh', null, null, '2.75vh', null],
             }}
-            variant="kota"
+            variant="kotaInverted"
             color="secondary"
           >
             Ver cursos

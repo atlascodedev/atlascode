@@ -1,10 +1,15 @@
 import { createTheme, Theme } from '@material-ui/core';
-import { kotaSecondary, kotaPrimary } from './button-variants';
+import {
+  kotaSecondary,
+  kotaPrimary,
+  kotaInvertedPrimary,
+  kotaInvertedSecondary,
+} from './button-variants';
 
 export const defaultTheme = createTheme({
   palette: {
     primary: {
-      main: '#283047',
+      main: '#283046',
     },
     secondary: {
       main: '#F15D3C',
@@ -17,7 +22,12 @@ export const componentsTheme = (theme: Theme) => {
     components: {
       MuiButton: {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        variants: [kotaPrimary(theme), kotaSecondary(theme)],
+        variants: [
+          kotaPrimary(theme),
+          kotaSecondary(theme),
+          kotaInvertedPrimary(theme),
+          kotaInvertedSecondary(theme),
+        ],
       },
     },
   });

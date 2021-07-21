@@ -63,24 +63,24 @@ export const parameters = {
   },
 };
 
+const fixCache = createTheme({
+  palette: {
+    primary: {
+      main: '#2c0f2c',
+    },
+    secondary: {
+      main: '#2ce',
+    },
+  },
+});
+
 // eslint-disable-next-line @typescript-eslint/ban-types
-const withChakra = (StoryFn: Function, context: StoryContext) => {
+const withTheme = (StoryFn: Function, context: StoryContext) => {
   return (
-    <AtlasCodeThemeProvider
-      theme={createTheme({
-        palette: {
-          primary: {
-            main: '#ff55ff',
-          },
-          secondary: {
-            main: '#5128e6',
-          },
-        },
-      })}
-    >
+    <AtlasCodeThemeProvider>
       <StoryFn />
     </AtlasCodeThemeProvider>
   );
 };
 
-export const decorators = [withChakra];
+export const decorators = [withTheme];

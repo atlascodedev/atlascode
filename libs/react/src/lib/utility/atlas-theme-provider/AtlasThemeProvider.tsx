@@ -1,10 +1,6 @@
 import defaultTheme, { componentsTheme } from './theme';
-import {
-  Theme,
-  ThemeProvider,
-  CssBaseline,
-  createTheme,
-} from '@material-ui/core';
+import { Theme, CssBaseline, createTheme } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
@@ -24,21 +20,15 @@ export const AtlasCodeThemeProvider: React.FC<AtlasCodeThemeProviderProps> = ({
   resetCSS = true,
   theme,
 }) => {
-  const mergedTheme = React.useMemo(() => {
-    const themeDeepCopy = _.cloneDeep(theme);
-
-    const mergeDeep = _.merge(
-      defaultTheme,
-      themeDeepCopy,
-      componentsTheme(themeDeepCopy || defaultTheme)
-    );
-
-    return createTheme(mergeDeep);
+  const mergedThemeMemo = React.useMemo(() => {
+    const mergeDeepLocal = _.merge(defaultTheme, theme);
+    const injectComponentVariants = componentsTheme(mergeDeepLocal);
+    return _.merge(injectComponentVariants, mergeDeepLocal);
   }, [theme]);
 
   return (
     <CacheProvider value={cache}>
-      <ThemeProvider theme={mergedTheme}>
+      <ThemeProvider theme={mergedThemeMemo}>
         {resetCSS && <CssBaseline />}
         {children}
       </ThemeProvider>

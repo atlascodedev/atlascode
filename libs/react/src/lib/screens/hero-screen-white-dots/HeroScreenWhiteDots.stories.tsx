@@ -1,6 +1,5 @@
 import { Box } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
-import ThemeSmoothScrollLayout from '../../layouts/theme-smooth-scroll-layout/ThemeSmoothScrollLayout';
 import {
   HeroScreenWhiteDots,
   HeroScreenWhiteDotsProps,
@@ -9,13 +8,6 @@ import {
 export default {
   component: HeroScreenWhiteDots,
   title: 'AtlasCode/Screens/Hero screen - white - dots background pattern',
-  decorators: [
-    (Story) => (
-      <ThemeSmoothScrollLayout>
-        <Story />
-      </ThemeSmoothScrollLayout>
-    ),
-  ],
   parameters: {
     layout: 'fullscreen',
     viewport: {
