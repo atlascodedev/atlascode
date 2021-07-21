@@ -63,13 +63,13 @@ export const parameters = {
   },
 };
 
-const fixCache = createTheme({
+const customTheme = createTheme({
   palette: {
     primary: {
-      main: '#2c0f2c',
+      main: '#002946',
     },
     secondary: {
-      main: '#2ce',
+      main: '#FF9700',
     },
   },
 });
@@ -77,7 +77,7 @@ const fixCache = createTheme({
 // eslint-disable-next-line @typescript-eslint/ban-types
 const withTheme = (StoryFn: Function, context: StoryContext) => {
   return (
-    <AtlasCodeThemeProvider>
+    <AtlasCodeThemeProvider theme={customTheme}>
       <StoryFn />
     </AtlasCodeThemeProvider>
   );

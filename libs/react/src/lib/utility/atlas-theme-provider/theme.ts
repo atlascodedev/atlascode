@@ -21,7 +21,6 @@ export const componentsTheme = (theme: Theme) => {
   return createTheme({
     components: {
       MuiButton: {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         variants: [
           kotaPrimary(theme),
           kotaSecondary(theme),
