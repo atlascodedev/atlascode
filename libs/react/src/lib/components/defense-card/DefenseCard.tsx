@@ -19,7 +19,7 @@ export interface DefenseCardProps extends DefenseCardPaperProps {
   icon: IconType;
   text: string;
   color?: 'primary' | 'secondary';
-  fontSize: string;
+  fontSize?: string;
 }
 
 export function DefenseCard({

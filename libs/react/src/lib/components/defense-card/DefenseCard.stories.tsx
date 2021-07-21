@@ -4,7 +4,7 @@ import { MdSchool } from 'react-icons/md';
 
 export default {
   component: DefenseCard,
-  title: 'DefenseCard',
+  title: 'AtlasCode/Cards/DefenseCard',
 } as Meta;
 
 const Template: Story<DefenseCardProps> = (args) => <DefenseCard {...args} />;

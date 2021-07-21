@@ -77,7 +77,7 @@ const customTheme = createTheme({
 // eslint-disable-next-line @typescript-eslint/ban-types
 const withTheme = (StoryFn: Function, context: StoryContext) => {
   return (
-    <AtlasCodeThemeProvider theme={customTheme}>
+    <AtlasCodeThemeProvider>
       <StoryFn />
     </AtlasCodeThemeProvider>
   );
