@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Button } from '@material-ui/core';
+import { Button, Fab } from '@material-ui/core';
 
 declare module '@material-ui/core/Button' {
   export interface ButtonPropsVariantOverrides {
@@ -8,5 +8,11 @@ declare module '@material-ui/core/Button' {
     roundedOutline: true;
     kota: true;
     kotaInverted: true;
+  }
+}
+
+declare module '@material-ui/core/Fab' {
+  export interface FabPropsVariantOverrides {
+    outlined: true;
   }
 }

@@ -13,7 +13,7 @@ import { random } from 'lodash';
 import randomMockImage from '../../mock/random-mock-image/RandomMockImage';
 import { Box } from '@material-ui/core';
 
-const getMockItems = () => {
+export const offerCardItemMock = () => {
   const mockItems: OfferCardItem[] = [];
   const assortedIcons = [
     MdZoomOut,
@@ -32,6 +32,23 @@ const getMockItems = () => {
   });
 
   return mockItems;
+};
+
+export const offerCardFullMock = (amount: number) => {
+  const mockCardFull: OfferCardProps[] = [];
+
+  for (let i = 0; i < amount; i++) {
+    const offerCardTemp: OfferCardProps = {
+      img: randomMockImage(),
+      items: offerCardItemMock(),
+      redirectLink: faker.internet.domainName(),
+      title: faker.name.jobArea(),
+    };
+
+    mockCardFull.push(offerCardTemp);
+  }
+
+  return mockCardFull;
 };
 
 export default {
@@ -61,7 +78,7 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   img: randomMockImage(),
-  items: getMockItems(),
+  items: offerCardItemMock(),
   redirectLink: faker.internet.domainName(),
   title: faker.name.jobArea(),
 };

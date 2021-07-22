@@ -20,9 +20,16 @@ export interface OfferCardProps {
   title: string;
   items: OfferCardItem[];
   redirectLink: string;
+  zoomEffect?: boolean;
 }
 
-export function OfferCard({ img, items, redirectLink, title }: OfferCardProps) {
+export function OfferCard({
+  img,
+  items,
+  redirectLink,
+  title,
+  zoomEffect,
+}: OfferCardProps) {
   console.log(items);
 
   console.log(backGroundZoom('objectFit'));
@@ -35,7 +42,7 @@ export function OfferCard({ img, items, redirectLink, title }: OfferCardProps) {
             width: '100%',
             height: '25em',
             // eslint-disable-next-line @typescript-eslint/ban-types
-            ...(backGroundZoom('objectFit') as {}),
+            ...(zoomEffect ? (backGroundZoom('objectFit') as {}) : {}),
           }}
         >
           <Box
