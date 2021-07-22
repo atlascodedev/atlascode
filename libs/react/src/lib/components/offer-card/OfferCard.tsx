@@ -8,6 +8,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { IconType } from 'react-icons/lib';
+import backGroundZoom from '../../mixins/background-zoom/BackgroundZoom';
 
 export interface OfferCardItem {
   icon: IconType;
@@ -24,6 +25,8 @@ export interface OfferCardProps {
 export function OfferCard({ img, items, redirectLink, title }: OfferCardProps) {
   console.log(items);
 
+  console.log(backGroundZoom('objectFit'));
+
   return (
     <Box sx={{ maxWidth: { xs: '30rem', lg: '34rem' } }}>
       <Card sx={{ maxWidth: '100%', borderRadius: '11px' }}>
@@ -31,7 +34,8 @@ export function OfferCard({ img, items, redirectLink, title }: OfferCardProps) {
           sx={{
             width: '100%',
             height: '25em',
-            overflow: 'hidden',
+            // eslint-disable-next-line @typescript-eslint/ban-types
+            ...(backGroundZoom('objectFit') as {}),
           }}
         >
           <Box
