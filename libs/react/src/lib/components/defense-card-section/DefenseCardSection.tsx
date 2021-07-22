@@ -1,5 +1,7 @@
-import { Box, BoxProps } from '@material-ui/core';
+import { BoxProps } from '@material-ui/core';
+import MotionBox from '../../utility/motion-box/MotionBox';
 import DefenseCard, { DefenseCardProps } from '../defense-card/DefenseCard';
+import { InView } from 'react-intersection-observer';
 
 type DefenseCardSectionContainerProps = Partial<
   Pick<BoxProps, 'sx' | 'component'>
@@ -10,35 +12,77 @@ export interface DefenseCardSectionProps
   extends DefenseCardSectionContainerProps {
   itemList: DefenseCardProps[];
   bgColor?: string;
+  animateIn?: boolean;
 }
 
 export function DefenseCardSection({
   bgColor = '#FFF',
   component = 'section',
   itemList = [],
+  animateIn,
   sx,
 }: DefenseCardSectionProps) {
   return (
-    <Box
-      sx={{
-        m: '0px',
-        p: '0px',
-        width: '100%',
-        display: 'grid',
-        backgroundColor: bgColor,
-        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' },
-        justifyItems: 'center',
-        py: '1.5em',
-        gap: '5em',
-        gridAutoFlow: 'row',
-        ...sx,
+    <InView>
+      {({ entry, inView, ref }) => {
+        console.log(inView, animateIn);
+        return (
+          <MotionBox
+            ref={ref}
+            layout
+            sx={{
+              m: '0px',
+              p: '0px',
+              width: '100%',
+              display: 'grid',
+              backgroundColor: bgColor,
+              gridTemplateColumns: {
+                xs: '1fr',
+                md: '1fr 1fr',
+                lg: '1fr 1fr 1fr',
+              },
+              justifyItems: 'center',
+              py: '1.5em',
+              gap: '5em',
+              gridAutoFlow: 'row',
+              ...sx,
+            }}
+            component={component}
+            initial={animateIn ? 'hidden' : 'visible'}
+            animate={animateIn && inView ? 'visible' : undefined}
+            transition={{
+              staggerChildren: 0.1,
+            }}
+          >
+            {itemList.map((item, index) => {
+              return (
+                <MotionBox
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      transform: `translate3d(0, 50px,0) rotateX(10deg)`,
+                    },
+                    visible: {
+                      opacity: 1,
+                      transform: `translate3d(0,0px,0) rotateX(0deg)`,
+                      transition: {
+                        type: 'spring',
+                        damping: 100 * 2,
+                        stiffness: 500 * 2,
+                        mass: 50,
+                      },
+                    },
+                  }}
+                  key={index}
+                >
+                  <DefenseCard {...item} />
+                </MotionBox>
+              );
+            })}
+          </MotionBox>
+        );
       }}
-      component={component}
-    >
-      {itemList.map((item, index) => {
-        return <DefenseCard {...item} key={index} />;
-      })}
-    </Box>
+    </InView>
   );
 }
 

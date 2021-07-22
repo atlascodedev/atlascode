@@ -1,5 +1,6 @@
-import { CardProps, Box, Paper, PaperProps } from '@material-ui/core';
+import { CardProps, Box, Paper, PaperProps, BoxProps } from '@material-ui/core';
 import { ResponsiveStyleValue } from '@material-ui/system';
+import { ElementType } from 'react';
 import { IconType } from 'react-icons';
 
 type DefenseCardPaperProps = Partial<
@@ -14,12 +15,14 @@ interface ResponsiveFontsize {
   xl: string;
 }
 
+type DefenseCardWrapperProps<T> = React.FC<T>;
+
 export interface DefenseCardProps extends DefenseCardPaperProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: IconType;
   text: string;
   color?: 'primary' | 'secondary';
   fontSize?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }
 
 export function DefenseCard({
