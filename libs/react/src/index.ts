@@ -1,3 +1,4 @@
+export * from './lib/components/offer-card/OfferCard';
 export * from './lib/components/defense-card-section/DefenseCardSection';
 export * from './lib/components/defense-card/DefenseCard';
 export * from './lib/screens/hero-screen-white-dots/HeroScreenWhiteDots';

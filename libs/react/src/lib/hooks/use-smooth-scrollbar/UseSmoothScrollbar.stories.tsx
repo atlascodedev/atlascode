@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import React from 'react';
 import { ImageList, ImageListItem } from '@material-ui/core';
-import mockImageList from '../../mock/mockImageList/mockImageList';
+import mockImageList from '../../mock/mock-image-list/mockImageList';
 import { useSmoothScrollbar } from './UseSmoothScrollbar';
 
 const Demo = () => {

@@ -1,6 +1,7 @@
 import faker from 'faker';
+import randomMockImage from '../random-mock-image/RandomMockImage';
 
-type FakerImageCategory = keyof typeof faker['image'];
+export type FakerImageCategory = keyof typeof faker['image'];
 
 export const mockImageList = (
   amount: number,
@@ -11,11 +12,7 @@ export const mockImageList = (
   const resultArray = [];
 
   for (let i = 0; i < amount; i++) {
-    resultArray.push(
-      `${faker.image[category](width, height)}?random=${Math.round(
-        Math.random() * 1000
-      )}`
-    );
+    resultArray.push(randomMockImage(width, height, category));
   }
 
   return resultArray;

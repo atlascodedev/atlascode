@@ -1,6 +1,6 @@
-import { Box, ImageList, ImageListItem } from '@material-ui/core';
+import { ImageList, ImageListItem } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
-import mockImageList from '../../mock/mockImageList/mockImageList';
+import mockImageList from '../../mock/mock-image-list/mockImageList';
 import {
   SmoothScrollWrapper,
   SmoothScrollWrapperProps,
