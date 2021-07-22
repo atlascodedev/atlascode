@@ -1,11 +1,26 @@
-/* eslint-disable-next-line */
-export interface ThemeTabsProps {}
+import { AppBar, Box, Tabs } from '@material-ui/core';
+import React from 'react';
 
-export function ThemeTabs(props: ThemeTabsProps) {
+/* eslint-disable-next-line */
+export interface ThemeTabsProps {
+  value: number;
+  onChange: (newValue: number) => void;
+}
+
+export function ThemeTabs({ onChange, value }: ThemeTabsProps) {
+  const [state, setState] = React.useState(0);
+
   return (
-    <div>
-      <h1>Welcome to theme-tabs!</h1>
-    </div>
+    <Box sx={{ bgcolor: 'background.paper', width: 550 }}>
+      <AppBar position="static">
+        <Tabs
+          value={value}
+          onChange={(event, newValue) => onChange(newValue)}
+          indicatorColor="secondary"
+          variant="fullWidth"
+        ></Tabs>
+      </AppBar>
+    </Box>
   );
 }
 
