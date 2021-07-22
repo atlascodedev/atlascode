@@ -67,11 +67,11 @@ export function OfferSlider({ items = [] }: OfferSliderProps) {
       <Box
         component={Swiper}
         navigation={{ nextEl: '#next', prevEl: '#prev' }}
-        slidesPerView={1}
+        slidesPerView={1.2}
         initialSlide={1}
         autoplay={false}
         watchOverflow={true}
-        spaceBetween={50}
+        spaceBetween={20}
         breakpoints={{
           1024: {
             slidesPerView: 3,
