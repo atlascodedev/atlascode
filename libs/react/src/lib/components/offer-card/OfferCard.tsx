@@ -40,7 +40,7 @@ export function OfferCard({
         <Box
           sx={{
             width: '100%',
-            height: '25em',
+            height: '19em',
             // eslint-disable-next-line @typescript-eslint/ban-types
             ...(zoomEffect ? (backGroundZoom('objectFit') as {}) : {}),
           }}
