@@ -1,5 +1,5 @@
 import { Box, Fab } from '@material-ui/core';
-import { ArrowBack } from '@material-ui/icons';
+import { KeyboardArrowRight } from '@material-ui/icons';
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -28,6 +28,7 @@ export function OfferSlider({ items = [] }: OfferSliderProps) {
   return (
     <Box
       sx={{
+        position: 'relative',
         '.swiper-slide': {
           display: 'flex',
           justifyContent: 'center',
@@ -42,12 +43,30 @@ export function OfferSlider({ items = [] }: OfferSliderProps) {
         },
       }}
     >
-      <Fab variant="outlined" color="primary">
-        <ArrowBack sx={{ fontSize: '2.5rem' }} />
-      </Fab>
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: { xs: '-12.5%', md: '-15%' },
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+          gap: '5rem',
+        }}
+      >
+        <Fab id="prev" variant="outlined" color="primary">
+          <KeyboardArrowRight
+            sx={{ fontSize: '3.5rem', transform: 'rotateY(180deg)' }}
+          />
+        </Fab>
+
+        <Fab id="next" variant="outlined" color="primary">
+          <KeyboardArrowRight sx={{ fontSize: '3.5rem' }} />
+        </Fab>
+      </Box>
 
       <Box
         component={Swiper}
+        navigation={{ nextEl: '#next', prevEl: '#prev' }}
         slidesPerView={1}
         initialSlide={1}
         autoplay={false}
