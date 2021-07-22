@@ -5,6 +5,7 @@ import {
   kotaInvertedPrimary,
   kotaInvertedSecondary,
 } from './button-variants';
+import { fabOutlinedPrimary, fabOutlinedSecondary } from './fab-variants';
 
 export const defaultTheme = createTheme({
   palette: {
@@ -20,6 +21,10 @@ export const defaultTheme = createTheme({
 export const componentsTheme = (theme: Theme) => {
   return createTheme({
     components: {
+      MuiFab: {
+        variants: [fabOutlinedPrimary(theme), fabOutlinedSecondary(theme)],
+      },
+
       MuiButton: {
         variants: [
           kotaPrimary(theme),

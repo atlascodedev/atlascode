@@ -1,4 +1,5 @@
-import { Box } from '@material-ui/core';
+import { Box, Fab } from '@material-ui/core';
+import { ArrowBack } from '@material-ui/icons';
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -41,6 +42,10 @@ export function OfferSlider({ items = [] }: OfferSliderProps) {
         },
       }}
     >
+      <Fab variant="outlined" color="primary">
+        <ArrowBack sx={{ fontSize: '2.5rem' }} />
+      </Fab>
+
       <Box
         component={Swiper}
         slidesPerView={1}
