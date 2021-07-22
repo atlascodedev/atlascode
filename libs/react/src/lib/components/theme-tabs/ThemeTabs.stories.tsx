@@ -9,4 +9,9 @@ export default {
 const Template: Story<ThemeTabsProps> = (args) => <ThemeTabs {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  tabItems: [
+    { tabTitle: 'Tab one', tabComponent: <div>Hello world</div> },
+    { tabTitle: 'Hello hello again', tabComponent: <div>Hello sir</div> },
+  ],
+};
