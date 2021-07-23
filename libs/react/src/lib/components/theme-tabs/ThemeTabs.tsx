@@ -20,6 +20,7 @@ export interface ThemeTabsProps {
   color?: 'primary' | 'secondary';
   tabVariant?: TabsProps['variant'];
   appbarWidth?: string;
+  centered?: boolean;
 }
 
 export function ThemeTabs({
@@ -27,20 +28,21 @@ export function ThemeTabs({
   color = 'primary',
   tabVariant = 'fullWidth',
   appbarWidth = 'auto',
+  centered,
   ...props
 }: ThemeTabsProps) {
   const [state, setState] = React.useState(0);
 
   const isMobile = useMediaQuery('(max-width: 600px)');
 
-  console.log(isMobile);
-
   return (
     <Box sx={{ width: '100%' }}>
       <Box
         sx={{
           bgcolor: 'background.paper',
-          width: appbarWidth,
+          // width: appbarWidth,
+          justifyContent: centered ? 'center' : 'stretch',
+          display: 'flex',
           borderRadius: '10px',
           '& .MuiTab-root': {
             color: (theme) => `${theme.palette[color].contrastText} !important`,
@@ -50,6 +52,7 @@ export function ThemeTabs({
         <AppBar
           sx={{
             bgcolor: (theme) => theme.palette[color].main,
+            width: appbarWidth,
           }}
           position="static"
         >
@@ -79,7 +82,7 @@ export function ThemeTabs({
       </Box>
       {tabItems.map(({ tabComponent, tabTitle }, index) => {
         return (
-          <TabPanel value={state} index={index}>
+          <TabPanel value={state} index={index} key={index}>
             {tabComponent}
           </TabPanel>
         );
