@@ -11,4 +11,10 @@ const Template: Story<NewsLetterInputProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  placeholder: 'This is the placeholder',
+  color: 'primary',
+  helperText: '',
+  inputDisabled: undefined,
+  error: false,
+} as NewsLetterInputProps;

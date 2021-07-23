@@ -52,7 +52,7 @@ export function NewsLetterInput({
         error={error}
       />
       <Button
-        disabled={disabled}
+        disabled={disabled || error}
         onClick={onClick}
         color={color}
         disableElevation
