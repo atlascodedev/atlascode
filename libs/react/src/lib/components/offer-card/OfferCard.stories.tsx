@@ -1,59 +1,14 @@
 import { Story, Meta } from '@storybook/react';
-import {
-  MdAccessible,
-  MdAdd,
-  MdWeekend,
-  MdWifiLock,
-  MdYoutubeSearchedFor,
-  MdZoomOut,
-} from 'react-icons/md';
+
 import { OfferCard, OfferCardItem, OfferCardProps } from './OfferCard';
 import faker from 'faker';
-import { random } from 'lodash';
 import randomMockImage from '../../mock/random-mock-image/RandomMockImage';
 import { Box } from '@material-ui/core';
-
-export const offerCardItemMock = () => {
-  const mockItems: OfferCardItem[] = [];
-  const assortedIcons = [
-    MdZoomOut,
-    MdYoutubeSearchedFor,
-    MdWifiLock,
-    MdAccessible,
-    MdAdd,
-    MdWeekend,
-  ];
-
-  Array.from([1, 2]).forEach((value, index) => {
-    mockItems.push({
-      icon: assortedIcons[random(0, assortedIcons.length - 1)],
-      text: faker.name.jobTitle(),
-    });
-  });
-
-  return mockItems;
-};
-
-export const offerCardFullMock = (amount: number) => {
-  const mockCardFull: OfferCardProps[] = [];
-
-  for (let i = 0; i < amount; i++) {
-    const offerCardTemp: OfferCardProps = {
-      img: randomMockImage(),
-      items: offerCardItemMock(),
-      redirectLink: faker.internet.domainName(),
-      title: faker.name.jobArea(),
-    };
-
-    mockCardFull.push(offerCardTemp);
-  }
-
-  return mockCardFull;
-};
+import { offerCardItemMock } from '../../mock/offer-card-mock/OfferCardMock';
 
 export default {
   component: OfferCard,
-  title: 'OfferCard',
+  title: 'AtlasCode/Cards/OfferCard',
   parameters: {
     layout: 'fullscreen',
   },

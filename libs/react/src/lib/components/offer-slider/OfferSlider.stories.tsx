@@ -1,11 +1,11 @@
 import { Box } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
-import { offerCardFullMock } from '../offer-card/OfferCard.stories';
+import { offerCardFullMock } from '../../mock/offer-card-mock/OfferCardMock';
 import { OfferSlider, OfferSliderProps } from './OfferSlider';
 
 export default {
   component: OfferSlider,
-  title: 'OfferSlider',
+  title: 'AtlasCode/Sliders/Offer Slider',
   decorators: [
     (Story) => {
       return (
