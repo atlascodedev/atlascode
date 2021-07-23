@@ -1,4 +1,11 @@
-import { AppBar, Box, Tab, Tabs, TabsProps } from '@material-ui/core';
+import {
+  AppBar,
+  Box,
+  Tab,
+  Tabs,
+  TabsProps,
+  useMediaQuery,
+} from '@material-ui/core';
 import React from 'react';
 import TabPanel from '../tab-panel/TabPanel';
 
@@ -12,22 +19,29 @@ export interface ThemeTabsProps {
   tabItems: ThemeTabItem[];
   color?: 'primary' | 'secondary';
   tabVariant?: TabsProps['variant'];
+  appbarWidth?: string;
 }
 
 export function ThemeTabs({
   tabItems,
   color = 'primary',
   tabVariant = 'fullWidth',
+  appbarWidth = 'auto',
   ...props
 }: ThemeTabsProps) {
   const [state, setState] = React.useState(0);
+
+  const isMobile = useMediaQuery('(max-width: 600px)');
+
+  console.log(isMobile);
 
   return (
     <Box sx={{ width: '100%' }}>
       <Box
         sx={{
           bgcolor: 'background.paper',
-          width: 550,
+          width: appbarWidth,
+          borderRadius: '10px',
           '& .MuiTab-root': {
             color: (theme) => `${theme.palette[color].contrastText} !important`,
           },
@@ -40,9 +54,15 @@ export function ThemeTabs({
           position="static"
         >
           <Tabs
+            sx={{
+              '& .MuiTabs-flexContainer': {
+                display: 'flex',
+                justifyContent: 'space-around',
+              },
+            }}
             value={state}
             onChange={(event, newValue) => setState(newValue)}
-            variant={tabVariant}
+            variant={isMobile ? 'scrollable' : tabVariant}
             indicatorColor={color === 'primary' ? 'secondary' : 'primary'}
           >
             {tabItems.map(({ tabComponent, tabTitle }, index) => {
