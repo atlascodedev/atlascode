@@ -8,7 +8,13 @@ import {
 
 type NewsLetterInputTextFieldProps = Pick<
   OutlinedTextFieldProps,
-  'onChange' | 'value' | 'defaultValue' | 'error' | 'helperText' | 'placeholder'
+  | 'onChange'
+  | 'value'
+  | 'defaultValue'
+  | 'error'
+  | 'helperText'
+  | 'placeholder'
+  | 'size'
 >;
 
 type NewsLetterInputButtonProps = Pick<ButtonProps, 'disabled' | 'onClick'>;
@@ -19,6 +25,8 @@ export interface NewsLetterInputProps
     NewsLetterInputButtonProps {
   color?: 'primary' | 'secondary';
   inputDisabled?: boolean;
+  buttonLabel?: string;
+  minWidth?: string;
 }
 
 export function NewsLetterInput({
@@ -32,6 +40,9 @@ export function NewsLetterInput({
   inputDisabled,
   placeholder,
   value,
+  buttonLabel,
+  size = 'small',
+  minWidth,
 }: NewsLetterInputProps) {
   return (
     <Box sx={{ display: 'flex' }}>
@@ -40,8 +51,10 @@ export function NewsLetterInput({
           '.MuiOutlinedInput-root': {
             borderTopRightRadius: '0px',
             borderBottomRightRadius: '0px',
+            minWidth: minWidth ? minWidth : 'initial',
           },
         }}
+        size={size}
         variant="outlined"
         placeholder={placeholder}
         defaultValue={defaultValue}
@@ -59,7 +72,7 @@ export function NewsLetterInput({
         sx={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}
         variant="contained"
       >
-        Enviar
+        {buttonLabel}
       </Button>
     </Box>
   );

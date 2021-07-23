@@ -17,4 +17,6 @@ Primary.args = {
   helperText: '',
   inputDisabled: undefined,
   error: false,
+  buttonLabel: 'Enviar',
+  size: 'small' as 'small' | 'medium',
 } as NewsLetterInputProps;
