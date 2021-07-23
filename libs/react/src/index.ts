@@ -1,3 +1,5 @@
+export * from './lib/components/tab-panel/TabPanel';
+export * from './lib/components/theme-tabs/ThemeTabs';
 export * from './lib/components/offer-slider/OfferSlider';
 export * from './lib/components/offer-card/OfferCard';
 export * from './lib/components/defense-card-section/DefenseCardSection';
