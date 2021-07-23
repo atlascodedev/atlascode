@@ -13,5 +13,7 @@ Primary.args = {
   tabItems: [
     { tabTitle: 'Tab one', tabComponent: <div>Hello world</div> },
     { tabTitle: 'Hello hello again', tabComponent: <div>Hello sir</div> },
+    { tabTitle: 'Hello hello again', tabComponent: <div>Hello sir</div> },
+    { tabTitle: 'Hello hello again', tabComponent: <div>Hello sir</div> },
   ],
 };

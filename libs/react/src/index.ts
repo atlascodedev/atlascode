@@ -1,3 +1,4 @@
+export * from './lib/components/testimonial-card-rounded/TestimonialCardRounded';
 export * from './lib/components/tab-panel/TabPanel';
 export * from './lib/components/theme-tabs/ThemeTabs';
 export * from './lib/components/offer-slider/OfferSlider';
