@@ -9,6 +9,7 @@ export interface IconButtonCircleProps {
   color?: 'primary' | 'secondary';
   variant: 'contained' | 'outlined';
   size?: IconButtonSizeVariant;
+  elevation?: boolean;
 }
 
 export type IconButtonSizeVariant = 'small' | 'medium' | 'large';
@@ -36,21 +37,24 @@ const defaultStyles = (
 
 const getVariant = (
   size: IconButtonSizeVariant = 'small',
-  color: 'primary' | 'secondary'
+  color: 'primary' | 'secondary',
+  elevation?: boolean
 ): VariantTypeMap<'contained' | 'outlined'> => {
   return {
     contained: {
       ...defaultStyles(size),
-      backgroundColor: (theme) => theme.palette[color].main,
+      backgroundColor: (theme) => theme.palette.background.paper,
+      boxShadow: (theme) => (elevation ? theme.shadows[3] : theme.shadows[0]),
 
       '& .Atlas-IconButtonRound-icon': {
-        color: (theme) => theme.palette[color].contrastText,
+        color: (theme) => theme.palette[color].main,
       },
     },
     outlined: {
       ...defaultStyles(size),
       backgroundColor: 'transparent',
       border: (theme) => `1.5px solid ${theme.palette[color].main}`,
+      boxShadow: (theme) => (elevation ? theme.shadows[3] : theme.shadows[0]),
 
       '& .Atlas-IconButtonRound-icon': {
         color: (theme) => theme.palette[color].main,
@@ -64,10 +68,11 @@ export function IconButtonCircle({
   color = 'primary',
   variant = 'contained',
   size = 'small',
+  elevation = true,
 }: IconButtonCircleProps) {
   const variants = React.useMemo(() => {
-    return getVariant(size, color);
-  }, [size, color]);
+    return getVariant(size, color, elevation);
+  }, [size, color, elevation]);
 
   return (
     <Box component={ButtonBase} sx={{ ...variants[variant] }}>
