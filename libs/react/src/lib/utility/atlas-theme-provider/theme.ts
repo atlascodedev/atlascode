@@ -16,6 +16,9 @@ export const defaultTheme = createTheme({
       main: '#F15D3C',
     },
   },
+  customShadow: {
+    light: '0px 4.01194px 4.01194px rgba(0, 0, 0, 0.1)',
+  },
 });
 
 export const componentsTheme = (theme: Theme) => {

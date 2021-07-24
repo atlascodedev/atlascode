@@ -52,8 +52,9 @@ export function DefenseCard({
           borderRadius: square ? '0px' : '10px',
           alignItems: 'center',
           padding: '2.85em 2.15em',
+          boxShadow: (theme) => theme.customShadow?.light,
         }}
-        elevation={elevation}
+        // elevation={elevation}
         {...props}
       >
         <Box
