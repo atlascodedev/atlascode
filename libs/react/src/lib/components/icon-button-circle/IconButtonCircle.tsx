@@ -1,15 +1,18 @@
-import { Box, ButtonBase } from '@material-ui/core';
+import { Box, ButtonBase, SvgIconTypeMap } from '@material-ui/core';
 import { IconType } from 'react-icons';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 import React from 'react';
+import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 
 /* eslint-disable-next-line */
 export interface IconButtonCircleProps {
-  icon: IconType;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  icon: IconType | OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
   color?: 'primary' | 'secondary';
-  variant: 'contained' | 'outlined';
+  variant?: 'contained' | 'outlined';
   size?: IconButtonSizeVariant;
   elevation?: boolean;
+  href?: string;
 }
 
 export type IconButtonSizeVariant = 'small' | 'medium' | 'large';
@@ -69,6 +72,7 @@ export function IconButtonCircle({
   variant = 'contained',
   size = 'small',
   elevation = true,
+  href,
 }: IconButtonCircleProps) {
   const variants = React.useMemo(() => {
     return getVariant(size, color, elevation);
@@ -76,7 +80,26 @@ export function IconButtonCircle({
 
   return (
     <Box component={ButtonBase} sx={{ ...variants[variant] }}>
-      <Box className={'Atlas-IconButtonRound-icon'} component={Icon} />
+      {href ? (
+        <Box
+          component="a"
+          sx={{
+            p: 0,
+            m: 0,
+            textDecoration: 'none',
+            height: 'fit-content',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Box className={'Atlas-IconButtonRound-icon'} component={Icon} />
+        </Box>
+      ) : (
+        <Box className={'Atlas-IconButtonRound-icon'} component={Icon} />
+      )}
     </Box>
   );
 }
