@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Button, Fab, ThemeOptions } from '@material-ui/core';
+import {
+  Button,
+  Fab,
+  ThemeOptions,
+  Theme,
+  createTheme,
+} from '@material-ui/core';
 
 declare module '@material-ui/core/Button' {
   export interface ButtonPropsVariantOverrides {

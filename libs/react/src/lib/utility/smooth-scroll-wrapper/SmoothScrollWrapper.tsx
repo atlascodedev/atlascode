@@ -1,7 +1,6 @@
 import ScrollBar from 'smooth-scrollbar';
 import React from 'react';
 import { Scrollbar } from 'smooth-scrollbar/scrollbar';
-import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 import { isBrowser } from '@atlascode/helpers';
 import { Box } from '@material-ui/core';
 import ScrollbarModalPlugin from './SmoothScrollModalPlugin';
@@ -21,7 +20,7 @@ export function SmoothScrollWrapper({
 
   React.useEffect(() => {
     if (isBrowser) {
-      ScrollBar.use(OverscrollPlugin, ScrollbarModalPlugin);
+      ScrollBar.use(ScrollbarModalPlugin);
 
       scrollbarInitializerRef.current = ScrollBar.init(
         wrapperRef.current as HTMLElement,
@@ -72,7 +71,8 @@ export default SmoothScrollWrapper;
 
 const overscrollOptions = {
   enable: true,
-  effect: !navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
+  effect:
+    isBrowser && !navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
   damping: 0.2,
   maxOverscroll: 150,
   glowColor: '#222a2d',

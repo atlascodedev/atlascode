@@ -1,5 +1,5 @@
 import { ComponentsVariantSingle } from './theme-utilities';
-import { Theme } from '@material-ui/core';
+import { darken, Theme } from '@material-ui/core';
 
 export function withEvenBetterTheme<T extends keyof ComponentsVariantSingle>(
   theme: Theme,
@@ -7,6 +7,49 @@ export function withEvenBetterTheme<T extends keyof ComponentsVariantSingle>(
 ): ComponentsVariantSingle[T] {
   return callback(theme) as ComponentsVariantSingle[T];
 }
+
+export const roundedPrimary = (
+  theme: Theme
+): ComponentsVariantSingle['MuiButton'] => {
+  return {
+    props: {
+      variant: 'rounded',
+      color: 'primary',
+    },
+    style: {
+      color: theme.palette.primary.contrastText,
+      backgroundColor: theme.palette.primary.main,
+      borderRadius: '15px',
+      px: '20px',
+      py: '5px',
+      textTransform: 'inherit',
+      ':hover': {
+        backgroundColor: darken(theme.palette.primary.main, 0.2),
+      },
+    },
+  };
+};
+
+export const roundedSecondary = (
+  theme: Theme
+): ComponentsVariantSingle['MuiButton'] => {
+  return {
+    props: {
+      variant: 'rounded',
+      color: 'secondary',
+    },
+    style: {
+      ...(roundedPrimary(theme) as Record<string, unknown>),
+      color: theme.palette.primary.main,
+      backgroundColor: 'transparent',
+      border: `1px solid ${theme.palette.primary.main}`,
+
+      ':hover': {
+        backgroundColor: theme.palette.grey[200],
+      },
+    },
+  };
+};
 
 export const kotaPrimary = (
   theme: Theme
