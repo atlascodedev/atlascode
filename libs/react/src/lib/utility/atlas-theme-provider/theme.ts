@@ -6,6 +6,8 @@ import {
   kotaInvertedSecondary,
   roundedPrimary,
   roundedSecondary,
+  roundedOutlinedPrimary,
+  roundedOutlinedSecondary,
 } from './button-variants';
 import { fabOutlinedPrimary, fabOutlinedSecondary } from './fab-variants';
 
@@ -44,6 +46,8 @@ export const componentsTheme = (theme: Theme) => {
           kotaInvertedSecondary(theme),
           roundedPrimary(theme),
           roundedSecondary(theme),
+          roundedOutlinedPrimary(theme),
+          roundedOutlinedSecondary(theme),
         ],
       },
     },

@@ -1,5 +1,5 @@
 import { ComponentsVariantSingle } from './theme-utilities';
-import { darken, Theme } from '@material-ui/core';
+import { alpha, darken, Theme } from '@material-ui/core';
 
 export function withEvenBetterTheme<T extends keyof ComponentsVariantSingle>(
   theme: Theme,
@@ -7,6 +7,47 @@ export function withEvenBetterTheme<T extends keyof ComponentsVariantSingle>(
 ): ComponentsVariantSingle[T] {
   return callback(theme) as ComponentsVariantSingle[T];
 }
+
+export const roundedOutlinedPrimary = (
+  theme: Theme
+): ComponentsVariantSingle['MuiButton'] => {
+  return {
+    props: {
+      variant: 'roundedOutline',
+      color: 'primary',
+    },
+    style: {
+      ...(roundedPrimary(theme).style as Record<string, unknown>),
+      color: theme.palette.primary.main,
+      backgroundColor: 'transparent',
+      border: `1px solid ${theme.palette.primary.main}`,
+
+      ':hover': {
+        backgroundColor: alpha(theme.palette.primary.main, 0.05),
+      },
+    },
+  };
+};
+
+export const roundedOutlinedSecondary = (
+  theme: Theme
+): ComponentsVariantSingle['MuiButton'] => {
+  return {
+    props: {
+      variant: 'roundedOutline',
+      color: 'secondary',
+    },
+    style: {
+      ...(roundedOutlinedPrimary(theme).style as Record<string, unknown>),
+      color: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.secondary.main}`,
+
+      ':hover': {
+        backgroundColor: alpha(theme.palette.secondary.main, 0.05),
+      },
+    },
+  };
+};
 
 export const roundedPrimary = (
   theme: Theme
@@ -20,8 +61,6 @@ export const roundedPrimary = (
       color: theme.palette.primary.contrastText,
       backgroundColor: theme.palette.primary.main,
       borderRadius: '15px',
-      px: '20px',
-      py: '5px',
       textTransform: 'inherit',
       ':hover': {
         backgroundColor: darken(theme.palette.primary.main, 0.2),
@@ -39,13 +78,12 @@ export const roundedSecondary = (
       color: 'secondary',
     },
     style: {
-      ...(roundedPrimary(theme) as Record<string, unknown>),
-      color: theme.palette.primary.main,
-      backgroundColor: 'transparent',
-      border: `1px solid ${theme.palette.primary.main}`,
+      ...(roundedPrimary(theme).style as Record<string, unknown>),
+      color: theme.palette.secondary.contrastText,
+      backgroundColor: theme.palette.secondary.main,
 
       ':hover': {
-        backgroundColor: theme.palette.grey[200],
+        backgroundColor: darken(theme.palette.secondary.main, 0.2),
       },
     },
   };
