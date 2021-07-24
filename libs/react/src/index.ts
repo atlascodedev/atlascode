@@ -1,3 +1,5 @@
+export * from './lib/components/icon-button-circle/IconButtonCircle';
+export * from './lib/components/standard-footer/StandardFooter';
 export * from './lib/components/blog-preview-card/BlogPreviewCard';
 export * from './lib/components/newsletter-input/NewsLetterInput';
 export * from './lib/components/testimonial-card-rounded/TestimonialCardRounded';
