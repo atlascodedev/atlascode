@@ -1,3 +1,4 @@
+export * from './lib/components/blog-preview-card/BlogPreviewCard';
 export * from './lib/components/newsletter-input/NewsLetterInput';
 export * from './lib/components/testimonial-card-rounded/TestimonialCardRounded';
 export * from './lib/components/tab-panel/TabPanel';
