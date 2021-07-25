@@ -23,6 +23,8 @@ export * from './lib/utility/lottie-wrapper';
 export * from './lib/utility/atlas-theme-provider/module-augmentation';
 export * from './lib/layouts/theme-smooth-scroll-layout/ThemeSmoothScrollLayout';
 export * from './lib/context/scrollbar-context/ScrollbarContext';
+export * from './lib/mixins/background-pattern/BackgroundPattern';
+export * from './lib/mock/offer-card-mock/OfferCardMock';
 export { default as useBeforeUnload } from './lib/hooks/useBeforeUnload';
 export { default as useClickAway } from './lib/hooks/useClickAway';
 export { default as useComponentWillUnmount } from './lib/hooks/useComponentWillUnmount';

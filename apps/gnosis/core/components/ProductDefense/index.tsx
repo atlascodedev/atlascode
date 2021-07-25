@@ -7,7 +7,6 @@ import { GiDiploma } from 'react-icons/gi';
 import { FaChalkboardTeacher, FaClock, FaGraduationCap } from 'react-icons/fa';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import { AiOutlineWechat } from 'react-icons/ai';
-import { Box } from '@material-ui/core';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProductDefenseProps {}

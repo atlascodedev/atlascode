@@ -1,4 +1,5 @@
 import { Box } from '@material-ui/core';
+import MotionBox from '../../utility/motion-box/MotionBox';
 
 /* eslint-disable-next-line */
 export interface TabPanelProps {
@@ -16,15 +17,34 @@ export function TabPanel({
   ...props
 }: TabPanelProps) {
   return (
-    <Box
+    <MotionBox
       role="tabpanel"
       id={`themeful-tabpanel-${index}`}
       hidden={value !== index}
       component="div"
       {...props}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </Box>
+      {value === index && (
+        <MotionBox
+          initial="hidden"
+          animate="visible"
+          transition={{
+            duration: 1.2,
+          }}
+          variants={{
+            hidden: {
+              opacity: 0,
+            },
+            visible: {
+              opacity: 1,
+            },
+          }}
+          sx={{ p: 3 }}
+        >
+          {children}
+        </MotionBox>
+      )}
+    </MotionBox>
   );
 }
 
