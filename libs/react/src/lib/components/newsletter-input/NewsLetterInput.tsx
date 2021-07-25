@@ -63,6 +63,7 @@ export function NewsLetterInput({
         sx={{
           '.MuiOutlinedInput-root': {
             borderTopRightRadius: '0px',
+            bgcolor: (theme) => theme.palette.background.paper,
             borderBottomRightRadius: '0px',
             minWidth: minWidth ? minWidth : 'initial',
           },

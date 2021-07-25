@@ -22,6 +22,7 @@ const Courses = ({ coursesExt, coursesMulti, coursesPos }: CoursesProps) => {
       sx={{
         width: '100%',
         position: 'relative',
+        pb: { xs: '5rem', lg: '15rem' },
       }}
     >
       <Box
