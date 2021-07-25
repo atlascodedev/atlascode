@@ -1,3 +1,4 @@
+export * from './lib/components/testimonial-slider/TestimonialSlider';
 export * from './lib/components/icon-button-circle/IconButtonCircle';
 export * from './lib/components/standard-footer/StandardFooter';
 export * from './lib/components/blog-preview-card/BlogPreviewCard';

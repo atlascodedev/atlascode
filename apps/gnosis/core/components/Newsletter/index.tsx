@@ -66,7 +66,11 @@ const Newsletter = (props: NewsletterProps) => {
             Assine nossa Newsletter e fique por dentro das novidades.
           </Box>
 
-          <NewsLetterInput buttonLabel="Enviar" size="medium" />
+          <NewsLetterInput
+            minWidth={'200px'}
+            buttonLabel="Enviar"
+            size="medium"
+          />
         </Box>
       </Box>
     </Box>
