@@ -80,6 +80,7 @@ const overscrollOptions = {
   glowColor: '#222a2d',
 };
 
+// # TODO - Fix overscroll plugin issues with NextJS
 const defaultOptions: Partial<Scrollbar['options']> = {
   renderByPixels: true,
   continuousScrolling: true,

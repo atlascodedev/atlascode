@@ -8,7 +8,6 @@ import {
 } from '@material-ui/core';
 import blob from './blob.svg';
 import React from 'react';
-import { Theme } from '@emotion/react';
 
 /* eslint-disable-next-line */
 export interface HeroScreenWhiteDotsProps {
@@ -30,6 +29,13 @@ export function HeroScreenWhiteDots({
 }: HeroScreenWhiteDotsProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const [blobFilter, setBlobFilter] = React.useState<string>('none');
+
+  React.useEffect(() => {
+    const filterResult = generateCSSFilter(theme.palette[blobColor].main);
+
+    setBlobFilter(filterResult);
+  }, [blobColor, theme.palette]);
 
   return (
     <Box
@@ -113,8 +119,7 @@ export function HeroScreenWhiteDots({
               position: 'absolute',
               zIndex: -1,
               height: '100%',
-              filter: (theme) =>
-                generateCSSFilter(theme.palette[blobColor].main),
+              filter: blobFilter,
             }}
             component="img"
             src={blob}
