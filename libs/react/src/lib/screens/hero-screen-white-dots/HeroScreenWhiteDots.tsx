@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import blob from './blob.svg';
 import React from 'react';
+import { Theme } from '@emotion/react';
 
 /* eslint-disable-next-line */
 export interface HeroScreenWhiteDotsProps {
@@ -27,7 +28,8 @@ export function HeroScreenWhiteDots({
   desktopPicture,
   picture,
 }: HeroScreenWhiteDotsProps) {
-  const isDesktop = useMediaQuery('(min-width:1280px)');
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <Box
@@ -47,7 +49,7 @@ export function HeroScreenWhiteDots({
           gridTemplateRows: { xs: '50% 50%', lg: 'none' },
           alignContent: 'stretch',
           height: '100%',
-          px: { xs: '1em', sm: '2em' },
+          px: { xs: '1em', sm: '2em', lg: '7em' },
         }}
       >
         <Box
@@ -62,8 +64,7 @@ export function HeroScreenWhiteDots({
           <Typography
             variant="h1"
             sx={{
-              // fontSize: ['5vh', null, null, '6.5vh', null],
-              fontSize: 'clamp(2vw, 20vw, 2rem)',
+              fontSize: { xs: '4vh', lg: '6vh' },
               fontWeight: '900',
               color: (theme) => theme.palette.primary.main,
             }}
@@ -85,10 +86,11 @@ export function HeroScreenWhiteDots({
           <Button
             sx={{
               textTransform: 'inherit',
-              // fontSize: ['2.5vh', null, null, '2.75vh', null],
+              fontSize: { xs: '1rem', md: '1.3', lg: '1.5rem' },
             }}
-            variant="kotaInverted"
-            color="secondary"
+            variant="contained"
+            color="primary"
+            size="large"
           >
             Ver cursos
           </Button>
