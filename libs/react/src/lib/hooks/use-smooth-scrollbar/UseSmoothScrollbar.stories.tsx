@@ -14,7 +14,7 @@ const Demo = () => {
     <main
       style={{
         width: '100%',
-        height: '500px',
+        height: 'auto',
       }}
       ref={demoRef}
     >

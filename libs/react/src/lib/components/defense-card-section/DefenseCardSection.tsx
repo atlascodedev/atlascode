@@ -13,6 +13,15 @@ export interface DefenseCardSectionProps
   itemList: DefenseCardProps[];
   bgColor?: string;
   animateIn?: boolean;
+  observerProps?: Pick<
+    InView['props'],
+    | 'threshold'
+    | 'rootMargin'
+    | 'triggerOnce'
+    | 'initialInView'
+    | 'root'
+    | 'delay'
+  >;
 }
 
 export function DefenseCardSection({
@@ -20,10 +29,13 @@ export function DefenseCardSection({
   component = 'section',
   itemList = [],
   animateIn,
+  observerProps = {
+    triggerOnce: true,
+  },
   sx,
 }: DefenseCardSectionProps) {
   return (
-    <InView>
+    <InView {...observerProps}>
       {({ entry, inView, ref }) => {
         console.log(inView, animateIn);
         return (

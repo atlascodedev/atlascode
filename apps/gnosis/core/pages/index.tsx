@@ -1,12 +1,12 @@
 import { Button } from '@material-ui/core';
+import HeroScreen from '../components/HeroScreen';
+import ProductDefense from '../components/ProductDefense';
 
 export function Index() {
   return (
-    <div style={{ margin: '50px' }}>
-      <Button variant="contained" size="large">
-        {' '}
-        Hello Gnosis
-      </Button>
+    <div>
+      <HeroScreen />
+      <ProductDefense />
     </div>
   );
 }
