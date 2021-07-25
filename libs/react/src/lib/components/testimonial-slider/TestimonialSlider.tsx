@@ -1,3 +1,5 @@
+import { Box } from '@material-ui/core';
+import SwiperSliderWrapper from '../../utility/swiper-slider-wrapper/SwiperSliderWrapper';
 import { TestimonialCardRoundedProps } from '../testimonial-card-rounded/TestimonialCardRounded';
 
 export interface TestimonialSliderProps {
@@ -6,9 +8,11 @@ export interface TestimonialSliderProps {
 
 export function TestimonialSlider(props: TestimonialSliderProps) {
   return (
-    <div>
-      <h1>Welcome to testimonial-slider!</h1>
-    </div>
+    <SwiperSliderWrapper
+      SwiperProps={{ slidesPerView: 3 }}
+      component={Box}
+      items={[{ sx: { color: '#fff' } }]}
+    />
   );
 }
 

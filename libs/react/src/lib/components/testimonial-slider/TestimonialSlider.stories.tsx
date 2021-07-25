@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { TestimonialSlider, TestimonialSliderProps } from './TestimonialSlider';
+import { testimonialCardRoundedMock } from './__mocks__';
 
 export default {
   component: TestimonialSlider,
@@ -11,4 +12,6 @@ const Template: Story<TestimonialSliderProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  // items: testimonialCardRoundedMock(20, 'primary'),
+};
