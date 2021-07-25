@@ -18,20 +18,10 @@ const HeroScreen = (props: HeroScreenProps) => {
   } = useScrollbarContext();
 
   return (
-    <div>
-      <HeroScreenWhiteDots
-        desktopPicture={<DesktopPicture />}
-        picture={<MobilePicture />}
-      />
-      <button onClick={() => scrollIntoView('#testeme')}>
-        Scroll to bottom
-      </button>
-
-      <div id="testeme" style={{ position: 'absolute', bottom: 0 }}>
-        im at the bottom
-      </div>
-      <div style={{ height: '200vh' }}></div>
-    </div>
+    <HeroScreenWhiteDots
+      desktopPicture={<DesktopPicture />}
+      picture={<MobilePicture />}
+    />
   );
 };
 
