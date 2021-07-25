@@ -1,7 +1,7 @@
 import { offerCardFullMock } from '@atlascode/react-core';
-import { Button } from '@material-ui/core';
 import Courses from '../components/Courses';
 import HeroScreen from '../components/HeroScreen';
+import Newsletter from '../components/Newsletter';
 import ProductDefense from '../components/ProductDefense';
 
 const mockExt = offerCardFullMock(20);
@@ -18,6 +18,7 @@ export function Index() {
         coursesMulti={mockMulti}
         coursesPos={mockPos}
       />
+      <Newsletter />
     </div>
   );
 }

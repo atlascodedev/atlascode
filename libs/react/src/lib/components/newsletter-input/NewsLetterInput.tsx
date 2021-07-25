@@ -5,6 +5,8 @@ import {
   OutlinedTextFieldProps,
   TextField,
 } from '@material-ui/core';
+import useMeasure from '../../hooks/useMeasure';
+import React from 'react';
 
 type NewsLetterInputTextFieldProps = Pick<
   OutlinedTextFieldProps,
@@ -45,11 +47,23 @@ export function NewsLetterInput({
   minWidth,
 }: NewsLetterInputProps) {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        '.MuiFormHelperText-root': {
+          position: 'absolute',
+          bottom: '-65%',
+          left: '5%',
+          m: 0,
+          p: 0,
+        },
+      }}
+    >
       <TextField
         sx={{
           '.MuiOutlinedInput-root': {
             borderTopRightRadius: '0px',
+            bgcolor: (theme) => theme.palette.background.paper,
             borderBottomRightRadius: '0px',
             minWidth: minWidth ? minWidth : 'initial',
           },
@@ -69,7 +83,10 @@ export function NewsLetterInput({
         onClick={onClick}
         color={color}
         disableElevation
-        sx={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}
+        sx={{
+          borderTopLeftRadius: '0px',
+          borderBottomLeftRadius: '0px',
+        }}
         variant="contained"
       >
         {buttonLabel}
