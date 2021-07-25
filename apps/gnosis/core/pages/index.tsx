@@ -1,11 +1,12 @@
-import { AtlasButton } from '@atlascode/react-core';
+import { Button } from '@material-ui/core';
 
 export function Index() {
   return (
     <div style={{ margin: '50px' }}>
-      <AtlasButton size="large" compact={false}>
-        Hello world
-      </AtlasButton>
+      <Button variant="contained" size="large">
+        {' '}
+        Hello Gnosis
+      </Button>
     </div>
   );
 }

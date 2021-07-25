@@ -20,6 +20,7 @@ export * from './lib/components/product-card/ProductCard';
 export * from './lib/components/atlas-button/AtlasButton';
 export * from './lib/utility/atlas-theme-provider/AtlasThemeProvider';
 export * from './lib/utility/lottie-wrapper';
+export * from './lib/utility/atlas-theme-provider/module-augmentation';
 export { default as useBeforeUnload } from './lib/hooks/useBeforeUnload';
 export { default as useClickAway } from './lib/hooks/useClickAway';
 export { default as useComponentWillUnmount } from './lib/hooks/useComponentWillUnmount';

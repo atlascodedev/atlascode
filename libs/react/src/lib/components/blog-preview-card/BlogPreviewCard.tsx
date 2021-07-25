@@ -102,7 +102,15 @@ export function BlogPreviewCard({
 
       <Stack gap="1rem" direction="row">
         {tags.map((tag, index) => {
-          return <Chip label={`#${tag}`} variant="filled" color={color} />;
+          return (
+            <Chip
+              size="small"
+              clickable
+              label={`#${tag}`}
+              variant="filled"
+              color={color}
+            />
+          );
         })}
       </Stack>
     </Stack>

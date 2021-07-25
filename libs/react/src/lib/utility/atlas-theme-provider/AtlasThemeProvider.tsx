@@ -2,7 +2,7 @@ import defaultTheme, { componentsTheme } from './theme';
 import { Theme, CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
-import { CacheProvider } from '@emotion/react';
+import { CacheProvider, Global, css } from '@emotion/react';
 import createCache from '@emotion/cache';
 import _ from 'lodash';
 
@@ -29,6 +29,13 @@ export const AtlasCodeThemeProvider: React.FC<AtlasCodeThemeProviderProps> = ({
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={mergedThemeMemo}>
+        <Global
+          styles={css`
+            html {
+              font-size: 62.5%;
+            }
+          `}
+        />
         {resetCSS && <CssBaseline />}
         {children}
       </ThemeProvider>

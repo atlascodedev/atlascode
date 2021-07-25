@@ -4,7 +4,7 @@ import { IconButtonCircle, IconButtonCircleProps } from './IconButtonCircle';
 
 export default {
   component: IconButtonCircle,
-  title: 'IconButtonCircle',
+  title: 'AtlasCode/Buttons/IconButtonCircle',
 } as Meta;
 
 const Template: Story<IconButtonCircleProps> = (args) => (
