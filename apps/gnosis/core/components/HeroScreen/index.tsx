@@ -7,10 +7,14 @@ export interface HeroScreenProps {}
 
 const HeroScreen = (props: HeroScreenProps) => {
   return (
-    <HeroScreenWhiteDots
-      desktopPicture={<DesktopPicture />}
-      picture={<MobilePicture />}
-    />
+    <div>
+      <HeroScreenWhiteDots
+        desktopPicture={<DesktopPicture />}
+        picture={<MobilePicture />}
+      />
+
+      <div style={{ height: '200vh' }}></div>
+    </div>
   );
 };
 
@@ -22,7 +26,7 @@ const DesktopPicture = ({ src = 'images/hero-doc.png' }: { src?: string }) => {
       src={src}
       component="img"
       sx={{
-        pt: { xs: '100px' },
+        pt: '130px',
         width: '100%',
         height: '100%',
         objectFit: 'cover',
