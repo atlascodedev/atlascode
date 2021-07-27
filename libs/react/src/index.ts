@@ -1,3 +1,4 @@
+export * from './lib/forms/minimal-contact-form/MinimalContactForm';
 export * from './lib/utility/swiper-slider-wrapper/SwiperSliderWrapper';
 export * from './lib/components/testimonial-slider/TestimonialSlider';
 export * from './lib/components/icon-button-circle/IconButtonCircle';
