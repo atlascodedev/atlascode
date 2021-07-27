@@ -1,4 +1,5 @@
 import { Avatar, Box, Paper, PaperProps, Stack } from '@material-ui/core';
+import { addQuotes } from '../../mixins/add-quotes/AddQuotes';
 import { webkitVerticalTruncate } from '../../mixins/webkit-vertical-truncate/WebkitVerticalTruncate';
 
 export type TestimonialCardPaperProps = Pick<PaperProps, 'elevation'>;
@@ -28,10 +29,11 @@ export function TestimonialCardRounded({
     <Paper
       sx={{
         fontSize: '1.65rem',
-        width: { xs: '31ch', md: '50ch' },
+        width: { xs: '33ch', md: '55ch', lg: '64ch' },
         bgcolor: (theme) => theme.palette[color].main,
         color: (theme) => theme.palette[color].contrastText,
         height: 'auto',
+        minHeight: '18rem',
         overflow: 'hidden',
         borderRadius: square ? '0px' : '15px',
         p: { xs: '5rem 3rem 1.8rem 3rem', md: '5rem 7rem 1.8rem 3rem' },
@@ -41,6 +43,7 @@ export function TestimonialCardRounded({
       <Box
         component="p"
         sx={{
+          ...(addQuotes() as Record<string, unknown>),
           m: 0,
           ...(maximumLines
             ? (webkitVerticalTruncate(maximumLines) as Record<string, unknown>)
