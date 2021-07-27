@@ -1,5 +1,6 @@
 import { Box, Fab } from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
+import useId from '../../hooks/useId';
 import SwiperSliderWrapper from '../../utility/swiper-slider-wrapper/SwiperSliderWrapper';
 import TestimonialCardRounded, {
   TestimonialCardRoundedProps,
@@ -16,6 +17,8 @@ export function TestimonialSlider({
   controlButtons = true,
   controlButtonsColor = 'primary',
 }: TestimonialSliderProps) {
+  const navigationID = useId();
+
   return (
     <Box>
       <SwiperSliderWrapper
@@ -29,8 +32,8 @@ export function TestimonialSlider({
         }}
         SwiperProps={{
           navigation: {
-            nextEl: '#nextTestimonial',
-            prevEl: '#prevTestimonial',
+            nextEl: `#nextTestimonial-${navigationID}`,
+            prevEl: `#prevTestimonial-${navigationID}`,
           },
           slidesPerView: 1,
           spaceBetween: 20,
@@ -63,7 +66,7 @@ export function TestimonialSlider({
           }}
         >
           <Fab
-            id="prevTestimonial"
+            id={`prevTestimonial-${navigationID}`}
             variant="outlined"
             color={controlButtonsColor}
           >
@@ -73,7 +76,7 @@ export function TestimonialSlider({
           </Fab>
 
           <Fab
-            id="nextTestimonial"
+            id={`nextTestimonial-${navigationID}`}
             variant="outlined"
             color={controlButtonsColor}
           >
