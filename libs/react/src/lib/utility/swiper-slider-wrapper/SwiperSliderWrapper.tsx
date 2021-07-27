@@ -1,4 +1,5 @@
-import { Box } from '@material-ui/core';
+/* eslint-disable @typescript-eslint/ban-types */
+import React from 'react';
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -8,6 +9,8 @@ import SwiperCore, {
   SwiperOptions,
 } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import OfferCard from '../../components/offer-card/OfferCard';
+import MotionBox from '../motion-box/MotionBox';
 
 require('swiper/swiper.min.css');
 require('swiper/components/navigation/navigation.min.css');
@@ -19,29 +22,38 @@ require('swiper/components/lazy/lazy.min.css');
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
-/* eslint-disable-next-line */
-export interface SwiperSliderWrapperProps<T = {}, R extends T[] = T[]> {
-  SwiperProps: SwiperOptions;
-  items: R;
-  component: React.FC<T>;
-}
+export type SliderWrapperProps<C> = {
+  component: React.FC<C>;
+  list?: C[];
+  SwiperProps?: SwiperOptions;
+};
 
-export function SwiperSliderWrapper({
-  SwiperProps,
+const SwiperSliderWrapper = <T extends {}>({
   component: Component,
-  items,
-}: SwiperSliderWrapperProps) {
+  SwiperProps,
+  list = [],
+  ...props
+}: SliderWrapperProps<T>) => {
+  const { ...otherProps } = props;
+
   return (
-    <Box {...(SwiperProps as any)} component={Swiper}>
-      {items.map((value, index) => {
+    <Swiper>
+      {list.map((value, index) => {
         return (
           <SwiperSlide key={index}>
             <Component {...value} />
           </SwiperSlide>
         );
       })}
-    </Box>
+    </Swiper>
   );
-}
+};
+
+<SwiperSliderWrapper
+  list={[
+    { img: 'https://1231321', items: [], redirectLink: '223', title: '131321' },
+  ]}
+  component={OfferCard}
+/>;
 
 export default SwiperSliderWrapper;

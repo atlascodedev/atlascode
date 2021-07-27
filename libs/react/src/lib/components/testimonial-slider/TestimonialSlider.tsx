@@ -8,11 +8,7 @@ export interface TestimonialSliderProps {
 
 export function TestimonialSlider(props: TestimonialSliderProps) {
   return (
-    <SwiperSliderWrapper
-      SwiperProps={{ slidesPerView: 3 }}
-      component={Box}
-      items={[{ sx: { color: '#fff' } }]}
-    />
+    <SwiperSliderWrapper SwiperProps={{ slidesPerView: 3 }} component={Box} />
   );
 }
 

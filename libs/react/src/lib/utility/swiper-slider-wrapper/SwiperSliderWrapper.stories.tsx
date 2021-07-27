@@ -1,15 +1,13 @@
 import { Story, Meta } from '@storybook/react';
-import {
-  SwiperSliderWrapper,
-  SwiperSliderWrapperProps,
-} from './SwiperSliderWrapper';
+import SwiperSliderWrapper, { SliderWrapperProps } from './SwiperSliderWrapper';
 
 export default {
   component: SwiperSliderWrapper,
   title: 'SwiperSliderWrapper',
 } as Meta;
 
-const Template: Story<SwiperSliderWrapperProps> = (args) => (
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Template: Story<SliderWrapperProps<{}>> = (args) => (
   <SwiperSliderWrapper {...args} />
 );
 
