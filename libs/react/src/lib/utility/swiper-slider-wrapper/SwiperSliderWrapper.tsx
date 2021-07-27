@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
+import { Box, BoxProps } from '@material-ui/core';
 import React from 'react';
 import SwiperCore, {
   Navigation,
@@ -25,19 +26,19 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 export type SliderWrapperProps<C> = {
   component: React.FC<C>;
   list?: C[];
-  SwiperProps?: SwiperOptions;
+  SwiperProps?: Omit<SwiperOptions, 'width' | 'height'>;
+  sx?: Omit<BoxProps['sx'], 'width'>;
 };
 
 const SwiperSliderWrapper = <T extends {}>({
   component: Component,
   SwiperProps,
   list = [],
+  sx,
   ...props
 }: SliderWrapperProps<T>) => {
-  const { ...otherProps } = props;
-
   return (
-    <Swiper>
+    <Box {...sx} component={Swiper} {...SwiperProps}>
       {list.map((value, index) => {
         return (
           <SwiperSlide key={index}>
@@ -45,7 +46,7 @@ const SwiperSliderWrapper = <T extends {}>({
           </SwiperSlide>
         );
       })}
-    </Swiper>
+    </Box>
   );
 };
 
