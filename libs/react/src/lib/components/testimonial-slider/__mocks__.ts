@@ -12,7 +12,7 @@ export const testimonialCardRoundedMock = (
       color: color,
       identification: faker.name.title() + ' ' + faker.company.companyName(),
       name: faker.name.firstName() + ' ' + faker.name.lastName(),
-      testimonial: faker.company.bs(),
+      testimonial: faker.lorem.sentences(4),
     };
 
     outArray.push(testimonialCardRoundVariationLocal);

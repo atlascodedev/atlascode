@@ -33,6 +33,7 @@ export function TestimonialCardRounded({
         bgcolor: (theme) => theme.palette[color].main,
         color: (theme) => theme.palette[color].contrastText,
         height: 'auto',
+        minHeight: '18rem',
         overflow: 'hidden',
         borderRadius: square ? '0px' : '15px',
         p: { xs: '5rem 3rem 1.8rem 3rem', md: '5rem 7rem 1.8rem 3rem' },

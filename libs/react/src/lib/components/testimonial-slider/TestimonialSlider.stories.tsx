@@ -5,6 +5,13 @@ import { testimonialCardRoundedMock } from './__mocks__';
 export default {
   component: TestimonialSlider,
   title: 'TestimonialSlider',
+  argTypes: {
+    items: {
+      control: {
+        type: null,
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<TestimonialSliderProps> = (args) => (
@@ -12,6 +19,7 @@ const Template: Story<TestimonialSliderProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
+
 Primary.args = {
-  // items: testimonialCardRoundedMock(20, 'primary'),
+  items: testimonialCardRoundedMock(20, 'primary'),
 };
