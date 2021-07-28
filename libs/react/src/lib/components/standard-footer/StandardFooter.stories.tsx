@@ -3,7 +3,7 @@ import { StandardFooter, StandardFooterProps } from './StandardFooter';
 
 export default {
   component: StandardFooter,
-  title: 'StandardFooter',
+  title: 'AtlasCode/Footers/Standard Footer Variation',
   parameters: {
     layout: 'fullscreen',
   },

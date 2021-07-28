@@ -6,7 +6,7 @@ import {
 
 export default {
   component: MinimalContactForm,
-  title: 'MinimalContactForm',
+  title: 'AtlasCode/Forms/MinimalContactForm',
 } as Meta;
 
 const Template: Story<MinimalContactFormProps> = (args) => (
@@ -14,4 +14,6 @@ const Template: Story<MinimalContactFormProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  rightAlign: false,
+};

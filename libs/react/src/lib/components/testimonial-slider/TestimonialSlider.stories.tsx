@@ -4,7 +4,7 @@ import { testimonialCardRoundedMock } from './__mocks__';
 
 export default {
   component: TestimonialSlider,
-  title: 'TestimonialSlider',
+  title: 'AtlasCode/Sliders/Testimonial Slider',
   argTypes: {
     items: {
       control: {

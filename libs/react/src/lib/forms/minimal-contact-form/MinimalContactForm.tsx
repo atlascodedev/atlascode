@@ -11,6 +11,7 @@ export type FormInputProps = {
 
 /* eslint-disable-next-line */
 export interface MinimalContactFormProps {
+  rightAlign?: boolean;
   nameInputProps: Partial<FormInputProps>;
   phoneInputProps: Partial<FormInputProps>;
   emailInputProps: Partial<FormInputProps>;
@@ -45,6 +46,8 @@ export function MinimalContactForm({
     color: 'primary',
     label: 'Enviar',
   },
+  onSubmit,
+  rightAlign,
 }: MinimalContactFormProps) {
   return (
     <Box sx={{ width: '100%', height: 'auto', overflow: 'hidden' }}>
@@ -63,6 +66,7 @@ export function MinimalContactForm({
             gridAutoFlow: 'row',
             columnGap: '4rem',
             rowGap: '5rem',
+            ...(rightAlign ? { gridColumn: '2/3' } : {}),
           }}
         >
           <TextField
