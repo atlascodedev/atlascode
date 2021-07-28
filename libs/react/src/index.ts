@@ -1,3 +1,4 @@
+export * from './lib/hooks/use-load-more/UseLoadMore';
 export * from './lib/forms/minimal-contact-form/MinimalContactForm';
 export * from './lib/utility/swiper-slider-wrapper/SwiperSliderWrapper';
 export * from './lib/components/testimonial-slider/TestimonialSlider';
