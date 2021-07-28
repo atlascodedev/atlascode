@@ -94,7 +94,7 @@ export function HeroScreenWhiteDots({
               textTransform: 'inherit',
               fontSize: { xs: '1rem', md: '1.3', lg: '1.5rem' },
             }}
-            variant="contained"
+            variant="kota"
             color="primary"
             size="large"
           >
