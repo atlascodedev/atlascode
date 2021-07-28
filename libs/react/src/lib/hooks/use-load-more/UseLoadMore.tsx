@@ -1,4 +1,4 @@
-import _, { cloneDeep } from 'lodash';
+import _ from 'lodash';
 import React from 'react';
 
 function useLoadMore<T>(data: Array<T>, loadLimit: number, deps?: unknown[]) {
