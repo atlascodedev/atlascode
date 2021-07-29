@@ -15,7 +15,7 @@ export default {
 } as Meta;
 
 const Template: Story<unknown> = (args) => (
-  <UseLoadMoreDemo {...(args as any)} />
+  <UseLoadMoreDemo {...(args as unknown as never)} />
 );
 
 export const Primary = Template.bind({});
