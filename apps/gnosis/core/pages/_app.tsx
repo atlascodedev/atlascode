@@ -5,6 +5,7 @@ import {
   ThemeSmoothScrollLayout,
 } from '@atlascode/react-core';
 import theme from '../theme/customTheme';
+import AppLayout from '../layout/LandingPage.layout';
 
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
@@ -12,7 +13,9 @@ export default function MyApp(props: AppProps) {
   return (
     <AtlasCodeThemeProvider theme={theme}>
       <ThemeSmoothScrollLayout>
-        <Component {...pageProps} />
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
       </ThemeSmoothScrollLayout>
     </AtlasCodeThemeProvider>
   );

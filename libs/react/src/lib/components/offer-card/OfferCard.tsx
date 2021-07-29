@@ -30,10 +30,6 @@ export function OfferCard({
   title,
   zoomEffect,
 }: OfferCardProps) {
-  console.log(items);
-
-  console.log(backGroundZoom('objectFit'));
-
   return (
     <Box sx={{ maxWidth: { xs: '30rem', lg: '34rem' } }}>
       <Card sx={{ maxWidth: '100%', borderRadius: '11px' }}>

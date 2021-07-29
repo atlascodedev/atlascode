@@ -37,7 +37,6 @@ export function DefenseCardSection({
   return (
     <InView {...observerProps}>
       {({ entry, inView, ref }) => {
-        console.log(inView, animateIn);
         return (
           <MotionBox
             ref={ref}
