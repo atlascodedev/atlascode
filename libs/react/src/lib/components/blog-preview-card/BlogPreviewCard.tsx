@@ -104,6 +104,7 @@ export function BlogPreviewCard({
         {tags.map((tag, index) => {
           return (
             <Chip
+              key={index}
               size="small"
               clickable
               label={`#${tag}`}
