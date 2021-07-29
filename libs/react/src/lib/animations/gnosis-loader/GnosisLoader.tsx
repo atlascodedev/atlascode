@@ -31,29 +31,27 @@ const pathFillVariants: Variants = {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface GnosisLoaderProps {
   onAnimationEnd?: (...args: unknown[]) => void;
+  onAnimationStart?: (...args: unknown[]) => void;
 }
 
-export const GnosisLoader = ({ onAnimationEnd }: GnosisLoaderProps) => {
-  const [animationPlaying, setAnimationPlaying] = React.useState<boolean>(true);
-
+export const GnosisLoader = ({
+  onAnimationEnd,
+  onAnimationStart,
+}: GnosisLoaderProps) => {
   const logoAnimationControls = useAnimation();
 
   React.useEffect(() => {
     (async () => {
+      onAnimationStart ? onAnimationStart() : _.noop();
+
       await logoAnimationControls.start('visible');
       await logoAnimationControls.start('fillVisible');
+      await logoAnimationControls.start('bgHidden');
+      await logoAnimationControls.start('bgRemoved');
 
-      setAnimationPlaying(false);
+      onAnimationEnd ? onAnimationEnd() : _.noop();
     })();
-  }, [logoAnimationControls]);
-
-  React.useEffect(() => {
-    if (!animationPlaying && onAnimationEnd) {
-      onAnimationEnd();
-    } else {
-      _.noop();
-    }
-  }, [animationPlaying, onAnimationEnd]);
+  }, [logoAnimationControls, onAnimationEnd, onAnimationStart]);
 
   return (
     <MotionBox
@@ -70,14 +68,17 @@ export const GnosisLoader = ({ onAnimationEnd }: GnosisLoaderProps) => {
         justifyContent: 'center',
         zIndex: 1000,
       }}
-      initial="visible"
-      animate={animationPlaying ? 'visible' : 'hidden'}
+      initial="bgInitial"
+      animate={logoAnimationControls}
       variants={{
-        hidden: {
+        bgHidden: {
           opacity: 0,
         },
-        initial: {
+        bgInitial: {
           opacity: 1,
+        },
+        bgRemoved: {
+          zIndex: -1000,
         },
       }}
     >
