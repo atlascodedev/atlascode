@@ -24,7 +24,7 @@ const PicComponent = () => {
 
 export default {
   component: MinimalFormPicOverBlob,
-  title: 'MinimalFormPicOverBlob',
+  title: 'AtlasCode/Screens/MinimalFormPicOverBlob',
   parameters: {
     layout: 'fullscreen',
   },

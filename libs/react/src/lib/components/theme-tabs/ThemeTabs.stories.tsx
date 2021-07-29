@@ -3,7 +3,7 @@ import { ThemeTabs, ThemeTabsProps } from './ThemeTabs';
 
 export default {
   component: ThemeTabs,
-  title: 'ThemeTabs',
+  title: 'Unstable/ThemeTabs',
 } as Meta;
 
 const Template: Story<ThemeTabsProps> = (args) => <ThemeTabs {...args} />;

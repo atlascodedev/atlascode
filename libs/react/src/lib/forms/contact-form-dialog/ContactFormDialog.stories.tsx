@@ -3,7 +3,7 @@ import { ContactFormDialog, ContactFormDialogProps } from './ContactFormDialog';
 
 export default {
   component: ContactFormDialog,
-  title: 'ContactFormDialog',
+  title: 'AtlasCode/Forms/Contact Form - Dialog',
 } as Meta;
 
 const Template: Story<ContactFormDialogProps> = (args) => (

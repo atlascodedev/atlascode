@@ -13,7 +13,7 @@ const LoadingScreenContextDemo = () => {
 
 export default {
   component: LoadingScreenContextDemo,
-  title: 'LoadingScreenContext',
+  title: 'AtlasCode/Utility/LoadingScreenContext',
 } as Meta;
 
 const Template: Story<any> = (args) => <LoadingScreenContextDemo {...args} />;

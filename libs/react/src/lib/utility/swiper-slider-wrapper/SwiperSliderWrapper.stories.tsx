@@ -3,7 +3,7 @@ import SwiperSliderWrapper, { SliderWrapperProps } from './SwiperSliderWrapper';
 
 export default {
   component: SwiperSliderWrapper,
-  title: 'SwiperSliderWrapper',
+  title: 'AtlasCode/Utility/SwiperSliderWrapper',
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/ban-types

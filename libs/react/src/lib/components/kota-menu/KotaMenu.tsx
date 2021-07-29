@@ -11,10 +11,8 @@ export interface KotaMenuProps {
   logo?: string;
   logoOpen?: string;
   open?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onOpen?: (...args: any[]) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onClose?: (...args: any[]) => void;
+  onOpen?: (...args: unknown[]) => void;
+  onClose?: (...args: unknown[]) => void;
   menuItems: KotaMenuItem[];
 }
 

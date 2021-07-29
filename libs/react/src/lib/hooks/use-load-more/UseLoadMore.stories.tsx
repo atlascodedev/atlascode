@@ -11,7 +11,7 @@ const UseLoadMoreDemo = () => {
 
 export default {
   component: UseLoadMoreDemo,
-  title: 'UseLoadMore',
+  title: 'AtlasCode/Hooks/UseLoadMore',
 } as Meta;
 
 const Template: Story<unknown> = (args) => (

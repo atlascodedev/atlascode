@@ -3,7 +3,7 @@ import { TabPanel, TabPanelProps } from './TabPanel';
 
 export default {
   component: TabPanel,
-  title: 'TabPanel',
+  title: 'AtlasCode/Utility/Tab panel',
 } as Meta;
 
 const Template: Story<TabPanelProps> = (args) => <TabPanel {...args} />;

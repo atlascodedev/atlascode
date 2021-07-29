@@ -11,7 +11,7 @@ const GnosisLoaderDemo = () => {
 
 export default {
   component: GnosisLoaderDemo,
-  title: 'GnosisLoader',
+  title: 'AtlasCode/Animations/Instituto Educacional Gnosis - Loading Screen',
   parameters: {
     layout: 'fullscreen',
   },

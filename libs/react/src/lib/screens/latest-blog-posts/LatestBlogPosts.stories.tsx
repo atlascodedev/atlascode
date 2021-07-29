@@ -4,7 +4,7 @@ import { LatestBlogPosts, LatestBlogPostsProps } from './LatestBlogPosts';
 
 export default {
   component: LatestBlogPosts,
-  title: 'LatestBlogPosts',
+  title: 'AtlasCode/Screens/Blog Posts Preview',
 } as Meta;
 
 const Template: Story<LatestBlogPostsProps> = (args) => (
