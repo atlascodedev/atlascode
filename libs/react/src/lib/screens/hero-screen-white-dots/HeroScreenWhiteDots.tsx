@@ -2,6 +2,7 @@ import { generateCSSFilter } from '@atlascode/helpers';
 import {
   Box,
   Button,
+  ButtonProps,
   Typography,
   useMediaQuery,
   useTheme,
@@ -17,6 +18,9 @@ export interface HeroScreenWhiteDotsProps {
   picture?: JSX.Element;
   desktopPicture?: JSX.Element;
   blobColor?: 'primary' | 'secondary';
+  buttonVariant?: ButtonProps['variant'];
+  ctaCallback?: (...args: unknown[]) => void;
+  ctaLabel?: string;
 }
 
 export function HeroScreenWhiteDots({
@@ -26,6 +30,9 @@ export function HeroScreenWhiteDots({
   blobColor = 'primary',
   desktopPicture,
   picture,
+  buttonVariant = 'contained',
+  ctaCallback,
+  ctaLabel = 'Call to action',
 }: HeroScreenWhiteDotsProps) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
@@ -90,15 +97,16 @@ export function HeroScreenWhiteDots({
           </Typography>
 
           <Button
+            onClick={ctaCallback}
             sx={{
               textTransform: 'inherit',
               fontSize: { xs: '1rem', md: '1.3', lg: '1.5rem' },
             }}
-            variant="kota"
+            variant={buttonVariant}
             color="primary"
             size="large"
           >
-            Ver cursos
+            {ctaLabel}
           </Button>
         </Box>
 

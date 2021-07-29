@@ -1,4 +1,8 @@
-import { offerCardFullMock } from '@atlascode/react-core';
+import {
+  GnosisLoader,
+  offerCardFullMock,
+  useScrollbarContext,
+} from '@atlascode/react-core';
 import Courses from '../components/Courses';
 import HeroScreen from '../components/HeroScreen';
 import Newsletter from '../components/Newsletter';
@@ -9,8 +13,14 @@ const mockMulti = offerCardFullMock(15);
 const mockPos = offerCardFullMock(50);
 
 export function Index() {
+  const { disableScroll, enableScroll } = useScrollbarContext();
+
   return (
     <div>
+      <GnosisLoader
+        onAnimationStart={disableScroll}
+        onAnimationEnd={enableScroll}
+      />
       <HeroScreen />
       <ProductDefense />
       <Courses
