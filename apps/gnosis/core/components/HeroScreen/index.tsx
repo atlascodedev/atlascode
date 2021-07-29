@@ -1,12 +1,14 @@
 import {
   HeroScreenWhiteDots,
+  HeroScreenWhiteDotsProps,
   useScrollbarContext,
 } from '@atlascode/react-core';
 import { Box } from '@material-ui/core';
 import React from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface HeroScreenProps {}
+export interface HeroScreenProps
+  extends Omit<HeroScreenWhiteDotsProps, 'desktopPicture' | 'picture'> {}
 
 const HeroScreen = (props: HeroScreenProps) => {
   const {
@@ -19,6 +21,7 @@ const HeroScreen = (props: HeroScreenProps) => {
 
   return (
     <HeroScreenWhiteDots
+      {...props}
       desktopPicture={<DesktopPicture />}
       picture={<MobilePicture />}
     />
