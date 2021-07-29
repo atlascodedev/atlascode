@@ -34,8 +34,8 @@ const BlogPreview = (props: BlogPreviewProps) => {
           justifyContent: 'center',
           color: (theme) => theme.palette.primary.main,
           fontWeight: 700,
-          fontSize: { xs: '1.8rem', md: '2.2rem', lg: '3.2rem' },
-          pb: '8rem',
+          fontSize: { xs: '2.2rem', lg: '3.2rem' },
+          pb: { xs: '5rem', md: '6.5rem', lg: '8rem' },
         }}
       >
         Últimas postagens
