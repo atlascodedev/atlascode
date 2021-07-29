@@ -12,10 +12,11 @@ export type FormInputProps = {
 /* eslint-disable-next-line */
 export interface MinimalContactFormProps {
   rightAlign?: boolean;
-  nameInputProps: Partial<FormInputProps>;
-  phoneInputProps: Partial<FormInputProps>;
-  emailInputProps: Partial<FormInputProps>;
-  messageInputProps: Partial<FormInputProps>;
+  title?: string;
+  nameInputProps?: Partial<FormInputProps>;
+  phoneInputProps?: Partial<FormInputProps>;
+  emailInputProps?: Partial<FormInputProps>;
+  messageInputProps?: Partial<FormInputProps>;
   onSubmit?: (...args: unknown[]) => void;
   buttonProps?: {
     rightAlign?: boolean;
@@ -48,9 +49,26 @@ export function MinimalContactForm({
   },
   onSubmit,
   rightAlign,
+  title,
 }: MinimalContactFormProps) {
   return (
     <Box sx={{ width: '100%', height: 'auto' }}>
+      {title && (
+        <Box
+          component="h2"
+          sx={{
+            m: 0,
+            px: 0,
+            py: '3rem',
+            fontSize: { xs: '2rem', md: '2.5rem', lg: '3rem' },
+            color: (theme) => theme.palette.primary.main,
+            fontWeight: 700,
+          }}
+        >
+          {title}
+        </Box>
+      )}
+
       <Box
         sx={{
           display: 'grid',

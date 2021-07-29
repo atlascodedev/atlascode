@@ -12,7 +12,7 @@ const PicComponent = () => {
         pt: '125px',
         width: '100%',
         height: '100%',
-        objectFit: 'contain',
+        objectFit: { xs: 'cover', lg: 'contain' },
         bottom: 0,
         position: 'absolute',
       }}

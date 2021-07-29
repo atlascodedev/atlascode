@@ -8,7 +8,7 @@ import { generateCSSFilter } from '@atlascode/helpers';
 
 /* eslint-disable-next-line */
 export interface MinimalFormPicOverBlobProps {
-  formProps: MinimalContactFormProps;
+  formProps?: MinimalContactFormProps;
   blobColor?: 'primary' | 'secondary';
   desktopPicture?: JSX.Element;
   picture?: JSX.Element;
@@ -35,14 +35,20 @@ export function MinimalFormPicOverBlob({
       sx={{
         position: 'relative',
         width: '100%',
-        height: '100vh',
+        height: { xs: 'auto', lg: '80vh' },
         overflow: 'hidden',
       }}
     >
       <Box
-        sx={{ display: 'grid', gridTemplateColumns: '40% 60%', height: '100%' }}
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', lg: '40% 60%' },
+          gridTemplateRows: { xs: '1fr 1fr', lg: 'none' },
+          gridAutoFlow: 'row',
+          height: '100%',
+        }}
       >
-        <Box sx={{ alignSelf: 'center' }}>
+        <Box sx={{ alignSelf: 'center', px: { xs: '3rem', lg: '0rem' } }}>
           <MinimalContactForm {...formProps} />
         </Box>
         <Box
@@ -66,7 +72,7 @@ export function MinimalFormPicOverBlob({
               top: 0,
               filter: blobFilter,
               zIndex: -1,
-              objectFit: 'cover',
+              objectFit: { xs: 'cover', lg: 'contain' },
               left: 0,
             }}
           />

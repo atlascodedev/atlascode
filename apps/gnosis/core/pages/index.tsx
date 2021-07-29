@@ -6,6 +6,7 @@ import {
   useScrollbarContext,
 } from '@atlascode/react-core';
 import BlogPreview from '../components/BlogPreview';
+import Contact from '../components/Contact';
 import Courses from '../components/Courses';
 import HeroScreen from '../components/HeroScreen';
 import Newsletter from '../components/Newsletter';
@@ -48,6 +49,15 @@ export function Index() {
 
       <div>
         <Testimonials items={mockTestimonials} />
+      </div>
+
+      <div id="contact_form">
+        <Contact
+          formProps={{
+            title: 'Fale conosco',
+          }}
+          blobColor="secondary"
+        />
       </div>
     </div>
   );
