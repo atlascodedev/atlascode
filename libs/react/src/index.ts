@@ -1,3 +1,4 @@
+export * from './lib/screens/minimal-form-pic-over-blob/MinimalFormPicOverBlob';
 export * from './lib/forms/contact-form-dialog/ContactFormDialog';
 export * from './lib/components/testimonial-slider/__mocks__';
 export * from './lib/components/blog-preview-card/__mocks__';
