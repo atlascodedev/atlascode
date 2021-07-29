@@ -1,4 +1,8 @@
-import { LatestBlogPosts, LatestBlogPostsProps } from '@atlascode/react-core';
+import {
+  LatestBlogPosts,
+  LatestBlogPostsProps,
+  polkaPattern,
+} from '@atlascode/react-core';
 import { Box } from '@material-ui/core';
 import React from 'react';
 
@@ -7,7 +11,36 @@ export interface BlogPreviewProps extends LatestBlogPostsProps {}
 
 const BlogPreview = (props: BlogPreviewProps) => {
   return (
-    <Box>
+    <Box sx={{ width: '100%', py: '8rem', position: 'relative' }}>
+      <Box
+        sx={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          zIndex: -1,
+          top: 0,
+          left: 0,
+          ...(polkaPattern('#fff', 0.4, 50, '#646464') as Record<
+            string,
+            unknown
+          >),
+        }}
+      />
+
+      <Box
+        sx={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'center',
+          color: (theme) => theme.palette.primary.main,
+          fontWeight: 700,
+          fontSize: { xs: '1.8rem', md: '2.2rem', lg: '3.2rem' },
+          pb: '8rem',
+        }}
+      >
+        Últimas postagens
+      </Box>
+
       <LatestBlogPosts {...props} />
     </Box>
   );

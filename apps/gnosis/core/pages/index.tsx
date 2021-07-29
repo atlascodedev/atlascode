@@ -40,6 +40,7 @@ export function Index() {
           coursesPos={mockPos}
         />
       </div>
+      <Newsletter />
 
       <div>
         <BlogPreview items={mockBlogPreview} />
@@ -48,8 +49,6 @@ export function Index() {
       <div>
         <Testimonials items={mockTestimonials} />
       </div>
-
-      <Newsletter />
     </div>
   );
 }
