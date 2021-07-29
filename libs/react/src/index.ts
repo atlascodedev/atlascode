@@ -1,3 +1,4 @@
+export * from './lib/forms/contact-form-dialog/ContactFormDialog';
 export * from './lib/screens/latest-blog-posts/LatestBlogPosts';
 export * from './lib/animations/gnosis-loader/GnosisLoader';
 export * from './lib/context/loading-screen-context/LoadingScreenContext';
