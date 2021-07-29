@@ -50,11 +50,11 @@ export function MinimalContactForm({
   rightAlign,
 }: MinimalContactFormProps) {
   return (
-    <Box sx={{ width: '100%', height: 'auto', overflow: 'hidden' }}>
+    <Box sx={{ width: '100%', height: 'auto' }}>
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '100%', lg: '50% 50%' },
+          gridTemplateColumns: { xs: '100%' },
           gridAutoFlow: 'row',
         }}
       >
