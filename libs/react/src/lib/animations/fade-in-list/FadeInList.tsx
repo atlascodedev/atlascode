@@ -1,14 +1,22 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Property } from 'csstype';
-import { Transition, Variants } from 'framer-motion';
+import {
+  HTMLMotionProps,
+  Transition,
+  useAnimation,
+  Variants,
+} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { ResponsiveStyleValue } from '../../typings/styling';
 import MotionBox from '../../utility/motion-box/MotionBox';
+import React from 'react';
+import _ from 'lodash';
 
 enum FadeDirection {
-  left = 'left',
+  Left = 'left',
   right = 'right',
-  top = 'top',
-  bottom = 'bottom',
+  Top = 'top',
+  Bottom = 'bottom',
 }
 
 /* eslint-disable-next-line */
@@ -19,6 +27,9 @@ export interface FadeInListProps<T> {
   staggerChildren?: number;
   fadeDirection: FadeDirection;
   gap?: ResponsiveStyleValue<Property.Gap<string | number>>;
+  // WrapperProps?: HTMLMotionProps<'div'>;
+  animateIn?: 'scroll' | boolean;
+  triggerOnce?: boolean;
 }
 
 export function FadeInList<T extends {}>({
@@ -26,17 +37,40 @@ export function FadeInList<T extends {}>({
   list = [],
   flexDirection: direction = 'column',
   staggerChildren = 0.25,
-  fadeDirection = FadeDirection.top,
-}: FadeInListProps<T>): JSX.Element {
+  fadeDirection = FadeDirection.Top,
+  animateIn = true,
+  triggerOnce,
+  gap,
+}: FadeInListProps<T>): JSX.Element | null {
+  const animationsControl = useAnimation();
+  const { ref, inView, entry } = useInView();
+
+  React.useEffect(() => {
+    if (animateIn === 'scroll' && inView) {
+      (async () => {
+        animationsControl.start('visible');
+      })();
+    } else if (typeof animateIn === 'boolean' && animateIn) {
+      animationsControl.start('visible');
+    } else if (typeof animateIn !== 'boolean') {
+      throw new Error(
+        'animateIn property must be of type BOOLEAN or string literal SCROLL'
+      );
+    } else {
+      _.noop();
+    }
+  }, [animateIn, inView, animationsControl]);
+
   return (
     <MotionBox
+      ref={ref}
       layout
       initial="hidden"
       animate="visible"
       transition={{
         staggerChildren: staggerChildren,
       }}
-      sx={{ display: 'flex', flexDirection: direction, gap: '2rem' }}
+      sx={{ display: 'flex', flexDirection: direction, gap: gap }}
     >
       {list.map((value, index) => {
         return (
