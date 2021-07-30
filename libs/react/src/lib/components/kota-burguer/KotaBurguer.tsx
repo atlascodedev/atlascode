@@ -4,12 +4,18 @@ import React from 'react';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 import MotionBox from '../../utility/motion-box/MotionBox';
 
+const DEFAULT_COLOR = '#5a5a5a';
+const DEFAULT_HEIGHT = 1;
+const DEFAULT_FONTSIZE = '10px';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface KotaBurguerProps {
   open?: boolean;
   onAnimationStart?: (...args: unknown[]) => void;
   onAnimationEnd?: (...args: unknown[]) => void;
   onClick?: (...args: unknown[]) => void;
+  colorOpen?: string;
+  colorClosed?: string;
+  fontSize?: string;
 }
 
 export const KotaBurguer = ({
@@ -17,16 +23,14 @@ export const KotaBurguer = ({
   onClick,
   onAnimationEnd,
   onAnimationStart,
+  colorClosed = DEFAULT_COLOR,
+  colorOpen = DEFAULT_COLOR,
+  fontSize = DEFAULT_FONTSIZE,
 }: KotaBurguerProps) => {
   const animationControls = useAnimation();
 
-  const animationSequence = async () => {
-    await animationControls.start('open');
-    await animationControls.start('rotate');
-  };
-
   React.useEffect(() => {
-    if (!open) {
+    if (open) {
       (async () => {
         await animationControls.start('open');
         await animationControls.start('rotate');
@@ -39,56 +43,69 @@ export const KotaBurguer = ({
   }, [open, animationControls]);
 
   return (
-    <MotionBox
-      onClick={onClick}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '10rem',
-        height: 'auto',
-        gap: '1rem',
-        alignItems: 'flex-end',
-        cursor: 'pointer',
-        position: 'relative',
-      }}
-      initial="closed"
-      animate={animationControls}
-    >
+    <Box sx={{ fontSize: fontSize }}>
       <MotionBox
+        onClick={onClick}
         sx={{
-          ...lineStyles,
+          display: 'flex',
+          flexDirection: 'column',
+          width: '10em',
+          height: 'auto',
+          gap: '1em',
+          alignItems: 'flex-end',
+          cursor: 'pointer',
+          position: 'relative',
         }}
-        variants={firstLineVariant}
-      />
-      <MotionBox
-        sx={{
-          ...lineStyles,
-        }}
-        variants={secondLineVariant}
-      />
-      <MotionBox
-        sx={{
-          ...lineStyles,
-          width: '80%',
-        }}
-        variants={thirdLineVariant}
-      />
-    </MotionBox>
+        initial="closed"
+        animate={animationControls}
+      >
+        <MotionBox
+          sx={{
+            ...lineStyles(colorOpen, colorClosed, open),
+          }}
+          variants={firstLineVariant}
+        />
+        <MotionBox
+          sx={{
+            ...lineStyles(colorOpen, colorClosed, open),
+          }}
+          variants={secondLineVariant}
+        />
+        <MotionBox
+          sx={{
+            ...lineStyles(colorOpen, colorClosed, open),
+            width: '80%',
+          }}
+          variants={thirdLineVariant}
+        />
+      </MotionBox>
+    </Box>
   );
 };
 
 export default KotaBurguer;
 
-const lineStyles: AtlasCSSVariant = {
-  width: '100%',
-  height: '1rem',
-  backgroundColor: '#5a5a5a',
-  position: 'relative',
+const lineStyles = (
+  colorOpen?: string,
+  colorClosed?: string,
+  open?: boolean
+): AtlasCSSVariant => {
+  return {
+    fontSize: 'inherit',
+    width: '100%',
+    height: `${DEFAULT_HEIGHT}em`,
+    ...(colorOpen && open
+      ? { backgroundColor: colorOpen }
+      : colorClosed && !open
+      ? { backgroundColor: colorClosed }
+      : { backgroundColor: DEFAULT_COLOR }),
+    position: 'relative',
+  };
 };
 
 const firstLineVariant: Variants = {
   open: {
-    y: '2rem',
+    y: `${DEFAULT_HEIGHT * 2}em`,
   },
   closed: {
     y: '0em',
@@ -114,7 +131,7 @@ const secondLineVariant: Variants = {
 
 const thirdLineVariant: Variants = {
   open: {
-    y: '-2rem',
+    y: `-${DEFAULT_HEIGHT * 2}em`,
   },
   closed: {
     y: '0em',

@@ -1,17 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { KotaBurguer, KotaBurguerProps } from './KotaBurguer';
 import React from 'react';
-
-const KotaBurguerButtonDemo = (props: KotaBurguerProps) => {
-  const [open, setOpen] = React.useState<boolean>(false);
-
-  return (
-    <KotaBurguer
-      onClick={() => setOpen((prevState) => !prevState)}
-      open={open}
-    />
-  );
-};
+import { useTheme } from '@material-ui/core';
 
 export default {
   component: KotaBurguer,
@@ -33,4 +23,7 @@ export default {
 const Template: Story<KotaBurguerProps> = (args) => <KotaBurguer {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  colorClosed: '#002946',
+  colorOpen: '#F5B63B',
+};
