@@ -30,9 +30,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<KotaBurguerProps> = (args) => (
-  <KotaBurguerButtonDemo {...args} />
-);
+const Template: Story<KotaBurguerProps> = (args) => <KotaBurguer {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

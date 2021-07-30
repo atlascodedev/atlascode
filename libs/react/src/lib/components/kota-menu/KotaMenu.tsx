@@ -1,6 +1,5 @@
-import { Box, Button } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import React from 'react';
-import MotionBox from '../../utility/motion-box/MotionBox';
 import KotaBurguer from '../kota-burguer/KotaBurguer';
 
 export type KotaMenuItem =
@@ -23,29 +22,7 @@ export function KotaMenu(props: KotaMenuProps) {
     setOpen((prevState) => !prevState);
   };
 
-  return (
-    <Box
-      sx={{
-        position: 'fixed',
-        top: '10%',
-        width: '100%',
-        display: 'flex',
-        px: '60px',
-        alignItems: 'center',
-        zIndex: (theme) => theme.zIndex.appBar,
-      }}
-    >
-      <Box
-        sx={{
-          flexGrow: 1,
-        }}
-      >
-        Logo here
-      </Box>
-
-      <KotaBurguer open={open} onClick={toggleOpen} />
-    </Box>
-  );
+  return <KotaBurguer open={open} onClick={toggleOpen} />;
 }
 
 export default KotaMenu;
