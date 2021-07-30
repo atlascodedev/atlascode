@@ -4,16 +4,43 @@ import OfferCard from '../../components/offer-card/OfferCard';
 import FadeInList, { FadeInListProps } from './FadeInList';
 
 type DemoListElementProps = {
-  label: string;
+  label?: string;
 };
 
 const DemoListElement = ({ label }: DemoListElementProps) => {
-  return <div>{label}</div>;
+  return (
+    <Box
+      sx={{
+        width: '150px',
+        height: '150px',
+        borderRadius: '8px',
+        backgroundColor: 'violet',
+      }}
+    ></Box>
+  );
 };
 
 export default {
   component: FadeInList,
   title: 'FadeInListVertical',
+  decorators: [
+    (Story) => {
+      return (
+        <Box
+          sx={{
+            width: '100%',
+            height: '100vh',
+            overflow: 'hidden',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Story />
+        </Box>
+      );
+    },
+  ],
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -24,18 +51,7 @@ const Template: Story<FadeInListProps<DemoListElementProps>> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
   component: DemoListElement,
-  list: [
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-    { label: 'Ok' },
-  ],
+  list: [{}, {}, {}, {}],
+  gap: '2rem',
+  repeat: true,
 };

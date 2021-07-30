@@ -19,6 +19,8 @@ enum FadeDirection {
   Bottom = 'bottom',
 }
 
+type MotionComponentWrapperProps = Pick<HTMLMotionProps<'div'>, 'transition'>;
+
 /* eslint-disable-next-line */
 export interface FadeInListProps<T> {
   component: React.FC<T>;
@@ -27,9 +29,9 @@ export interface FadeInListProps<T> {
   staggerChildren?: number;
   fadeDirection: FadeDirection;
   gap?: ResponsiveStyleValue<Property.Gap<string | number>>;
-  // WrapperProps?: HTMLMotionProps<'div'>;
   animateIn?: 'scroll' | boolean;
   triggerOnce?: boolean;
+  repeat?: boolean;
 }
 
 export function FadeInList<T extends {}>({
@@ -41,9 +43,10 @@ export function FadeInList<T extends {}>({
   animateIn = true,
   triggerOnce,
   gap,
+  repeat,
 }: FadeInListProps<T>): JSX.Element | null {
   const animationsControl = useAnimation();
-  const { ref, inView, entry } = useInView();
+  const { ref, inView, entry } = useInView({ triggerOnce: triggerOnce });
 
   React.useEffect(() => {
     if (animateIn === 'scroll' && inView) {
@@ -79,6 +82,7 @@ export function FadeInList<T extends {}>({
             key={index}
             transition={{
               ...sluggish,
+              ...(repeat ? { repeat: Infinity, repeatType: 'mirror' } : {}),
             }}
           >
             <Component {...value} />
