@@ -1,6 +1,7 @@
 import { Box } from '@material-ui/core';
 import { useAnimation, Variants } from 'framer-motion';
 import React from 'react';
+import { ResponsiveStyleValue } from '../../typings/styling';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 import MotionBox from '../../utility/motion-box/MotionBox';
 
@@ -15,7 +16,7 @@ export interface KotaBurguerProps {
   onClick?: (...args: unknown[]) => void;
   colorOpen?: string;
   colorClosed?: string;
-  fontSize?: string;
+  fontSize?: ResponsiveStyleValue<string>;
 }
 
 export const KotaBurguer = ({

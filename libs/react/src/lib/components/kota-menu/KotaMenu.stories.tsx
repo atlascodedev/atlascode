@@ -24,4 +24,8 @@ export default {
 const Template: Story<KotaMenuProps> = (args) => <KotaMenu {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  logo: './images/gnosis-logo-blue.svg',
+  logoOpen: './images/gnosis-logo-white.svg',
+  open: true,
+};
