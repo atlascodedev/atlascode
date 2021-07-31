@@ -1,6 +1,7 @@
 import { Box } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
 import OfferCard from '../../components/offer-card/OfferCard';
+import { TransitionPreset } from '../typings';
 import FadeInList, { FadeInListProps } from './FadeInList';
 
 type DemoListElementProps = {
@@ -52,6 +53,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   component: DemoListElement,
   list: [{}, {}, {}, {}],
-  gap: '2rem',
-  repeat: true,
+  gap: '5rem',
+  repeat: false,
+  transition: 'DEFAULT' as TransitionPreset,
 };

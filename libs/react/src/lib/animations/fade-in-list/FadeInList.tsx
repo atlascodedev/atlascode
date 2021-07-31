@@ -1,25 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Property } from 'csstype';
-import {
-  HTMLMotionProps,
-  Transition,
-  useAnimation,
-  Variants,
-} from 'framer-motion';
+import { Transition, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ResponsiveStyleValue } from '../../typings/styling';
 import MotionBox from '../../utility/motion-box/MotionBox';
 import React from 'react';
 import _ from 'lodash';
+import { evaluateTransitionType } from '../util/evaluate-transition-type/EvaluateTransitionType';
+import { AnimationDirection, TransitionPreset } from '../typings';
 
-enum FadeDirection {
-  Left = 'left',
-  right = 'right',
-  Top = 'top',
-  Bottom = 'bottom',
-}
-
-type MotionComponentWrapperProps = Pick<HTMLMotionProps<'div'>, 'transition'>;
+const DISPLACEMENT_AMOUNT_DEFAULT = 100;
 
 /* eslint-disable-next-line */
 export interface FadeInListProps<T> {
@@ -27,11 +17,13 @@ export interface FadeInListProps<T> {
   list?: T[];
   flexDirection?: 'row' | 'column';
   staggerChildren?: number;
-  fadeDirection: FadeDirection;
+  fadeDirection: AnimationDirection;
+  displacementAmount?: number;
   gap?: ResponsiveStyleValue<Property.Gap<string | number>>;
   animateIn?: 'scroll' | boolean;
   triggerOnce?: boolean;
   repeat?: boolean;
+  transition?: TransitionPreset | Transition;
 }
 
 export function FadeInList<T extends {}>({
@@ -39,11 +31,13 @@ export function FadeInList<T extends {}>({
   list = [],
   flexDirection: direction = 'column',
   staggerChildren = 0.25,
-  fadeDirection = FadeDirection.Top,
+  fadeDirection = 'top',
   animateIn = true,
   triggerOnce,
   gap,
   repeat,
+  displacementAmount = 100,
+  transition = 'DEFAULT',
 }: FadeInListProps<T>): JSX.Element | null {
   const animationsControl = useAnimation();
   const { ref, inView, entry } = useInView({ triggerOnce: triggerOnce });
@@ -51,10 +45,12 @@ export function FadeInList<T extends {}>({
   React.useEffect(() => {
     if (animateIn === 'scroll' && inView) {
       (async () => {
-        animationsControl.start('visible');
+        await animationsControl.start('visible');
       })();
     } else if (typeof animateIn === 'boolean' && animateIn) {
-      animationsControl.start('visible');
+      (async () => {
+        await animationsControl.start('visible');
+      })();
     } else if (typeof animateIn !== 'boolean') {
       throw new Error(
         'animateIn property must be of type BOOLEAN or string literal SCROLL'
@@ -78,11 +74,14 @@ export function FadeInList<T extends {}>({
       {list.map((value, index) => {
         return (
           <MotionBox
-            variants={variantMap[fadeDirection]}
+            variants={variantMap(displacementAmount)[fadeDirection]}
             key={index}
             transition={{
-              ...sluggish,
-              ...(repeat ? { repeat: Infinity, repeatType: 'mirror' } : {}),
+              ...(evaluateTransitionType(transition) as Record<
+                string,
+                unknown
+              >),
+              ...(repeat ? { repeat: Infinity, repeatType: 'loop' } : {}),
             }}
           >
             <Component {...value} />
@@ -95,52 +94,49 @@ export function FadeInList<T extends {}>({
 
 export default FadeInList;
 
-const sluggish: Transition = {
-  type: 'spring',
-  mass: 25,
-  damping: 800,
-  stiffness: 1000,
-};
-
-const variantMap: Record<FadeDirection, Variants> = {
-  left: {
-    hidden: {
-      x: -50,
-      opacity: 0,
+const variantMap = (
+  displacement = DISPLACEMENT_AMOUNT_DEFAULT
+): Record<AnimationDirection, Variants> => {
+  return {
+    left: {
+      hidden: {
+        x: -displacement,
+        opacity: 0,
+      },
+      visible: {
+        x: 0,
+        opacity: 1,
+      },
     },
-    visible: {
-      x: 0,
-      opacity: 1,
+    right: {
+      hidden: {
+        x: displacement,
+        opacity: 0,
+      },
+      visible: {
+        opacity: 1,
+        x: 0,
+      },
     },
-  },
-  right: {
-    hidden: {
-      x: 50,
-      opacity: 0,
+    bottom: {
+      hidden: {
+        y: displacement,
+        opacity: 0,
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+      },
     },
-    visible: {
-      opacity: 1,
-      x: 0,
+    top: {
+      hidden: {
+        y: -displacement,
+        opacity: 0,
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+      },
     },
-  },
-  bottom: {
-    hidden: {
-      y: 50,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  },
-  top: {
-    hidden: {
-      y: -50,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  },
+  };
 };
