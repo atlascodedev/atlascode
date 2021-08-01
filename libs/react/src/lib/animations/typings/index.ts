@@ -11,44 +11,64 @@ export type AnimationDirection =
   typeof AnimationDirection[keyof typeof AnimationDirection];
 
 export const TransitionPreset = {
-  default: 'DEFAULT',
-  gentle: 'GENTLE',
-  wobbly: 'WOBBLY',
-  slow: 'SLOW',
-  molasses: 'MOLASSES',
-  stiff: 'STIFF',
+  default: 'default',
+  gentle: 'gentle',
+  wobbly: 'wobbly',
+  slow: 'slow',
+  slower: 'slower',
+  molasses: 'molasses',
+  submerge: 'submerge',
+  stiff: 'stiff',
 } as const;
 
 export type TransitionPreset =
   typeof TransitionPreset[keyof typeof TransitionPreset];
 
 export const transitionPresetMap: Record<TransitionPreset, Transition> = {
-  DEFAULT: {
+  submerge: {
+    type: 'spring',
+    damping: 100 * 2,
+    stiffness: 500 * 2,
+    mass: 50,
+  },
+  default: {
+    type: 'spring',
     mass: 1,
     stiffness: 170,
     damping: 26,
   },
-  GENTLE: {
+  gentle: {
+    type: 'spring',
     mass: 1,
     stiffness: 120,
     damping: 14,
   },
-  MOLASSES: {
+  molasses: {
+    type: 'spring',
     mass: 1,
     stiffness: 280,
     damping: 120,
   },
-  SLOW: {
+  slow: {
+    type: 'spring',
     mass: 1,
     stiffness: 280,
     damping: 60,
   },
-  STIFF: {
+  slower: {
+    type: 'spring',
     mass: 1,
-    stiffness: 210,
+    stiffness: 280,
+    damping: 60 * 3,
+  },
+  stiff: {
+    type: 'spring',
+    mass: 1,
+    stiffness: 300,
     damping: 20,
   },
-  WOBBLY: {
+  wobbly: {
+    type: 'spring',
     mass: 1,
     stiffness: 180,
     damping: 12,

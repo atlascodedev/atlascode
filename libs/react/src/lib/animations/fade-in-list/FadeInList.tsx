@@ -1,13 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Property } from 'csstype';
-import { Transition, useAnimation, Variants } from 'framer-motion';
+import { useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ResponsiveStyleValue } from '../../typings/styling';
 import MotionBox from '../../utility/motion-box/MotionBox';
 import React from 'react';
 import _ from 'lodash';
-import { evaluateTransitionType } from '../util/evaluate-transition-type/EvaluateTransitionType';
-import { AnimationDirection, TransitionPreset } from '../typings';
+import {
+  AnimationDirection,
+  TransitionPreset,
+  transitionPresetMap,
+} from '../typings';
 
 const DISPLACEMENT_AMOUNT_DEFAULT = 100;
 
@@ -17,13 +20,12 @@ export interface FadeInListProps<T> {
   list?: T[];
   flexDirection?: 'row' | 'column';
   staggerChildren?: number;
-  fadeDirection: AnimationDirection;
+  fadeDirection?: AnimationDirection;
   displacementAmount?: number;
   gap?: ResponsiveStyleValue<Property.Gap<string | number>>;
   animateIn?: 'scroll' | boolean;
   triggerOnce?: boolean;
-  repeat?: boolean;
-  transition?: TransitionPreset | Transition;
+  transition?: TransitionPreset;
 }
 
 export function FadeInList<T extends {}>({
@@ -35,12 +37,13 @@ export function FadeInList<T extends {}>({
   animateIn = true,
   triggerOnce,
   gap,
-  repeat,
   displacementAmount = 100,
-  transition = 'DEFAULT',
+  transition = 'default',
 }: FadeInListProps<T>): JSX.Element | null {
   const animationsControl = useAnimation();
   const { ref, inView, entry } = useInView({ triggerOnce: triggerOnce });
+
+  console.log(transition);
 
   React.useEffect(() => {
     if (animateIn === 'scroll' && inView) {
@@ -77,11 +80,7 @@ export function FadeInList<T extends {}>({
             variants={variantMap(displacementAmount)[fadeDirection]}
             key={index}
             transition={{
-              ...(evaluateTransitionType(transition) as Record<
-                string,
-                unknown
-              >),
-              ...(repeat ? { repeat: Infinity, repeatType: 'loop' } : {}),
+              ...transitionPresetMap[transition],
             }}
           >
             <Component {...value} />
