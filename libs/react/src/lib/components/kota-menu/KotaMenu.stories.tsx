@@ -4,6 +4,9 @@ import { KotaMenu, KotaMenuProps } from './KotaMenu';
 export default {
   component: KotaMenu,
   title: 'AtlasCode/Menu/Kota/KotaMenu',
+  parameters: {
+    layout: 'fullscreen',
+  },
   decorators: [
     (Story) => {
       return (
@@ -25,7 +28,13 @@ const Template: Story<KotaMenuProps> = (args) => <KotaMenu {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  logo: './images/gnosis-logo-blue.svg',
-  logoOpen: './images/gnosis-logo-white.svg',
+  MenuBarProps: {
+    logo: './images/gnosis-logo-blue.svg',
+    logoOpen: './images/gnosis-logo-white.svg',
+    BurguerProps: {
+      colorOpen: '#fff',
+      fontSize: { xs: '0.4rem', lg: '0.5rem' },
+    },
+  },
   open: true,
 };

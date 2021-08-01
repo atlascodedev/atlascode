@@ -40,7 +40,14 @@ const SecondaryDemoElement = ({ text }: SecondaryDemoProps) => {
 
 export default {
   component: FadeInList,
-  title: 'FadeInListVertical',
+  title: 'AtlasCode/Animations/FadeInListVertical',
+  argTypes: {
+    animateIn: {
+      name: 'animateIn',
+      type: { name: 'boolean', required: false },
+    },
+  },
+
   decorators: [
     (Story) => {
       return (
@@ -77,6 +84,7 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   component: SecondaryDemoElement,
+  gap: '2rem',
   list: [
     { text: 'Hello' },
     { text: 'world' },

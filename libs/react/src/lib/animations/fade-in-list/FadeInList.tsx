@@ -26,6 +26,8 @@ export interface FadeInListProps<T> {
   animateIn?: 'scroll' | boolean;
   triggerOnce?: boolean;
   transition?: TransitionPreset;
+  onAnimationStart?: (...args: unknown[]) => void;
+  onAnimationEnd?: (...args: unknown[]) => void;
 }
 
 export function FadeInList<T extends {}>({
@@ -39,36 +41,40 @@ export function FadeInList<T extends {}>({
   gap,
   displacementAmount = 100,
   transition = 'default',
+  onAnimationEnd = _.noop,
+  onAnimationStart = _.noop,
 }: FadeInListProps<T>): JSX.Element | null {
   const animationsControl = useAnimation();
   const { ref, inView, entry } = useInView({ triggerOnce: triggerOnce });
 
-  console.log(transition);
-
   React.useEffect(() => {
-    if (animateIn === 'scroll' && inView) {
-      (async () => {
-        await animationsControl.start('visible');
-      })();
-    } else if (typeof animateIn === 'boolean' && animateIn) {
-      (async () => {
-        await animationsControl.start('visible');
-      })();
-    } else if (typeof animateIn !== 'boolean') {
-      throw new Error(
-        'animateIn property must be of type BOOLEAN or string literal SCROLL'
-      );
+    if (typeof animateIn === 'boolean') {
+      if (animateIn) {
+        (async () => {
+          await animationsControl.start('visible');
+        })();
+      } else {
+        (async () => {
+          await animationsControl.start('hidden');
+        })();
+      }
+    } else if (animateIn === 'scroll') {
+      if (inView) {
+        animationsControl.start('visible');
+      } else {
+        animationsControl.start('hidden');
+      }
     } else {
       _.noop();
     }
-  }, [animateIn, inView, animationsControl]);
+  }, [inView, animateIn, animationsControl]);
 
   return (
     <MotionBox
       ref={ref}
       layout
       initial="hidden"
-      animate="visible"
+      animate={animationsControl}
       transition={{
         staggerChildren: staggerChildren,
       }}

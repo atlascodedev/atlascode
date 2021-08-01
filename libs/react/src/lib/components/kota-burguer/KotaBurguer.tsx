@@ -1,4 +1,5 @@
 import { Box } from '@material-ui/core';
+import { Property } from 'csstype';
 import { useAnimation, Variants } from 'framer-motion';
 import React from 'react';
 import { ResponsiveStyleValue } from '../../typings/styling';
@@ -16,7 +17,7 @@ export interface KotaBurguerProps {
   onClick?: (...args: unknown[]) => void;
   colorOpen?: string;
   colorClosed?: string;
-  fontSize?: ResponsiveStyleValue<string>;
+  fontSize?: ResponsiveStyleValue<Property.FontSize<string>>;
 }
 
 export const KotaBurguer = ({
@@ -101,6 +102,7 @@ const lineStyles = (
       ? { backgroundColor: colorClosed }
       : { backgroundColor: DEFAULT_COLOR }),
     position: 'relative',
+    transition: 'background-color 0.5s',
   };
 };
 
