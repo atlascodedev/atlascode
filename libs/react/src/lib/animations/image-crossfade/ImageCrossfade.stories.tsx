@@ -3,7 +3,7 @@ import { ImageCrossfade, ImageCrossfadeProps } from './ImageCrossfade';
 
 export default {
   component: ImageCrossfade,
-  title: 'ImageCrossfade',
+  title: 'AtlasCode/Animations/ImageCrossfade',
 } as Meta;
 
 const Template: Story<ImageCrossfadeProps> = (args) => (

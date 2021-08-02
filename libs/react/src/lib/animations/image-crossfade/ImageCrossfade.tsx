@@ -1,5 +1,7 @@
 import { Box } from '@material-ui/core';
+import { Property } from 'csstype';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { ResponsiveStyleValue } from '../../typings/styling';
 import MotionBox from '../../utility/motion-box/MotionBox';
 
 /* eslint-disable-next-line */
@@ -7,15 +9,24 @@ export interface ImageCrossfadeProps {
   primaryImage: string;
   secondaryImage: string;
   swap?: boolean;
+  fontSize?: ResponsiveStyleValue<Property.FontSize<string>>;
 }
 
 export function ImageCrossfade({
   primaryImage,
   secondaryImage,
   swap,
+  fontSize = '1rem',
 }: ImageCrossfadeProps) {
   return (
-    <Box sx={{ width: '20rem', height: '20rem', position: 'relative' }}>
+    <Box
+      sx={{
+        fontSize: fontSize,
+        width: '20em',
+        height: '20em',
+        position: 'relative',
+      }}
+    >
       <AnimatePresence>
         {!swap && primaryImage && (
           <MotionBox
