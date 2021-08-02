@@ -3,6 +3,7 @@ import { useAnimation } from 'framer-motion';
 import _ from 'lodash';
 import React from 'react';
 import FadeInList from '../../animations/fade-in-list/FadeInList';
+import ImageCrossfade from '../../animations/image-crossfade/ImageCrossfade';
 import { transitionPresetMap } from '../../animations/typings';
 import MotionBox from '../../utility/motion-box/MotionBox';
 import KotaBurguer, { KotaBurguerProps } from '../kota-burguer/KotaBurguer';
@@ -139,57 +140,13 @@ const KotaMenuBar = ({
           gridRow: '1/3',
           position: 'relative',
         }}
-        layout
-        initial="closed"
-        animate={open ? 'open' : 'closed'}
       >
-        <MotionBox
-          variants={{
-            closed: {
-              opacity: 1,
-              zIndex: 5,
-            },
-            open: {
-              opacity: 0,
-              zIndex: -1,
-            },
-          }}
-        >
-          <Box
-            component="img"
-            sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
-              position: 'absolute',
-            }}
-            src={logo}
-          />
-        </MotionBox>
-
-        <MotionBox
-          variants={{
-            closed: {
-              opacity: 0,
-              zIndex: -1,
-            },
-            open: {
-              opacity: 1,
-              zIndex: 5,
-            },
-          }}
-        >
-          <Box
-            sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
-              position: 'absolute',
-            }}
-            src={logoOpen}
-            component="img"
-          />
-        </MotionBox>
+        <ImageCrossfade
+          swap={open}
+          fitContainer
+          primaryImage={logo!}
+          secondaryImage={logoOpen!}
+        />
       </MotionBox>
 
       <Box

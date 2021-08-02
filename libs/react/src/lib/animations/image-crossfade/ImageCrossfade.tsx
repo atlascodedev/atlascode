@@ -1,7 +1,8 @@
 import { Box } from '@material-ui/core';
 import { Property } from 'csstype';
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { ResponsiveStyleValue } from '../../typings/styling';
+import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 import MotionBox from '../../utility/motion-box/MotionBox';
 
 /* eslint-disable-next-line */
@@ -9,21 +10,41 @@ export interface ImageCrossfadeProps {
   primaryImage: string;
   secondaryImage: string;
   swap?: boolean;
-  fontSize?: ResponsiveStyleValue<Property.FontSize<string>>;
+  size?: ResponsiveStyleValue<Property.FontSize<string>>;
+  fitContainer?: boolean;
 }
+
+const imageSize = (
+  size: ResponsiveStyleValue<Property.FontSize<string>> | 'fullWidth',
+  fitContainer: boolean
+): AtlasCSSVariant => {
+  if (fitContainer) {
+    return {
+      width: '100%',
+      height: '100%',
+      position: 'relative',
+    };
+  } else {
+    return {
+      fontSize: size,
+      width: '20em',
+      height: '20rem',
+      position: 'relative',
+    };
+  }
+};
 
 export function ImageCrossfade({
   primaryImage,
   secondaryImage,
   swap,
-  fontSize = '1rem',
+  size = '1rem',
+  fitContainer = false,
 }: ImageCrossfadeProps) {
   return (
     <Box
       sx={{
-        fontSize: fontSize,
-        width: '20em',
-        height: '20em',
+        ...(imageSize(size, fitContainer) as Record<string, unknown>),
         position: 'relative',
       }}
     >
