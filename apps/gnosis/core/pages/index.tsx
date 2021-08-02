@@ -16,7 +16,6 @@ import Testimonials from '../components/Testimonials';
 const mockExt = offerCardFullMock(20);
 const mockMulti = offerCardFullMock(15);
 const mockPos = offerCardFullMock(50);
-
 const mockTestimonials = testimonialCardRoundedMock(20, 'primary');
 const mockBlogPreview = blogPreviewCardMockData(20);
 

@@ -30,22 +30,21 @@ export function KotaMenu({
   open,
 }: KotaMenuProps) {
   const backdropControl = useAnimation();
-
-  const [itemsVisibility, setItemsVisibility] = React.useState<boolean>(false);
+  const itemsControl = useAnimation();
 
   React.useEffect(() => {
     if (open) {
       (async () => {
         await backdropControl.start('visible');
-        setItemsVisibility(true);
+        await itemsControl.start('visible');
       })();
     } else {
       (async () => {
-        setItemsVisibility(false);
+        await itemsControl.start('hidden');
         await backdropControl.start('hidden');
       })();
     }
-  }, [open, backdropControl]);
+  }, [open, backdropControl, itemsControl]);
 
   return (
     <Box sx={{ position: 'absolute' }}>
@@ -68,12 +67,15 @@ export function KotaMenu({
           position: 'absolute',
           top: 0,
           left: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <FadeInList
-          animateIn={itemsVisibility}
+          customControl={itemsControl}
           component={KotaMenuItem}
-          list={[1, 2, 3, 4, 5, 6, 7, 8]}
+          list={[1, 2, 3, 4]}
         />
       </MotionBox>
       <KotaMenuBar {...MenuBarProps} open={open} />

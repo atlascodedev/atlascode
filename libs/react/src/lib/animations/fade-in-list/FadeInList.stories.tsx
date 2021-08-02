@@ -47,7 +47,6 @@ export default {
       type: { name: 'boolean', required: false },
     },
   },
-
   decorators: [
     (Story) => {
       return (
@@ -80,6 +79,17 @@ Primary.args = {
   gap: '5rem',
   transition: 'submerge',
 };
+Primary.parameters = {
+  controls: {
+    exclude: [
+      'list',
+      'component',
+      'onAnimationEnd',
+      'onAnimationStart',
+      'triggerOnce',
+    ],
+  },
+};
 
 export const Secondary = Template.bind({});
 Secondary.args = {
@@ -94,3 +104,4 @@ Secondary.args = {
     { text: '?' },
   ],
 };
+Secondary.parameters = { ...Primary.parameters };
