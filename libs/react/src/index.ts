@@ -1,3 +1,4 @@
+export * from './lib/animations/image-crossfade/ImageCrossfade';
 export * from './lib/animations/fade-in-list/FadeInList';
 export * from './lib/screens/minimal-form-pic-over-blob/MinimalFormPicOverBlob';
 export * from './lib/forms/contact-form-dialog/ContactFormDialog';
