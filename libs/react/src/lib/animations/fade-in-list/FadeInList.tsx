@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Property } from 'csstype';
-import { AnimationControls, useAnimation, Variants } from 'framer-motion';
+import { AnimationControls, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ResponsiveStyleValue } from '../../typings/styling';
 import MotionBox from '../../utility/motion-box/MotionBox';

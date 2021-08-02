@@ -75,7 +75,7 @@ const Template: Story<FadeInListProps<any>> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
   component: DemoListElement,
-  list: [{}, {}, {}, {}],
+  list: [1, 2, 3, 4, 5],
   gap: '5rem',
   transition: 'submerge',
 };

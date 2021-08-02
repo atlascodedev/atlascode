@@ -47,7 +47,7 @@ export function KotaMenu({
   }, [open, backdropControl, itemsControl]);
 
   return (
-    <Box sx={{ position: 'absolute' }}>
+    <Box sx={{ position: 'absolute', width: '100%' }}>
       <MotionBox
         initial="hidden"
         animate={backdropControl}
@@ -61,7 +61,7 @@ export function KotaMenu({
         }}
         transition={transitionPresetMap['slow']}
         sx={{
-          width: '100vw',
+          width: '100%',
           height: { xs: '100vh', lg: '80vh' },
           backgroundColor: (theme) => theme.palette.primary.main,
           position: 'absolute',
@@ -70,6 +70,7 @@ export function KotaMenu({
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          overflow: 'hidden',
         }}
       >
         <FadeInList
@@ -91,7 +92,12 @@ const KotaMenuItem = () => {
       sx={{
         color: (theme) => theme.palette.primary.contrastText,
         fontWeight: 800,
-        fontSize: '4.8rem',
+        fontSize: { xs: '4rem', lg: '7.8rem' },
+        transition: 'color 0.5s',
+        cursor: 'pointer',
+        ':hover': {
+          color: (theme) => theme.palette.secondary.main,
+        },
       }}
     >
       Hello world
