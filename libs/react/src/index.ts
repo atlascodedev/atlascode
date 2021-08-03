@@ -1,3 +1,4 @@
+export * from './lib/components/notification-card/NotificationCard';
 export * from './lib/components/collapsable-menu-item/CollapsableMenuItem';
 export * from './lib/components/mui-rounded-menu/MuiRoundedMenu';
 export * from './lib/components/modern-clean-menu/ModernCleanMenu';
