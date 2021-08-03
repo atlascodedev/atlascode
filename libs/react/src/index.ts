@@ -27,7 +27,6 @@ export * from './lib/components/defense-card-section/DefenseCardSection';
 export * from './lib/components/defense-card/DefenseCard';
 export * from './lib/screens/hero-screen-white-dots/HeroScreenWhiteDots';
 export * from './lib/utility/smooth-scroll-wrapper/SmoothScrollWrapper';
-export * from './lib/components/kota-dropdown/KotaDropdown';
 export * from './lib/components/kota-burguer/KotaBurguer';
 export * from './lib/components/kota-menu/KotaMenu';
 export * from './lib/components/neon-button/NeonButton';

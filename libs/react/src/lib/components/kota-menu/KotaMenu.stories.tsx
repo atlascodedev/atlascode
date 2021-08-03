@@ -3,7 +3,7 @@ import { KotaMenu, KotaMenuProps } from './KotaMenu';
 
 export default {
   component: KotaMenu,
-  title: 'AtlasCode/Menu/Kota/KotaMenu',
+  title: 'Unstable/KotaMenu',
   parameters: {
     layout: 'fullscreen',
   },
