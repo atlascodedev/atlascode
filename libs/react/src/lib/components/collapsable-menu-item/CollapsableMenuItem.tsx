@@ -27,7 +27,7 @@ export function CollapsableMenuItem({
   label,
   subMenu,
 }: CollapsableMenuItemProps) {
-  const containerRef = React.useRef(null);
+  const containerRef = React.useRef<HTMLElement>(null);
   const [open, setOpen] = React.useState<boolean>(false);
   const handleClose = () => {
     setOpen(false);
@@ -83,6 +83,7 @@ export function CollapsableMenuItem({
           </MotionBox>
 
           <MuiRoundedMenu
+            minWidth={containerRef.current?.offsetWidth || 0}
             anchorEl={containerRef.current}
             open={open}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}

@@ -4,7 +4,7 @@ import { ModernCleanMenu, ModernCleanMenuProps } from './ModernCleanMenu';
 
 export default {
   component: ModernCleanMenu,
-  title: 'ModernCleanMenu',
+  title: 'Unstable/ModernCleanMenu',
   decorators: [
     (Story) => {
       return (
@@ -25,7 +25,7 @@ const Template: Story<ModernCleanMenuProps> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  logo: './images/gnosis-logo-blue.svg',
+  logo: './images/gnosis-logo-blue.svg', 
   items: [
     {
       label: 'Item 1',

@@ -6,7 +6,7 @@ import {
 
 export default {
   component: CollapsableMenuItem,
-  title: 'CollapsableMenuItem',
+  title: 'Unstable/CollapsableMenuItem',
 } as Meta;
 
 const Template: Story<CollapsableMenuItemProps> = (args) => (
@@ -15,6 +15,6 @@ const Template: Story<CollapsableMenuItemProps> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Label testing',
+  label: 'Label testing lorem ipsum dolum salet i cant t ake much more',
   subMenu: [{ label: 'Ok' }, { label: 'what now' }],
 };

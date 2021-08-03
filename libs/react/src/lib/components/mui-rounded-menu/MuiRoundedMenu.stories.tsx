@@ -3,7 +3,7 @@ import { MuiRoundedMenu, MuiRoundedMenuProps } from './MuiRoundedMenu';
 
 export default {
   component: MuiRoundedMenu,
-  title: 'MuiRoundedMenu',
+  title: 'Unstable/MuiRoundedMenu',
 } as Meta;
 
 const Template: Story<MuiRoundedMenuProps> = (args) => (
