@@ -5,6 +5,7 @@ import {
   ThemeOptions,
   Theme,
   createTheme,
+  Menu
 } from '@material-ui/core';
 
 declare module '@material-ui/core/Button' {

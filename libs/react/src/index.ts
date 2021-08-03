@@ -1,3 +1,6 @@
+export * from './lib/components/collapsable-menu-item/CollapsableMenuItem';
+export * from './lib/components/mui-rounded-menu/MuiRoundedMenu';
+export * from './lib/components/modern-clean-menu/ModernCleanMenu';
 export * from './lib/animations/image-crossfade/ImageCrossfade';
 export * from './lib/animations/fade-in-list/FadeInList';
 export * from './lib/screens/minimal-form-pic-over-blob/MinimalFormPicOverBlob';
