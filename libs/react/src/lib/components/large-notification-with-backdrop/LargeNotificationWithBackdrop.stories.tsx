@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
 import {
@@ -20,9 +21,8 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<LargeNotificationWithBackdropProps> = (args) => (
-  <LargeNotificationWithBackdrop {...args} />
-);
-
+const Template: Story<LargeNotificationWithBackdropProps> = (args) => {
+  return <LargeNotificationWithBackdrop {...args} />;
+};
 export const Primary = Template.bind({});
 Primary.args = {};
