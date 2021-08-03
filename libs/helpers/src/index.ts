@@ -34,4 +34,6 @@ export { default as isString } from './assertions/isString';
 export { default as isEmpty } from './assertions/isEmpty';
 export { default as isDevEnvironment } from './assertions/isDevEnvironment';
 export * from './colorManipulation/cssFilterGenerator';
+export * from './assertions/is-firefox/isFirefox';
+export * from './assertions/is-mobile-browser/IsMobileBrowser';
 export { default as getReadingTime } from './getReadingTime/';
