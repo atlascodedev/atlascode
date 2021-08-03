@@ -1,10 +1,10 @@
-import React from "react";
-import { isBrowser, noOperation } from "@atlascode/helpers";
-import useIsomorphicEffect from "../useIsomorphicEffect";
+import React from 'react';
+import { isBrowser, noOperation } from '@atlascode/helpers';
+import useIsomorphicEffect from '../useIsomorphicEffect';
 
 export type UseMeasureRect = Pick<
   DOMRectReadOnly,
-  "x" | "y" | "top" | "bottom" | "left" | "right" | "height" | "width"
+  'x' | 'y' | 'top' | 'bottom' | 'left' | 'right' | 'height' | 'width'
 >;
 
 export type UseMeasureRef<E extends Element = Element> = (element: E) => void;
@@ -30,7 +30,7 @@ function useMeasure<E extends Element = Element>(): UseMeasureResult<E> {
 
   const observer = React.useMemo(
     () =>
-      new (window as any).ResizeObserver((entries: any) => {
+      new window.ResizeObserver((entries) => {
         if (entries[0]) {
           const { x, y, width, height, top, left, bottom, right } =
             entries[0].contentRect;
@@ -51,7 +51,6 @@ function useMeasure<E extends Element = Element>(): UseMeasureResult<E> {
   return [ref, rect];
 }
 
-export default isBrowser &&
-typeof (window as any).ResizeObserver !== "undefined"
+export default isBrowser && typeof window.ResizeObserver !== 'undefined'
   ? useMeasure
   : ((() => [noOperation, defaultState]) as typeof useMeasure);
