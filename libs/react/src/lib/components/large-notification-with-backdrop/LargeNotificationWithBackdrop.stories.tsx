@@ -25,7 +25,6 @@ export default {
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            ...frostedGlassEffect(),
           }}
         >
           <Story />

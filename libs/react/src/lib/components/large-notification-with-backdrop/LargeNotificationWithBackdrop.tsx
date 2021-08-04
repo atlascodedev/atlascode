@@ -49,52 +49,58 @@ export function LargeNotificationWithBackdrop({
   };
 
   return (
-    <MotionBox
-      onClick={eventOnParent}
-      ref={backdropRef}
-      initial="hidden"
-      animate={backdropVisibility ? 'visible' : 'hidden'}
-      variants={{
-        hidden: {
-          opacity: 0,
-        },
-        visible: {
-          opacity: 1,
-        },
-      }}
-      sx={{
-        display: 'flex',
-        position: 'fixed',
-        width: '100%',
-        height: '100vh',
-        top: 0,
-        left: 0,
-        zIndex: 1000,
-        justifyContent: 'center',
-        alignItems: 'center',
-        ...frostedGlassEffect(),
-      }}
-    >
-      <AnimatePresence>
-        {backdropVisibility && (
-          <MotionBox
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={{
-              hidden: { y: '100vh' },
-              visible: { y: 0 },
-            }}
-            transition={transitionPresetMap['slow']}
-          >
-            <NotificationCard
-              ButtonProps={{ onClick: handleClose }}
-              {...NotificationCardProps}
-            />
-          </MotionBox>
-        )}
-      </AnimatePresence>
-    </MotionBox>
+    <AnimatePresence>
+      {backdropVisibility && (
+        <MotionBox
+          onClick={eventOnParent}
+          ref={backdropRef}
+          initial="hidden"
+          animate={'visible'}
+          exit="hidden"
+          layout
+          variants={{
+            hidden: {
+              opacity: 0,
+            },
+            visible: {
+              opacity: 1,
+            },
+          }}
+          sx={{
+            display: 'flex',
+            position: 'fixed',
+            width: '100%',
+            height: '100vh',
+            top: 0,
+            left: 0,
+            zIndex: 1000,
+            justifyContent: 'center',
+            alignItems: 'center',
+            ...frostedGlassEffect(),
+          }}
+        >
+          <AnimatePresence>
+            {backdropVisibility && (
+              <MotionBox
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  hidden: { y: '100vh' },
+                  visible: { y: 0 },
+                }}
+                transition={transitionPresetMap['slow']}
+              >
+                <NotificationCard
+                  ButtonProps={{ onClick: handleClose }}
+                  {...NotificationCardProps}
+                />
+              </MotionBox>
+            )}
+          </AnimatePresence>
+        </MotionBox>
+      )}
+    </AnimatePresence>
   );
 }
 
