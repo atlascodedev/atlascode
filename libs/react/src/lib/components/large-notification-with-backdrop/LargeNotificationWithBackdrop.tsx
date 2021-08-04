@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import _ from 'lodash';
 import React from 'react';
 import { transitionPresetMap } from '../../animations/typings';
+import { frostedGlassEffect } from '../../mixins/frosted-glass/FrostedGlass';
 import MotionBox from '../../utility/motion-box/MotionBox';
 import NotificationCard, {
   NotificationCardProps,
@@ -71,12 +72,7 @@ export function LargeNotificationWithBackdrop({
         zIndex: 1000,
         justifyContent: 'center',
         alignItems: 'center',
-        ...(isFirefox()
-          ? { backgroundColor: 'rgba(133, 133, 133, 0.5' }
-          : {
-              backgroundColor: 'rgba(255, 255, 255, 0.3)',
-              backdropFilter: 'blur(10px)',
-            }),
+        ...frostedGlassEffect(),
       }}
     >
       <AnimatePresence>
