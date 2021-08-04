@@ -23,7 +23,7 @@ const Demo = (props: DemoProps) => {
             type: NOTIFICATION_VISIBILITY.VISIBLE,
             payload: {
               message: 'Hello world',
-              severity: 'info',
+              severity: 'error',
               title: 'Hello hello',
             },
           })
@@ -39,7 +39,7 @@ const Demo = (props: DemoProps) => {
 
 export default {
   component: Demo,
-  title: 'Unstable/NotificationContext',
+  title: 'AtlasCode/React Context/NotificationContext',
   decorators: [
     (Story) => {
       return (

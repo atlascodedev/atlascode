@@ -3,7 +3,7 @@ import { NotificationCard, NotificationCardProps } from './NotificationCard';
 
 export default {
   component: NotificationCard,
-  title: 'NotificationCard',
+  title: 'AtlasCode/Cards/NotificationCard',
 } as Meta;
 
 const Template: Story<NotificationCardProps> = (args) => (

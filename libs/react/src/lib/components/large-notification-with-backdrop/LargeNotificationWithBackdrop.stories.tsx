@@ -6,11 +6,10 @@ import {
   LargeNotificationWithBackdropProps,
 } from './LargeNotificationWithBackdrop';
 import faker from 'faker';
-import { frostedGlassEffect } from '../../mixins/frosted-glass/FrostedGlass';
 
 export default {
   component: LargeNotificationWithBackdrop,
-  title: 'LargeNotificationWithBackdrop',
+  title: 'AtlasCode/Composite/Large Notification - Blur backdrop',
   parameters: {
     layout: 'fullscreen',
   },
