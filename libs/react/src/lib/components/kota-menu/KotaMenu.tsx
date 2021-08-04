@@ -1,159 +1,240 @@
-import { Box } from '@material-ui/core';
-import { useAnimation } from 'framer-motion';
-import _ from 'lodash';
+import { Box, Stack } from '@material-ui/core';
+import { AnimationControls, useAnimation } from 'framer-motion';
 import React from 'react';
+import {
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoWhatsapp,
+} from 'react-icons/io';
 import FadeInList from '../../animations/fade-in-list/FadeInList';
-import ImageCrossfade from '../../animations/image-crossfade/ImageCrossfade';
+import ImageCrossfade, {
+  ImageCrossfadeProps,
+} from '../../animations/image-crossfade/ImageCrossfade';
 import { transitionPresetMap } from '../../animations/typings';
 import MotionBox from '../../utility/motion-box/MotionBox';
+import IconButtonCircle from '../icon-button-circle/IconButtonCircle';
 import KotaBurguer, { KotaBurguerProps } from '../kota-burguer/KotaBurguer';
 
-interface ControlledAnimation {
-  onAnimationStart?: (...args: unknown[]) => void;
-  onAnimationEnd?: (...args: unknown[]) => void;
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface KotaMenuProps extends KotaMenuBarProps {
+  open: boolean;
+  items?: KotaMenuItem[];
 }
 
-export interface KotaMenuProps extends ControlledAnimation {
-  MenuBarProps: KotaMenuBarProps;
-  open?: boolean;
-  onOpen?: (...args: unknown[]) => void;
-  onClose?: (...args: unknown[]) => void;
-  menuItems: { label: string; action: (...args: unknown[]) => void };
-}
-
-export function KotaMenu({
-  onOpen,
-  onClose,
-  menuItems,
-  MenuBarProps,
-  onAnimationEnd,
-  onAnimationStart,
+const KotaMenu = ({
+  ImageCrossFadeProps,
+  KotaBurguerProps,
   open,
-}: KotaMenuProps) {
-  const backdropControl = useAnimation();
-  const itemsControl = useAnimation();
+  items = [],
+}: KotaMenuProps) => {
+  const dropdownControls = useAnimation();
+  const listControls = useAnimation();
+  const socialsControls = useAnimation();
+  const [crossfadeState, setCrossfadeState] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     if (open) {
       (async () => {
-        await backdropControl.start('visible');
-        await itemsControl.start('visible');
+        setCrossfadeState(true);
+        await dropdownControls.start('visible');
+        await listControls.start('visible');
+        socialsControls.start('visible');
       })();
     } else {
       (async () => {
-        await itemsControl.start('hidden');
-        await backdropControl.start('hidden');
+        socialsControls.start('hidden');
+        await listControls.start('hidden');
+        await dropdownControls.start('hidden');
+        setCrossfadeState(false);
       })();
     }
-  }, [open, backdropControl, itemsControl]);
+  }, [open, dropdownControls, listControls, socialsControls]);
 
   return (
     <Box sx={{ position: 'absolute', width: '100%' }}>
-      <MotionBox
-        initial="hidden"
-        animate={backdropControl}
-        variants={{
-          hidden: {
-            height: '0vh',
-          },
-          visible: {
-            height: '100vh',
-          },
+      <KotaMenuBar
+        ImageCrossFadeProps={{
+          ...ImageCrossFadeProps,
+          swap: crossfadeState,
         }}
-        transition={transitionPresetMap['slow']}
-        sx={{
-          width: '100%',
-          height: { xs: '100vh', lg: '80vh' },
-          backgroundColor: (theme) => theme.palette.primary.main,
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          overflow: 'hidden',
-        }}
-      >
-        <FadeInList
-          customControl={itemsControl}
-          component={KotaMenuItem}
-          list={[1, 2, 3, 4]}
-        />
-      </MotionBox>
-      <KotaMenuBar {...MenuBarProps} open={open} />
+        KotaBurguerProps={{ ...KotaBurguerProps, open: open }}
+      />
+      <KotaMenuDropdown animationControls={dropdownControls}>
+        <Box
+          sx={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <FadeInList
+            component={KotaMenuItem}
+            list={items}
+            customControl={listControls}
+            flexDirection="column"
+            onAnimationStart={() =>
+              console.log('i once understood how this all worked')
+            }
+            onAnimationEnd={() => console.log('well shucks')}
+          />
+
+          <MotionBox
+            animate={socialsControls}
+            initial="hidden"
+            sx={{
+              display: 'flex',
+              justifyContent: { xs: 'center', lg: 'flex-start' },
+              width: '100%',
+              px: { lg: '4rem' },
+            }}
+            variants={{
+              visible: {
+                opacity: 1,
+              },
+              hidden: {
+                opacity: 0,
+              },
+            }}
+          >
+            <Stack
+              sx={{
+                position: 'absolute',
+                bottom: '5%',
+              }}
+              direction="row"
+              gap="2.5rem"
+            >
+              <IconButtonCircle
+                size="small"
+                elevation
+                href="https://atlascode.dev"
+                variant="contained"
+                icon={IoLogoFacebook}
+              />
+              <IconButtonCircle
+                size="small"
+                elevation
+                variant="contained"
+                icon={IoLogoInstagram}
+              />
+              <IconButtonCircle
+                size="small"
+                elevation
+                variant="contained"
+                icon={IoLogoWhatsapp}
+              />
+            </Stack>
+          </MotionBox>
+        </Box>
+      </KotaMenuDropdown>
     </Box>
   );
+};
+
+export interface KotaMenuItem {
+  label: string;
+  action: (...args: unknown[]) => void;
 }
 
-export default KotaMenu;
-
-const KotaMenuItem = () => {
+const KotaMenuItem = ({ action, label }: KotaMenuItem) => {
   return (
-    <MotionBox
+    <Box
+      onClick={action}
       sx={{
         color: (theme) => theme.palette.primary.contrastText,
+        fontSize: { xs: '4rem', lg: '6.5rem' },
         fontWeight: 800,
-        fontSize: { xs: '4rem', lg: '7.8rem' },
-        transition: 'color 0.5s',
         cursor: 'pointer',
+        textTransform: 'uppercase',
+        transition: 'color 0.5s',
         ':hover': {
           color: (theme) => theme.palette.secondary.main,
         },
       }}
     >
-      Hello world
+      {label}
+    </Box>
+  );
+};
+
+export interface KotaMenuDropdownProps {
+  animationControls?: AnimationControls;
+  children?: React.ReactNode;
+}
+
+const KotaMenuDropdown = ({
+  animationControls,
+  children,
+}: KotaMenuDropdownProps) => {
+  return (
+    <MotionBox
+      initial="hidden"
+      animate={animationControls ? animationControls : 'visible'}
+      variants={{
+        visible: {
+          height: '100vh',
+        },
+        hidden: {
+          height: '0px',
+        },
+      }}
+      transition={transitionPresetMap['default']}
+      sx={{
+        width: '100%',
+        height: '100vh',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bgcolor: (theme) => theme.palette.primary.main,
+        zIndex: 800,
+      }}
+    >
+      {children}
     </MotionBox>
   );
 };
 
 export interface KotaMenuBarProps {
-  open?: boolean;
-  logo?: string;
-  logoOpen?: string;
-  BurguerProps: KotaBurguerProps;
+  ImageCrossFadeProps: ImageCrossfadeProps;
+  KotaBurguerProps: KotaBurguerProps;
 }
 
 const KotaMenuBar = ({
-  open,
-  logo,
-  logoOpen,
-  BurguerProps,
+  ImageCrossFadeProps,
+  KotaBurguerProps,
 }: KotaMenuBarProps) => {
   return (
     <Box
       sx={{
-        width: '100%',
         position: 'fixed',
+        width: '100%',
+        display: 'flex',
         top: '5%',
+        alignItems: 'center',
         px: '4rem',
-        left: 0,
-        zIndex: 100,
-        display: 'grid',
-        transform: 'translate3D(0px, 0px, 0px)',
-        gridTemplateRows: '1fr',
+        zIndex: 900,
       }}
     >
-      <MotionBox
+      <Box
         sx={{
-          width: '8rem',
-          height: '8rem',
-          gridRow: '1/3',
-          position: 'relative',
+          height: { xs: '5rem', lg: '8rem' },
+          width: { xs: '5rem', lg: '8rem' },
         }}
       >
-        <ImageCrossfade
-          swap={open}
-          fitContainer
-          primaryImage={logo!}
-          secondaryImage={logoOpen!}
-        />
-      </MotionBox>
+        <ImageCrossfade fitContainer {...ImageCrossFadeProps} />
+      </Box>
 
-      <Box
-        sx={{ justifySelf: 'flex-end', gridRow: '1/3', alignSelf: 'center' }}
-      >
-        <KotaBurguer {...BurguerProps} open={open} />
+      <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>
+        <KotaBurguer
+          fontSize={{ xs: '0.35rem', lg: '0.5rem' }}
+          {...KotaBurguerProps}
+        />
       </Box>
     </Box>
   );
 };
+
+export default KotaMenu;

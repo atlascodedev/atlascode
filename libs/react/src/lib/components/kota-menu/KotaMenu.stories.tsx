@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react';
-import { KotaMenu, KotaMenuProps } from './KotaMenu';
+import _ from 'lodash';
+import KotaMenu, { KotaMenuProps } from './KotaMenu';
 
 export default {
   component: KotaMenu,
@@ -28,13 +29,18 @@ const Template: Story<KotaMenuProps> = (args) => <KotaMenu {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  MenuBarProps: {
-    logo: './images/gnosis-logo-blue.svg',
-    logoOpen: './images/gnosis-logo-white.svg',
-    BurguerProps: {
-      colorOpen: '#fff',
-      fontSize: { xs: '0.4rem', lg: '0.5rem' },
-    },
-  },
   open: true,
+  ImageCrossFadeProps: {
+    primaryImage: './images/gnosis-logo-blue.svg',
+    secondaryImage: './images/gnosis-logo-white.svg',
+  },
+  KotaBurguerProps: {
+    colorOpen: '#fff',
+  },
+  items: [
+    { action: _.noop, label: 'Item 1' },
+    { action: _.noop, label: 'Item 2' },
+    { action: _.noop, label: 'Item 3' },
+    { action: _.noop, label: 'Item 4' },
+  ],
 };

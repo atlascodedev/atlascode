@@ -12,7 +12,7 @@ export const evaluateAnimateInType = (
     } else {
       callbackOut();
     }
-  } else if (animateIn === 'scroll') {
+  } else if (typeof animateIn === 'string' && animateIn === 'scroll') {
     if (observerTrigger) {
       callbackIn();
     } else {

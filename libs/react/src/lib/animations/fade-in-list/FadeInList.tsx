@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Property } from 'csstype';
-import { AnimationControls, Variants } from 'framer-motion';
+import { AnimationControls, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ResponsiveStyleValue } from '../../typings/styling';
 import MotionBox from '../../utility/motion-box/MotionBox';
@@ -66,7 +66,7 @@ export function FadeInList<T extends {}>({
   onAnimationStart = _.noop,
   customControl,
 }: FadeInListProps<T>): JSX.Element | null {
-  const controls = useOverridableAnimationControl(customControl);
+  const controls = useAnimation();
   const { ref, inView, entry } = useInView({ triggerOnce: triggerOnce });
 
   React.useEffect(() => {
@@ -81,20 +81,30 @@ export function FadeInList<T extends {}>({
       await controls.start('hidden');
       onAnimationEnd();
     };
-    evaluateAnimateInType(
-      animateIn,
-      inView,
-      animateInCallback,
-      animateOutCallback
-    );
-  }, [inView, animateIn, controls, onAnimationStart, onAnimationEnd]);
+
+    if (!customControl) {
+      evaluateAnimateInType(
+        animateIn,
+        inView,
+        animateInCallback,
+        animateOutCallback
+      );
+    }
+  }, [
+    inView,
+    animateIn,
+    onAnimationEnd,
+    onAnimationStart,
+    controls,
+    customControl,
+  ]);
 
   return (
     <MotionBox
       ref={ref}
       layout
       initial="hidden"
-      animate={controls}
+      animate={customControl ? customControl : controls}
       transition={{
         staggerChildren: staggerChildren,
       }}
