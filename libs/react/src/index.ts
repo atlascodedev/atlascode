@@ -1,3 +1,5 @@
+export * from './lib/components/large-notification-with-backdrop/LargeNotificationWithBackdrop';
+export * from './lib/context/notification-context/NotificationContext';
 export * from './lib/components/notification-card/NotificationCard';
 export * from './lib/components/collapsable-menu-item/CollapsableMenuItem';
 export * from './lib/components/mui-rounded-menu/MuiRoundedMenu';
