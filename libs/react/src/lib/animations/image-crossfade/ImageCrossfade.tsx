@@ -1,17 +1,17 @@
 import { Box } from '@material-ui/core';
 import { Property } from 'csstype';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, AnimationControls } from 'framer-motion';
 import { ResponsiveStyleValue } from '../../typings/styling';
 import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
 import MotionBox from '../../utility/motion-box/MotionBox';
 
-/* eslint-disable-next-line */
 export interface ImageCrossfadeProps {
   primaryImage: string;
   secondaryImage: string;
   swap?: boolean;
   size?: ResponsiveStyleValue<Property.FontSize<string>>;
   fitContainer?: boolean;
+  animationControls?: AnimationControls;
 }
 
 const imageSize = (
@@ -34,19 +34,26 @@ const imageSize = (
   }
 };
 
+/**
+ *
+ * @description Animation Variants = "HIDDEN" | "VISIBLE"
+ */
 export function ImageCrossfade({
   primaryImage,
   secondaryImage,
   swap,
   size = '1rem',
   fitContainer = false,
+  animationControls,
 }: ImageCrossfadeProps) {
   return (
-    <Box
+    <MotionBox
       sx={{
         ...(imageSize(size, fitContainer) as Record<string, unknown>),
         position: 'relative',
       }}
+      layout
+      animate={animationControls ? animationControls : 'visible'}
     >
       <AnimatePresence>
         {!swap && primaryImage && (
@@ -85,7 +92,6 @@ export function ImageCrossfade({
         {swap && secondaryImage && (
           <MotionBox
             initial="hidden"
-            animate="visible"
             exit="hidden"
             variants={{
               hidden: {
@@ -119,7 +125,7 @@ export function ImageCrossfade({
           </MotionBox>
         )}
       </AnimatePresence>
-    </Box>
+    </MotionBox>
   );
 }
 

@@ -89,7 +89,7 @@ const Demo = (props: DemoProps) => {
 
 export default {
   component: Demo,
-  title: 'Unstable/AlertContext',
+  title: 'AtlasCode/React Context/AlertContext',
   decorators: [
     (Story) => {
       return (
