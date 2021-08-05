@@ -1,5 +1,6 @@
 import { Box, Stack } from '@material-ui/core';
 import { AnimationControls, useAnimation } from 'framer-motion';
+import _ from 'lodash';
 import React from 'react';
 import {
   IoLogoFacebook,
@@ -19,13 +20,17 @@ import KotaBurguer, { KotaBurguerProps } from '../kota-burguer/KotaBurguer';
 export interface KotaMenuProps extends KotaMenuBarProps {
   open: boolean;
   items?: KotaMenuItem[];
+  onOpen?: (...args: unknown[]) => void;
+  onClose?: (...args: unknown[]) => void;
 }
 
-const KotaMenu = ({
+export const KotaMenu = ({
   ImageCrossFadeProps,
   KotaBurguerProps,
   open,
   items = [],
+  onClose = _.noop,
+  onOpen = _.noop,
 }: KotaMenuProps) => {
   const dropdownControls = useAnimation();
   const listControls = useAnimation();
@@ -35,6 +40,7 @@ const KotaMenu = ({
   React.useEffect(() => {
     if (open) {
       (async () => {
+        onOpen();
         setCrossfadeState(true);
         await dropdownControls.start('visible');
         await listControls.start('visible');
@@ -46,12 +52,13 @@ const KotaMenu = ({
         await listControls.start('hidden');
         await dropdownControls.start('hidden');
         setCrossfadeState(false);
+        onClose();
       })();
     }
-  }, [open, dropdownControls, listControls, socialsControls]);
+  }, [open, dropdownControls, listControls, socialsControls, onOpen, onClose]);
 
   return (
-    <Box sx={{ position: 'absolute', width: '100%' }}>
+    <Box sx={{ position: 'relative', width: '100%' }}>
       <KotaMenuBar
         ImageCrossFadeProps={{
           ...ImageCrossFadeProps,
@@ -64,23 +71,25 @@ const KotaMenu = ({
           sx={{
             width: '100%',
             height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
+            display: 'grid',
+            gridTemplateRows: '1fr 20%',
+            gridTemplateColumns: '1fr',
           }}
         >
-          <FadeInList
-            component={KotaMenuItem}
-            list={items}
-            customControl={listControls}
-            flexDirection="column"
-            onAnimationStart={() =>
-              console.log('i once understood how this all worked')
-            }
-            onAnimationEnd={() => console.log('well shucks')}
-          />
-
+          <Box
+            sx={{ gridRow: '1/3', justifySelf: 'center', alignSelf: 'center' }}
+          >
+            <FadeInList
+              component={KotaMenuItem}
+              list={items}
+              customControl={listControls}
+              flexDirection="column"
+              onAnimationStart={() =>
+                console.log('i once understood how this all worked')
+              }
+              onAnimationEnd={() => console.log('well shucks')}
+            />
+          </Box>
           <MotionBox
             animate={socialsControls}
             initial="hidden"
@@ -101,8 +110,8 @@ const KotaMenu = ({
           >
             <Stack
               sx={{
-                position: 'absolute',
-                bottom: '5%',
+                position: 'relative',
+                pb: '4rem',
               }}
               direction="row"
               gap="2.5rem"
@@ -209,13 +218,13 @@ const KotaMenuBar = ({
   return (
     <Box
       sx={{
-        position: 'fixed',
         width: '100%',
         display: 'flex',
-        top: '5%',
         alignItems: 'center',
         px: '4rem',
+        pt: '4rem',
         zIndex: 900,
+        position: 'relative',
       }}
     >
       <Box

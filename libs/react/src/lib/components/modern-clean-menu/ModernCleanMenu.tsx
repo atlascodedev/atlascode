@@ -16,13 +16,11 @@ export function ModernCleanMenu({ logo, items }: ModernCleanMenuProps) {
     <Box
       sx={{
         width: '100%',
-        position: 'fixed',
         top: 0,
         left: 0,
         px: '4rem',
         zIndex: 200,
         display: 'grid',
-        transform: 'traslate3d(0px, 0px, 0px)',
         gridTemplateRows: '1fr',
         gridTemplateColumns: '0.2fr 1fr 0.3fr',
         py: '4rem',

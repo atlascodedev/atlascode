@@ -1,6 +1,13 @@
-import { StandardFooter } from '@atlascode/react-core';
+import {
+  StandardFooter,
+  KotaMenu,
+  ModernCleanMenu,
+  useScrollbarContext,
+} from '@atlascode/react-core';
 import { Box } from '@material-ui/core';
+import _ from 'lodash';
 import React from 'react';
+import Header from '../components/Header';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AppLayoutProps {
@@ -10,6 +17,7 @@ export interface AppLayoutProps {
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
     <Box sx={{ width: '100%' }}>
+      <Header />
       {children}
       <StandardFooter
         emails={['teste@teste.com']}

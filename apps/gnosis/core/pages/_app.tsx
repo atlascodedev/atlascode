@@ -2,6 +2,7 @@ import * as React from 'react';
 import { AppProps } from 'next/app';
 import {
   AtlasCodeThemeProvider,
+  StandardFooter,
   ThemeSmoothScrollLayout,
 } from '@atlascode/react-core';
 import theme from '../theme/customTheme';

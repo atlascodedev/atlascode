@@ -1,11 +1,9 @@
 import { Story, Meta } from '@storybook/react';
 import { KotaBurguer, KotaBurguerProps } from './KotaBurguer';
-import React from 'react';
-import { useTheme } from '@material-ui/core';
 
 export default {
   component: KotaBurguer,
-  title: 'AtlasCode/Buttons/Burguer - Kota',
+  title: 'Unstable/Burguer - Kota',
   decorators: [
     (Story) => (
       <div

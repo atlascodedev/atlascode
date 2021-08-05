@@ -40,7 +40,7 @@ const SecondaryDemoElement = ({ text }: SecondaryDemoProps) => {
 
 export default {
   component: FadeInList,
-  title: 'AtlasCode/Animations/FadeInListVertical',
+  title: 'Unstable/FadeInListVertical',
   argTypes: {
     animateIn: {
       name: 'animateIn',
