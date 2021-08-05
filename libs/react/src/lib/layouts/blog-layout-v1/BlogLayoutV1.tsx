@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from 'react';
 import { alpha, Box, Container, Stack } from '@material-ui/core';
-import { getReadingTime, isBrowser } from '@atlascode/helpers';
+import { getReadingTime } from '@atlascode/helpers';
 import {
   IoLogoFacebook,
   IoLogoInstagram,
@@ -101,18 +101,20 @@ export function BlogLayoutV1({
                 opacity: 1,
               },
             }}
-            id="Atlas-BlogLayoutV1-socialMediaTray"
+            id="Atlas-BlogLayoutV1-socialMediaTray-container"
             sx={{
               position: 'fixed',
               top: 0,
               right: 0,
               transform: {
+                display: { xs: 'none', lg: 'block' },
                 lg: 'translate(-20px, 90px)',
-                xl: 'translate(-100px, 90px)',
+                xl: 'translate(-150px, 90px)',
               },
             }}
           >
             <Box
+              id="Atlas-BlogLayoutV1-socialMediaTray-flexContainer"
               sx={{
                 borderLeft: (theme) =>
                   `5px solid ${theme.palette.primary.main}`,
@@ -125,6 +127,7 @@ export function BlogLayoutV1({
               }}
             >
               <Box
+                id="Atlas-BlogLayoutV1-socialMediaTray-label"
                 sx={{
                   color: (theme) => theme.palette.grey[600],
                   fontSize: '16px',
@@ -133,7 +136,11 @@ export function BlogLayoutV1({
                 Compartilhe a postagem nas suas redes sociais
               </Box>
 
-              <Stack direction="row" gap="2.5rem">
+              <Stack
+                id="Atlas-BlogLayoutV1-socialMediaTray-iconsContainer"
+                direction="row"
+                gap="2.5rem"
+              >
                 <IconButtonCircle
                   size="small"
                   elevation
