@@ -18,10 +18,10 @@ export interface ContactFormDialogProps {
   onSubmit?: (...args: unknown[]) => void;
   handleClose?: (...args: unknown[]) => void;
   open?: boolean;
-  nameInputProps: Partial<FormInputProps>;
-  phoneInputProps: Partial<FormInputProps>;
-  emailInputProps: Partial<FormInputProps>;
-  messageInputProps: Partial<FormInputProps>;
+  nameInputProps?: Partial<FormInputProps>;
+  phoneInputProps?: Partial<FormInputProps>;
+  emailInputProps?: Partial<FormInputProps>;
+  messageInputProps?: Partial<FormInputProps>;
 }
 
 export function ContactFormDialog({

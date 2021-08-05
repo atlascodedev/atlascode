@@ -28,6 +28,7 @@ export function Index() {
         onAnimationStart={disableScroll}
         onAnimationEnd={enableScroll}
       />
+
       <HeroScreen
         ctaLabel="Ver cursos"
         ctaCallback={() => scrollIntoView('#courses_section')}
