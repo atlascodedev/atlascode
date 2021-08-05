@@ -2,17 +2,24 @@ import { isBrowser } from '@atlascode/helpers';
 import {
   KotaMenu,
   ModernCleanMenu,
+  ModernCleanMenuProps,
   useScrollbarContext,
 } from '@atlascode/react-core';
-import { Box } from '@material-ui/core';
+import { Box, useTheme } from '@material-ui/core';
 import _ from 'lodash';
 import React from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface HeaderProps {}
+export interface HeaderProps {
+  items: Array<{ label: string; action: (...args: unknown[]) => void }>;
+  cta?: Pick<ModernCleanMenuProps['CTAButton'], 'label' | 'onClick'>;
+  logoClick?: ModernCleanMenuProps['onLogoClick'];
+}
 
-const Header = (props: HeaderProps) => {
+const Header = ({ items, cta, logoClick }: HeaderProps) => {
   const [menuState, setMenuState] = React.useState<boolean>(false);
+
+  const theme = useTheme();
 
   const mobileHeaderRef = React.useRef<HTMLElement>(null);
   const desktopHeaderRef = React.useRef<HTMLElement>(null);
@@ -53,14 +60,12 @@ const Header = (props: HeaderProps) => {
             },
             KotaBurguerProps: {
               colorOpen: '#fff',
+              colorClosed: theme.palette.primary.main,
               onClick: () => setMenuState((prevState) => !prevState),
             },
-            items: [
-              { action: _.noop, label: 'Item 1' },
-              { action: _.noop, label: 'Item 2' },
-              { action: _.noop, label: 'Item 3' },
-              { action: _.noop, label: 'Item 4' },
-            ],
+            items: items.map((value, index) => {
+              return { action: value.action, label: value.label };
+            }),
           }}
         />
       </Box>
@@ -77,13 +82,12 @@ const Header = (props: HeaderProps) => {
         }}
       >
         <ModernCleanMenu
+          onLogoClick={logoClick}
+          CTAButton={cta}
           logo={'./images/gnosis-logo-blue.svg'}
-          items={[
-            { onClick: _.noop, label: 'Item 1' },
-            { onClick: _.noop, label: 'Item 2' },
-            { onClick: _.noop, label: 'Item 3' },
-            { onClick: _.noop, label: 'Item 4' },
-          ]}
+          items={items.map((value, index) => {
+            return { onClick: value.action, label: value.label };
+          })}
         />
       </Box>
     </React.Fragment>

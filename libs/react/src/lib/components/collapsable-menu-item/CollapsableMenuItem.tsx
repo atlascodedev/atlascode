@@ -39,7 +39,7 @@ export function CollapsableMenuItem({
   const handleClick = React.useCallback(() => {
     if (subMenu && subMenu.length > 0) {
       handleOpen();
-    } else if (!_.isUndefined(onClick) && subMenu && subMenu?.length > 0) {
+    } else if (!_.isUndefined(onClick) && !subMenu) {
       onClick();
     } else {
       _.noop();

@@ -9,9 +9,19 @@ import CollapsableMenuItem, {
 export interface ModernCleanMenuProps {
   logo?: string;
   items: CollapsableMenuItemProps[];
+  onLogoClick?: (...args: unknown[]) => void;
+  CTAButton?: {
+    label: string;
+    onClick: (...args: unknown[]) => void;
+  };
 }
 
-export function ModernCleanMenu({ logo, items }: ModernCleanMenuProps) {
+export function ModernCleanMenu({
+  logo,
+  items,
+  CTAButton,
+  onLogoClick,
+}: ModernCleanMenuProps) {
   return (
     <Box
       sx={{
@@ -27,8 +37,9 @@ export function ModernCleanMenu({ logo, items }: ModernCleanMenuProps) {
         alignItems: 'center',
       }}
     >
-      <Box sx={{ width: 'auto', height: '8rem' }}>
+      <Box sx={{ width: 'auto', height: '8rem', cursor: 'pointer' }}>
         <Box
+          onClick={onLogoClick}
           src={logo}
           component="img"
           sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
@@ -49,16 +60,19 @@ export function ModernCleanMenu({ logo, items }: ModernCleanMenuProps) {
         })}
       </Box>
 
-      <Box sx={{ width: '100%', height: 'auto' }}>
-        <Button
-          sx={{ fontSize: '1.2rem' }}
-          size="small"
-          variant="kota"
-          color="primary"
-        >
-          Call to action here
-        </Button>
-      </Box>
+      {CTAButton && (
+        <Box sx={{ width: '100%', height: 'auto' }}>
+          <Button
+            onClick={CTAButton.onClick}
+            sx={{ fontSize: '1.2rem' }}
+            size="small"
+            variant="kota"
+            color="primary"
+          >
+            {CTAButton.label}
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }
