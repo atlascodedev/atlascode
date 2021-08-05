@@ -62,17 +62,19 @@ export function ContactFormDialog({
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
-        <DialogContentText>{subtitle}</DialogContentText>
+        <DialogContentText sx={{ pb: '2rem' }}>{subtitle}</DialogContentText>
         <Box
           sx={{
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+            gridTemplateRows: '1fr',
             gridAutoFlow: 'row',
             gap: '3rem',
           }}
         >
           <TextField
             {...nameInputProps}
+            sx={{ gridColumn: { xs: '1/3', md: 'initial' } }}
             autoFocus
             margin="dense"
             fullWidth
@@ -80,6 +82,7 @@ export function ContactFormDialog({
           />
           <TextField
             {...emailInputProps}
+            sx={{ gridColumn: { xs: '1/3', md: 'initial' } }}
             margin="dense"
             type="email"
             fullWidth
