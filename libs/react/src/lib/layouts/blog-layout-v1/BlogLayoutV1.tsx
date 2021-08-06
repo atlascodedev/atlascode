@@ -171,6 +171,7 @@ export function BlogLayoutV1({
             width: '100%',
             display: 'flex',
             justifyContent: 'center',
+            px: '20px',
           }}
           id="Atlas-BlogLayoutV1-header"
         >
