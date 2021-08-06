@@ -8,13 +8,13 @@ import { Property } from 'csstype';
 
 export interface ILottieAnimation {
   animationData: unknown;
-  width: ResponsiveStyleValue<Property.Width<string>>;
-  height: ResponsiveStyleValue<Property.Width<string>>;
+  width?: ResponsiveStyleValue<Property.Width<string | number>>;
+  height?: ResponsiveStyleValue<Property.Width<string | number>>;
   loop?: boolean;
   autoplay?: boolean;
   preserveAspectRatio?: boolean;
-  stopped: boolean;
-  paused: boolean;
+  stopped?: boolean;
+  paused?: boolean;
 }
 
 export type LottieAnimationItem = ReturnType<
@@ -23,8 +23,8 @@ export type LottieAnimationItem = ReturnType<
 
 const LottieAnimation = ({
   animationData,
-  height,
-  width,
+  height = 300,
+  width = 300,
   autoplay = true,
   loop = true,
   paused = false,
