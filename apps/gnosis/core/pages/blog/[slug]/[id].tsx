@@ -17,8 +17,17 @@ export const getStaticPaths: BlogStaticPaths = async ({
   defaultLocale,
   locales,
 }) => {
+  const posts: { slug: string; id: string }[] = [{ id: 'one', slug: 'two' }];
+
   return {
-    paths: [{ params: { id: '123', slug: 'blog-test' } }],
+    paths: posts.map((value, index) => {
+      return {
+        params: {
+          slug: value.slug,
+          id: value.id,
+        },
+      };
+    }),
     fallback: false,
   };
 };
@@ -38,7 +47,7 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async ({
       title: 'Baby',
       readingTime: true,
       content: 'hello',
-      date: new Date(),
+      date: new Date().toDateString(),
       featuredImage: 'https://imgurl.com/hello',
       latestPosts: [],
       socials: {},

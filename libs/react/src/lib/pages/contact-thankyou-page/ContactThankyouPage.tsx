@@ -29,7 +29,7 @@ export function ContactThankyouPage({
   return (
     <Box
       id="Atlas-ContactThankyouPage-root"
-      sx={{ width: '100%', position: 'relative', height: '100vh' }}
+      sx={{ width: '100%', position: 'relative' }}
     >
       <Container
         maxWidth="md"

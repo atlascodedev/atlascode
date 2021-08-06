@@ -55,8 +55,8 @@ const Header = ({ items, cta, logoClick }: HeaderProps) => {
           {...{
             open: menuState,
             ImageCrossFadeProps: {
-              primaryImage: './images/gnosis-logo-blue.svg',
-              secondaryImage: './images/gnosis-logo-white.svg',
+              primaryImage: '/images/gnosis-logo-blue.svg',
+              secondaryImage: '/images/gnosis-logo-white.svg',
             },
             KotaBurguerProps: {
               colorOpen: '#fff',
@@ -84,7 +84,7 @@ const Header = ({ items, cta, logoClick }: HeaderProps) => {
         <ModernCleanMenu
           onLogoClick={logoClick}
           CTAButton={cta}
-          logo={'./images/gnosis-logo-blue.svg'}
+          logo={'/images/gnosis-logo-blue.svg'}
           items={items.map((value, index) => {
             return { onClick: value.action, label: value.label };
           })}

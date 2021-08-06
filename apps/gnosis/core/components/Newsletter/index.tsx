@@ -41,7 +41,7 @@ const Newsletter = (props: NewsletterProps) => {
             <Box
               sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
               component="img"
-              src="images/doc-img-2.png"
+              src="/images/doc-img-2.png"
             />
           </Box>
         </Box>

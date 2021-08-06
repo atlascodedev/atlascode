@@ -53,7 +53,7 @@ const PicComponent = () => {
         position: 'absolute',
       }}
       component="img"
-      src="./images/young-doc-female-2.png"
+      src="/images/young-doc-female-2.png"
     ></Box>
   );
 };
