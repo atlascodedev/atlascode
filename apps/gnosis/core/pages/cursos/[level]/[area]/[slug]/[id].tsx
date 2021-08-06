@@ -93,7 +93,9 @@ const CoursePage = ({
         </Container>
       </Box>
 
-      <ProductDefense />
+      <Box sx={{ pb: '5rem' }}>
+        <ProductDefense />
+      </Box>
       <NewsLetter />
       <Contact />
     </Box>

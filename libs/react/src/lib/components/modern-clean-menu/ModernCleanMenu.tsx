@@ -33,11 +33,14 @@ export function ModernCleanMenu({
         display: 'grid',
         gridTemplateRows: '1fr',
         gridTemplateColumns: '0.2fr 1fr 0.3fr',
-        py: '4rem',
+        py: '2rem',
+        pb: '1.5rem',
+        bgcolor: '#F6F9FB',
+        boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.15)',
         alignItems: 'center',
       }}
     >
-      <Box sx={{ width: 'auto', height: '8rem', cursor: 'pointer' }}>
+      <Box sx={{ width: 'auto', height: '6rem', cursor: 'pointer' }}>
         <Box
           onClick={onLogoClick}
           src={logo}
