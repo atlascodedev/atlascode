@@ -3,11 +3,13 @@ import * as lottie from 'lottie-web';
 import { Box } from '@material-ui/core';
 import _ from 'lodash';
 import { isUndefined } from '@atlascode/helpers';
+import { ResponsiveStyleValue } from '../../typings/styling';
+import { Property } from 'csstype';
 
 export interface ILottieAnimation {
   animationData: unknown;
-  width: number | number[];
-  height: number | number[];
+  width: ResponsiveStyleValue<Property.Width<string>>;
+  height: ResponsiveStyleValue<Property.Width<string>>;
   loop?: boolean;
   autoplay?: boolean;
   preserveAspectRatio?: boolean;
@@ -69,7 +71,7 @@ const LottieAnimation = ({
     }
   }, [paused, stopped, autoplay, loop]);
 
-  return <Box width={width} height={height} ref={containerRef}></Box>;
+  return <Box sx={{ width: width, height: height }} ref={containerRef} />;
 };
 
 export default LottieAnimation;

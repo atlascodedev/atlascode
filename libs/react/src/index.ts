@@ -1,3 +1,4 @@
+export * from './lib/pages/contact-thankyou-page/ContactThankyouPage';
 export * from './lib/layouts/blog-layout-v1/BlogLayoutV1';
 export * from './lib/context/alert-context/AlertContext';
 export * from './lib/components/large-notification-with-backdrop/LargeNotificationWithBackdrop';
