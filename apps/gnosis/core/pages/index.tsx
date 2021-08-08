@@ -5,6 +5,7 @@ import {
   testimonialCardRoundedMock,
   useScrollbarContext,
 } from '@atlascode/react-core';
+import { GetStaticProps } from 'next';
 import BlogPreview from '../components/BlogPreview';
 import Contact from '../components/Contact';
 import Courses from '../components/Courses';
@@ -64,3 +65,11 @@ export function Index() {
 }
 
 export default Index;
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  console.log(process.env);
+
+  return {
+    props: {},
+  };
+};

@@ -1,5 +1,6 @@
 import { isBrowser } from '@atlascode/helpers';
 import {
+  ContactFormDialog,
   KotaMenu,
   ModernCleanMenu,
   ModernCleanMenuProps,
@@ -7,20 +8,47 @@ import {
 } from '@atlascode/react-core';
 import { Box, useTheme } from '@material-ui/core';
 import _ from 'lodash';
+import { useRouter } from 'next/dist/client/router';
 import React from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface HeaderProps {
-  items: Array<{ label: string; action: (...args: unknown[]) => void }>;
-  cta?: Pick<ModernCleanMenuProps['CTAButton'], 'label' | 'onClick'>;
-  logoClick?: ModernCleanMenuProps['onLogoClick'];
-}
+export interface HeaderProps {}
 
-const Header = ({ items, cta, logoClick }: HeaderProps) => {
+const Header = (props: HeaderProps) => {
+  const [contactFormDialogState, setContactFormDialogState] =
+    React.useState<boolean>(false);
+  const { scrollIntoView, scrollTop } = useScrollbarContext();
+
+  const { asPath, push } = useRouter();
+
+  const handleScrollIntoView = (callback: (...args: unknown[]) => void) => {
+    if (asPath !== '/') {
+      push('/');
+    } else {
+      callback();
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (asPath !== '/') {
+      push('/');
+    } else {
+      scrollTop(1500);
+    }
+  };
+  const items = [
+    {
+      action: () =>
+        handleScrollIntoView(() => scrollIntoView('#courses_section')),
+      label: 'Cursos',
+    },
+    {
+      action: () => handleScrollIntoView(() => scrollIntoView('#contact_form')),
+      label: 'Contato',
+    },
+  ];
   const [menuState, setMenuState] = React.useState<boolean>(false);
-
   const theme = useTheme();
-
   const mobileHeaderRef = React.useRef<HTMLElement>(null);
   const desktopHeaderRef = React.useRef<HTMLElement>(null);
 
@@ -40,6 +68,14 @@ const Header = ({ items, cta, logoClick }: HeaderProps) => {
 
   return (
     <React.Fragment>
+      <ContactFormDialog
+        cancelLabel="Cancelar"
+        submitLabel="Enviar"
+        title="Contato"
+        subtitle="Preencha o formulário com seus dados e uma mensagem e um de nossos representantes irá atendê-lo na primeira oportunidade."
+        handleClose={() => setContactFormDialogState(false)}
+        open={contactFormDialogState}
+      />
       <Box
         ref={mobileHeaderRef}
         sx={{
@@ -82,8 +118,11 @@ const Header = ({ items, cta, logoClick }: HeaderProps) => {
         }}
       >
         <ModernCleanMenu
-          onLogoClick={logoClick}
-          CTAButton={cta}
+          onLogoClick={handleLogoClick}
+          CTAButton={{
+            label: 'Contate-nos',
+            onClick: () => setContactFormDialogState(true),
+          }}
           logo={'/images/gnosis-logo-blue.svg'}
           items={items.map((value, index) => {
             return { onClick: value.action, label: value.label };

@@ -22,7 +22,7 @@ const CoursePageClassesListItem = ({
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: '30% 1fr',
+          gridTemplateColumns: '20% 1fr',
           width: '100%',
           height: '100%',
         }}

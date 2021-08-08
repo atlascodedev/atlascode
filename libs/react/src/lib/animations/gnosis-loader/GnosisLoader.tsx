@@ -66,7 +66,7 @@ export const GnosisLoader = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 1000,
+        zIndex: 200000,
       }}
       initial="bgInitial"
       animate={logoAnimationControls}

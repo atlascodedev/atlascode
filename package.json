@@ -33,6 +33,7 @@
     "@material-ui/core": "^5.0.0-beta.0",
     "@material-ui/icons": "^5.0.0-beta.1",
     "@xobotyi/scrollbar-width": "^1.9.5",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "framer-motion": "^4.1.17",
