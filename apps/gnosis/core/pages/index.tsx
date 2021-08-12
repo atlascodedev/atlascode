@@ -75,14 +75,10 @@ export default Index;
 export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
   params,
 }) => {
-  const allCoursesCollectionRequest: AxiosResponse<CourseCollectionType[]> =
-    await axios.get(
-      `${process.env.CLOUD_FUNCTION_BASE_URL}/collections/entries/coursesNew`
-    );
-
+  const allCoursesCollectionRequest = [];
   return {
     props: {
-      courses: allCoursesCollectionRequest.data,
+      courses: allCoursesCollectionRequest,
     },
   };
 };
