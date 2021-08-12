@@ -5,6 +5,7 @@ import {
   testimonialCardRoundedMock,
   useScrollbarContext,
 } from '@atlascode/react-core';
+import axios, { AxiosResponse } from 'axios';
 import { GetStaticProps } from 'next';
 import BlogPreview from '../components/BlogPreview';
 import Contact from '../components/Contact';
@@ -13,6 +14,7 @@ import HeroScreen from '../components/HeroScreen';
 import Newsletter from '../components/Newsletter';
 import ProductDefense from '../components/ProductDefense';
 import Testimonials from '../components/Testimonials';
+import { CourseCollectionType } from '../types';
 
 const mockExt = offerCardFullMock(20);
 const mockMulti = offerCardFullMock(15);
@@ -20,7 +22,11 @@ const mockPos = offerCardFullMock(50);
 const mockTestimonials = testimonialCardRoundedMock(20, 'primary');
 const mockBlogPreview = blogPreviewCardMockData(20);
 
-export function Index() {
+export interface IndexPageProps {
+  courses: CourseCollectionType[];
+}
+
+export function Index(props: IndexPageProps) {
   const { disableScroll, enableScroll, scrollIntoView } = useScrollbarContext();
 
   return (
@@ -66,10 +72,17 @@ export function Index() {
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  console.log(process.env);
+export const getStaticProps: GetStaticProps<IndexPageProps> = async ({
+  params,
+}) => {
+  const allCoursesCollectionRequest: AxiosResponse<CourseCollectionType[]> =
+    await axios.get(
+      `${process.env.CLOUD_FUNCTION_BASE_URL}/collections/entries/coursesNew`
+    );
 
   return {
-    props: {},
+    props: {
+      courses: allCoursesCollectionRequest.data,
+    },
   };
 };

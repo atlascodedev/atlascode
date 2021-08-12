@@ -1,5 +1,24 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
+import Cors from 'cors';
+
+const cors = Cors({ methods: ['GET', 'HEAD'] });
+
+const runMiddleware = async (
+  req: NextApiRequest,
+  res: NextApiResponse,
+  next: (...args: unknown[]) => void
+) => {
+  return new Promise((resolve, reject) => {
+    next(req, res, (result: unknown) => {
+      if (result instanceof Error) {
+        return reject(result);
+      } else {
+        return resolve(result);
+      }
+    });
+  });
+};
 
 const API_BASE_URL = `${process.env.CLOUD_FUNCTION_BASE_URL}/collections/entries`;
 const API_SECRET = `${process.env.CLOUD_FUNCTION_API_KEY}`;
@@ -11,6 +30,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await runMiddleware(req, res, cors);
+
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   } else if (!requestHasSecret(req.query)) {
