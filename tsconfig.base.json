@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@atlascode/helpers": ["libs/helpers/src/index.ts"],
+      "@atlascode/jss-mixins": ["libs/jss-mixins/src/index.ts"],
       "@atlascode/lottie-react-wrapper": [
         "libs/lottie-react-wrapper/src/index.js"
       ],

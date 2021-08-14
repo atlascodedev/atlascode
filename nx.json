@@ -43,6 +43,9 @@
     "helpers": {
       "tags": []
     },
+    "jss-mixins": {
+      "tags": []
+    },
     "lottie-react-wrapper": {
       "tags": []
     },

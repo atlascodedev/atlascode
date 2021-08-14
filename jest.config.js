@@ -12,5 +12,6 @@ module.exports = {
     '<rootDir>/libs/react-web-ui-composite',
     '<rootDir>/libs/lottie-react-wrapper',
     '<rootDir>/libs/react-web-layouts',
+    '<rootDir>/libs/jss-mixins',
   ],
 };
