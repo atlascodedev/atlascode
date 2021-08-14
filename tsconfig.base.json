@@ -24,6 +24,7 @@
         "libs/react-web-animations/src/index.ts"
       ],
       "@atlascode/react-web-hooks": ["libs/react-web-hooks/src/index.ts"],
+      "@atlascode/react-web-layouts": ["libs/react-web-layouts/src/index.ts"],
       "@atlascode/react-web-ui": ["libs/react-web-ui/src/index.ts"],
       "@atlascode/react-web-ui-composite": [
         "libs/react-web-ui-composite/src/index.ts"
