@@ -8,5 +8,7 @@ module.exports = {
     '<rootDir>/libs/react',
     '<rootDir>/libs/react-web-ui',
     '<rootDir>/libs/react-web-hooks',
+    '<rootDir>/libs/react-web-animations',
+    '<rootDir>/libs/react-web-ui-composite',
   ],
 };

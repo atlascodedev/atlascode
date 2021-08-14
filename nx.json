@@ -53,10 +53,16 @@
     "react": {
       "tags": []
     },
+    "react-web-animations": {
+      "tags": []
+    },
     "react-web-hooks": {
       "tags": []
     },
     "react-web-ui": {
+      "tags": []
+    },
+    "react-web-ui-composite": {
       "tags": []
     }
   }
