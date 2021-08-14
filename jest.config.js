@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/apps/teste/core',
     '<rootDir>/libs/react',
     '<rootDir>/libs/react-web-ui',
+    '<rootDir>/libs/react-web-hooks',
   ],
 };

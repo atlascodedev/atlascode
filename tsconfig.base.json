@@ -17,6 +17,7 @@
     "paths": {
       "@atlascode/helpers": ["libs/helpers/src/index.ts"],
       "@atlascode/react-core": ["libs/react/src/index.ts"],
+      "@atlascode/react-web-hooks": ["libs/react-web-hooks/src/index.ts"],
       "@atlascode/react-web-ui": ["libs/react-web-ui/src/index.ts"]
     }
   },
