@@ -52,6 +52,9 @@
     },
     "react": {
       "tags": []
+    },
+    "react-web-ui": {
+      "tags": []
     }
   }
 }

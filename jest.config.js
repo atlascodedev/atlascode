@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/apps/gnosis/core',
     '<rootDir>/apps/teste/core',
     '<rootDir>/libs/react',
+    '<rootDir>/libs/react-web-ui',
   ],
 };
