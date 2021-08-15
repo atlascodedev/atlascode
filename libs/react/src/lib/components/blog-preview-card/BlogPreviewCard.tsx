@@ -1,7 +1,6 @@
 import { Box, Chip, Stack } from '@material-ui/core';
 import { IoMdTime } from 'react-icons/io';
 import React from 'react';
-import { isNumber, isString } from 'lodash';
 import { getReadingTime } from '@atlascode/helpers';
 import { webkitVerticalTruncate } from '../../mixins/webkit-vertical-truncate/WebkitVerticalTruncate';
 

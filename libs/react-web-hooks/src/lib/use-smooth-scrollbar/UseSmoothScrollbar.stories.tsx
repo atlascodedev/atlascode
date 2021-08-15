@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import React from 'react';
 import { ImageList, ImageListItem } from '@material-ui/core';
 import { useSmoothScrollbar } from './UseSmoothScrollbar';
+import { mockImageList } from './__mocks__';
 
 const Demo = () => {
   const demoRef = React.useRef<HTMLElement>(null);
