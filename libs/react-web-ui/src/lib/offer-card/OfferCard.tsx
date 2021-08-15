@@ -9,18 +9,7 @@ import {
 import { IconType } from 'react-icons/lib';
 import {backGroundZoom} from "@atlascode/jss-mixins"
 
-export interface OfferCardItem {
-  icon: IconType;
-  text: string;
-}
 
-export interface OfferCardProps {
-  img: string;
-  title: string;
-  items: OfferCardItem[];
-  redirectLink: string;
-  zoomEffect?: boolean;
-}
 
 export function OfferCard({
   img,
@@ -121,3 +110,15 @@ export function OfferCard({
 }
 
 export default OfferCard;
+export interface OfferCardItem {
+  icon: IconType;
+  text: string;
+}
+
+export interface OfferCardProps {
+  img: string;
+  title: string;
+  items: OfferCardItem[];
+  redirectLink: string;
+  zoomEffect?: boolean;
+}

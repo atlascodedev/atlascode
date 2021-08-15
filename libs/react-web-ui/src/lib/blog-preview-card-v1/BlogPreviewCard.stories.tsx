@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
-import { BlogPreviewCard, BlogPreviewCardProps } from './BlogPreviewCard';
+import { BlogPreviewCard, BlogPreviewCardProps } from './BlogPreviewCardV1';
 import faker from 'faker';
-import randomMockImage from '../../mock/random-mock-image/RandomMockImage';
 
 export default {
   component: BlogPreviewCard,
@@ -26,6 +25,6 @@ Primary.args = {
   content: faker.lorem.lines(50),
   readingTime: true,
   title: 'Lorem ipsum title dundun lelel',
-  thumbnail: randomMockImage(),
+  thumbnail: faker.image.business(1000, 6000),
   tags: ['marketing digital', 'teste 1', 'teste2'],
 };

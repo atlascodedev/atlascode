@@ -49,9 +49,6 @@
     "lottie-react-wrapper": {
       "tags": []
     },
-    "mocks": {
-      "tags": []
-    },
     "olympus-core": {
       "tags": []
     },
@@ -69,6 +66,9 @@
       "tags": []
     },
     "react-web-layouts": {
+      "tags": []
+    },
+    "react-web-sliders": {
       "tags": []
     },
     "react-web-ui": {

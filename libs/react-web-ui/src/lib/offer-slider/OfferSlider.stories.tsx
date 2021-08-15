@@ -1,6 +1,5 @@
 import { Box } from '@material-ui/core';
 import { Story, Meta } from '@storybook/react';
-import { offerCardFullMock } from '@atlascode/mocks'
 import { OfferSlider, OfferSliderProps } from './OfferSlider';
 
 export default {
@@ -35,5 +34,5 @@ const Template: Story<OfferSliderProps> = (args) => <OfferSlider {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  items: offerCardFullMock(10),
+  // items: offerCardFullMock(10),
 };

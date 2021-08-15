@@ -3,7 +3,6 @@ import { Story, Meta } from '@storybook/react';
 import { OfferCard, OfferCardItem, OfferCardProps } from './OfferCard';
 import faker from 'faker';
 import { Box } from '@material-ui/core';
-import { offerCardItemMock, randomMockImage } from '@atlascode/mocks'
 
 export default {
   component: OfferCard,
@@ -30,9 +29,9 @@ const Template: Story<OfferCardProps> = (args) => <OfferCard {...args} />;
 
 export const Primary = Template.bind({});
 
-Primary.args = {
-  img: randomMockImage(),
-  items: offerCardItemMock(),
-  redirectLink: faker.internet.domainName(),
-  title: faker.name.jobArea(),
-};
+// Primary.args = {
+//   img: randomMockImage(),
+//   items: offerCardItemMock(),
+//   redirectLink: faker.internet.domainName(),
+//   title: faker.name.jobArea(),
+// };

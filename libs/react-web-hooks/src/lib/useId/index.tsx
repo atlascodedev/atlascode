@@ -1,6 +1,6 @@
 import React from "react";
 
-const useId = (idOveride?: string): string | undefined => {
+export const useId = (idOveride?: string): string | undefined => {
   const [defaultId, setDefaultId] = React.useState(idOveride);
 
   const id = idOveride || defaultId;

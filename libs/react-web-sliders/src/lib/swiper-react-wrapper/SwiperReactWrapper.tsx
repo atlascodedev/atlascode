@@ -21,7 +21,7 @@ require('swiper/components/lazy/lazy.min.css');
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
-export type SliderWrapperProps<C> = {
+export type SwiperReactWrapperProps<C> = {
   component: React.FC<C>;
   list?: C[];
   SwiperProps?: Omit<SwiperOptions, 'width' | 'height'>;
@@ -35,12 +35,12 @@ export type SliderWrapperProps<C> = {
  * @param sx  - Material UI system's box wrapper sx prop made available at v5 https://next.material-ui.com/components/box/#the-sx-prop
  * @returns JSX.Element
  */
-const SwiperSliderWrapper = <T extends {}>({
+export const SwiperReactWrapper = <T extends {}>({
   component: Component,
   SwiperProps,
   list = [],
   sx,
-}: SliderWrapperProps<T>) => {
+}: SwiperReactWrapperProps<T>) => {
   return (
     <Box sx={sx} component={Swiper} {...SwiperProps}>
       {list.map((value, index) => {
@@ -54,4 +54,4 @@ const SwiperSliderWrapper = <T extends {}>({
   );
 };
 
-export default SwiperSliderWrapper;
+export default SwiperReactWrapper;

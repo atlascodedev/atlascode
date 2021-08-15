@@ -1,10 +1,9 @@
 import { Box, Fab } from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
-import useId from '../../hooks/useId';
-import SwiperSliderWrapper from '../../utility/swiper-slider-wrapper/SwiperSliderWrapper';
-import TestimonialCardRounded, {
-  TestimonialCardRoundedProps,
-} from '../testimonial-card-rounded/TestimonialCardRounded';
+import {useId} from "@atlascode/react-web-hooks"
+import SwiperSliderWrapper from "../swiper-react-wrapper/SwiperReactWrapper"
+import {TestimonialCardRoundedProps, TestimonialCardRounded} from '@atlascode/react-web-ui'
+
 
 export interface TestimonialSliderProps {
   items: TestimonialCardRoundedProps[];
@@ -67,7 +66,6 @@ export function TestimonialSlider({
         >
           <Fab
             id={`prevTestimonial-${navigationID}`}
-            variant="outlined"
             color={controlButtonsColor}
           >
             <KeyboardArrowRight
@@ -77,7 +75,6 @@ export function TestimonialSlider({
 
           <Fab
             id={`nextTestimonial-${navigationID}`}
-            variant="outlined"
             color={controlButtonsColor}
           >
             <KeyboardArrowRight sx={{ fontSize: '3.5rem' }} />

@@ -215,27 +215,6 @@
         }
       }
     },
-    "mocks": {
-      "root": "libs/mocks",
-      "sourceRoot": "libs/mocks/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/mocks/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mocks"],
-          "options": {
-            "jestConfig": "libs/mocks/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "olympus-core": {
       "root": "apps/olympus/core",
       "sourceRoot": "apps/olympus/core",
@@ -594,6 +573,77 @@
             "outputPath": "dist/storybook/react-web-layouts",
             "config": {
               "configFolder": "libs/react-web-layouts/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "react-web-sliders": {
+      "root": "libs/react-web-sliders",
+      "sourceRoot": "libs/react-web-sliders/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/react-web-sliders",
+            "tsConfig": "libs/react-web-sliders/tsconfig.lib.json",
+            "project": "libs/react-web-sliders/package.json",
+            "entryFile": "libs/react-web-sliders/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/react-web-sliders/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/react-web-sliders/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/react-web-sliders"],
+          "options": {
+            "jestConfig": "libs/react-web-sliders/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/react-web-sliders/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/react-web-sliders",
+            "config": {
+              "configFolder": "libs/react-web-sliders/.storybook"
             }
           },
           "configurations": {
