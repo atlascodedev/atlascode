@@ -653,6 +653,79 @@
           }
         }
       }
+    },
+    "smooth-scrollbar-react-wrapper": {
+      "root": "libs/smooth-scrollbar-react-wrapper",
+      "sourceRoot": "libs/smooth-scrollbar-react-wrapper/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/smooth-scrollbar-react-wrapper",
+            "tsConfig": "libs/smooth-scrollbar-react-wrapper/tsconfig.lib.json",
+            "project": "libs/smooth-scrollbar-react-wrapper/package.json",
+            "entryFile": "libs/smooth-scrollbar-react-wrapper/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/smooth-scrollbar-react-wrapper/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smooth-scrollbar-react-wrapper/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/smooth-scrollbar-react-wrapper"],
+          "options": {
+            "jestConfig": "libs/smooth-scrollbar-react-wrapper/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/smooth-scrollbar-react-wrapper/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/smooth-scrollbar-react-wrapper",
+            "config": {
+              "configFolder": "libs/smooth-scrollbar-react-wrapper/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
     }
   },
   "cli": {

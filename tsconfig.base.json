@@ -26,7 +26,10 @@
       ],
       "@atlascode/react-web-hooks": ["libs/react-web-hooks/src/index.ts"],
       "@atlascode/react-web-layouts": ["libs/react-web-layouts/src/index.ts"],
-      "@atlascode/react-web-ui": ["libs/react-web-ui/src/index.ts"]
+      "@atlascode/react-web-ui": ["libs/react-web-ui/src/index.ts"],
+      "@atlascode/smooth-scrollbar-react-wrapper": [
+        "libs/smooth-scrollbar-react-wrapper/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
