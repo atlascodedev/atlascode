@@ -4,8 +4,14 @@ import { AnimationControls, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import React from 'react';
 import _ from 'lodash';
-import { AnimationDirection, TransitionPreset } from '../../types';
+import {
+  AnimationDirection,
+  TransitionPreset,
+  transitionPresetMap,
+} from '../../types';
 import { ResponsiveStyleValue } from '@material-ui/system';
+import evaluateAnimateInType from '../../util/evaluate-animate-in-type/EvaluateAnimateInType';
+import MotionBox from '../motion-box/MotionBox';
 
 const DISPLACEMENT_AMOUNT_DEFAULT = 100;
 

@@ -1,7 +1,7 @@
 import { BoxProps } from '@material-ui/system';
 import DefenseCard, { DefenseCardProps } from '../defense-card/DefenseCard';
 import { InView } from 'react-intersection-observer';
-import MotionBox from '../motion-box/MotionBox';
+import { MotionBox } from '@atlascode/react-web-animations';
 
 type DefenseCardSectionContainerProps = Partial<
   Pick<BoxProps, 'sx' | 'component'>

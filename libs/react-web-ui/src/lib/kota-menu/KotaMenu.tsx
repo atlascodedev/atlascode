@@ -9,11 +9,11 @@ import {
 } from 'react-icons/io';
 import IconButtonCircle from '../icon-button-circle/IconButtonCircle';
 import KotaBurguer, { KotaBurguerProps } from '../kota-burguer/KotaBurguer';
-import MotionBox, { transitionPresetMap } from '../motion-box/MotionBox';
 import {
   FadeInList,
   ImageCrossfade,
   ImageCrossfadeProps,
+  MotionBox,
 } from '@atlascode/react-web-animations';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -190,7 +190,7 @@ const KotaMenuDropdown = ({
           height: '0px',
         },
       }}
-      transition={transitionPresetMap['default']}
+      transitionPreset="gentle"
       sx={{
         width: '100%',
         height: '100vh',

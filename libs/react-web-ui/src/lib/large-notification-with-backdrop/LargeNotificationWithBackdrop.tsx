@@ -1,5 +1,3 @@
-import { isFirefox } from '@atlascode/helpers';
-import { Box } from '@material-ui/system';
 import { AnimatePresence } from 'framer-motion';
 import _ from 'lodash';
 import React from 'react';
@@ -8,7 +6,7 @@ import { frostedGlassEffect } from '@atlascode/jss-mixins';
 import NotificationCard, {
   NotificationCardProps,
 } from '../notification-card/NotificationCard';
-import MotionBox from '../motion-box/MotionBox';
+import { MotionBox } from '@atlascode/react-web-animations';
 
 /* eslint-disable-next-line */
 export interface LargeNotificationWithBackdropProps {

@@ -2,8 +2,8 @@ import { Box, BoxProps } from '@material-ui/core';
 import { Property } from 'csstype';
 import { useAnimation, Variants } from 'framer-motion';
 import React from 'react';
-import {ResponsiveStyleValue} from '@material-ui/system'
-import MotionBox from '../motion-box/MotionBox';
+import { ResponsiveStyleValue } from '@material-ui/system';
+import { MotionBox } from '@atlascode/react-web-animations';
 
 const DEFAULT_COLOR = '#5a5a5a';
 const DEFAULT_HEIGHT = 1;
@@ -62,19 +62,28 @@ export const KotaBurguer = ({
       >
         <MotionBox
           sx={{
-            ...lineStyles(colorOpen, colorClosed, open),
+            ...(lineStyles(colorOpen, colorClosed, open) as Record<
+              string,
+              unknown
+            >),
           }}
           variants={firstLineVariant}
         />
         <MotionBox
           sx={{
-            ...lineStyles(colorOpen, colorClosed, open),
+            ...(lineStyles(colorOpen, colorClosed, open) as Record<
+              string,
+              unknown
+            >),
           }}
           variants={secondLineVariant}
         />
         <MotionBox
           sx={{
-            ...lineStyles(colorOpen, colorClosed, open),
+            ...(lineStyles(colorOpen, colorClosed, open) as Record<
+              string,
+              unknown
+            >),
             width: '80%',
           }}
           variants={thirdLineVariant}

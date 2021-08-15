@@ -1,4 +1,4 @@
-import MotionBox from "../motion-box/MotionBox";
+import MotionBox from '../motion-box/MotionBox';
 
 /* eslint-disable-next-line */
 export interface TabPanelProps {

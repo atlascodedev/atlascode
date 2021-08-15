@@ -1,12 +1,11 @@
 import { Box, BoxProps, MenuItem } from '@material-ui/core';
 import { Property } from 'csstype';
 import { FaChevronUp } from 'react-icons/fa';
-import useMeasure from '../../hooks/useMeasure';
-import { ResponsiveStyleValue } from '../../typings/styling';
-import MotionBox from '../../utility/motion-box/MotionBox';
 import MuiRoundedMenu from '../mui-rounded-menu/MuiRoundedMenu';
 import React from 'react';
 import _ from 'lodash';
+import { MotionBox } from '@atlascode/react-web-animations';
+import { ResponsiveStyleValue } from '@material-ui/system';
 
 /* eslint-disable-next-line */
 export interface CollapsableMenuItemProps {
