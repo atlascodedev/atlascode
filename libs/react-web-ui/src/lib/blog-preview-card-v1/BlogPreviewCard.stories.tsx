@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { BlogPreviewCard, BlogPreviewCardProps } from './BlogPreviewCardV1';
+import { BlogPreviewCard, BlogPreviewCardProps } from './BlogPreviewCard';
 import faker from 'faker';
 import randomMockImage from '../../mock/random-mock-image/RandomMockImage';
 

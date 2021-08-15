@@ -215,6 +215,27 @@
         }
       }
     },
+    "mocks": {
+      "root": "libs/mocks",
+      "sourceRoot": "libs/mocks/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/mocks/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mocks"],
+          "options": {
+            "jestConfig": "libs/mocks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "olympus-core": {
       "root": "apps/olympus/core",
       "sourceRoot": "apps/olympus/core",

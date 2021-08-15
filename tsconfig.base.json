@@ -20,6 +20,7 @@
       "@atlascode/lottie-react-wrapper": [
         "libs/lottie-react-wrapper/src/index.js"
       ],
+      "@atlascode/mocks": ["libs/mocks/src/index.ts"],
       "@atlascode/react-core": ["libs/react/src/index.ts"],
       "@atlascode/react-web-animations": [
         "libs/react-web-animations/src/index.ts"

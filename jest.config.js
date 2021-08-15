@@ -13,5 +13,6 @@ module.exports = {
     '<rootDir>/libs/react-web-layouts',
     '<rootDir>/libs/jss-mixins',
     '<rootDir>/libs/smooth-scrollbar-react-wrapper',
+    '<rootDir>/libs/mocks',
   ],
 };
