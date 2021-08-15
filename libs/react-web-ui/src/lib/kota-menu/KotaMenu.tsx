@@ -10,6 +10,11 @@ import {
 import IconButtonCircle from '../icon-button-circle/IconButtonCircle';
 import KotaBurguer, { KotaBurguerProps } from '../kota-burguer/KotaBurguer';
 import MotionBox, { transitionPresetMap } from '../motion-box/MotionBox';
+import {
+  FadeInList,
+  ImageCrossfade,
+  ImageCrossfadeProps,
+} from '@atlascode/react-web-animations';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface KotaMenuProps extends KotaMenuBarProps {

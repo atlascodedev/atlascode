@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import BlogPreviewCard from './BlogPreviewCard';
+import BlogPreviewCard from './BlogPreviewCardV1';
 
 describe('AtlasCode/Cards/Blog Preview Card', () => {
   it('should render successfully', () => {

@@ -23,7 +23,7 @@ export * from './lib/utility/swiper-slider-wrapper/SwiperSliderWrapper';
 export * from './lib/components/testimonial-slider/TestimonialSlider';
 export * from './lib/components/icon-button-circle/IconButtonCircle';
 export * from './lib/components/standard-footer/StandardFooter';
-export * from './lib/components/blog-preview-card/BlogPreviewCard';
+export * from './lib/components/blog-preview-card/BlogPreviewCardV1';
 export * from './lib/components/newsletter-input/NewsLetterInput';
 export * from './lib/components/testimonial-card-rounded/TestimonialCardRounded';
 export * from './lib/components/tab-panel/TabPanel';
