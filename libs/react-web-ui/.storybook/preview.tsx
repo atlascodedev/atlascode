@@ -1,7 +1,6 @@
 import React from 'react';
 import { AtlasCodeThemeProvider } from '../src/index';
 import { StoryContext } from '@storybook/react';
-import { createTheme } from '@material-ui/core';
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   viewport: {

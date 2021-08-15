@@ -70,9 +70,6 @@
     },
     "react-web-ui": {
       "tags": []
-    },
-    "react-web-ui-composite": {
-      "tags": []
     }
   }
 }
