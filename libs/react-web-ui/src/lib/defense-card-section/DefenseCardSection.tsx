@@ -1,7 +1,7 @@
-import { BoxProps } from '@material-ui/core';
-import MotionBox from '../../utility/motion-box/MotionBox';
+import { BoxProps } from '@material-ui/system';
 import DefenseCard, { DefenseCardProps } from '../defense-card/DefenseCard';
 import { InView } from 'react-intersection-observer';
+import MotionBox from '../motion-box/MotionBox';
 
 type DefenseCardSectionContainerProps = Partial<
   Pick<BoxProps, 'sx' | 'component'>

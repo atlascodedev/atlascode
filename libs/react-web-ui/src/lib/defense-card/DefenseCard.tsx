@@ -1,6 +1,5 @@
-import { CardProps, Box, Paper, PaperProps, BoxProps } from '@material-ui/core';
-import { ResponsiveStyleValue } from '@material-ui/system';
-import { ElementType } from 'react';
+import { Box, Paper, PaperProps } from '@material-ui/core';
+
 import { IconType } from 'react-icons';
 
 type DefenseCardPaperProps = Partial<

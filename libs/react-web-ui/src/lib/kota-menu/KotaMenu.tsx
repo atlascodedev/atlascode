@@ -7,14 +7,9 @@ import {
   IoLogoInstagram,
   IoLogoWhatsapp,
 } from 'react-icons/io';
-import FadeInList from '../../animations/fade-in-list/FadeInList';
-import ImageCrossfade, {
-  ImageCrossfadeProps,
-} from '../../animations/image-crossfade/ImageCrossfade';
-import { transitionPresetMap } from '../../animations/typings';
-import MotionBox from '../../utility/motion-box/MotionBox';
 import IconButtonCircle from '../icon-button-circle/IconButtonCircle';
 import KotaBurguer, { KotaBurguerProps } from '../kota-burguer/KotaBurguer';
+import MotionBox, { transitionPresetMap } from '../motion-box/MotionBox';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface KotaMenuProps extends KotaMenuBarProps {

@@ -3,12 +3,12 @@ import { Box } from '@material-ui/system';
 import { AnimatePresence } from 'framer-motion';
 import _ from 'lodash';
 import React from 'react';
-import { transitionPresetMap } from '../../animations/typings';
-import { frostedGlassEffect } from '../../mixins/frosted-glass/FrostedGlass';
-import MotionBox from '../../utility/motion-box/MotionBox';
+import { frostedGlassEffect } from '@atlascode/jss-mixins';
+
 import NotificationCard, {
   NotificationCardProps,
 } from '../notification-card/NotificationCard';
+import MotionBox from '../motion-box/MotionBox';
 
 /* eslint-disable-next-line */
 export interface LargeNotificationWithBackdropProps {
@@ -89,7 +89,6 @@ export function LargeNotificationWithBackdrop({
                   hidden: { y: '100vh' },
                   visible: { y: 0 },
                 }}
-                transition={transitionPresetMap['slow']}
               >
                 <NotificationCard
                   ButtonProps={{ onClick: handleClose }}
