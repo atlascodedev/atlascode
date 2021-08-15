@@ -8,7 +8,7 @@ import SwiperCore, {
   Autoplay,
 } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import OfferCard, { OfferCardProps } from '../offer-card/OfferCard';
+import {OfferCardProps, OfferCard} from "@atlascode/react-web-ui"
 require('swiper/swiper.min.css');
 require('swiper/components/navigation/navigation.min.css');
 require('swiper/components/pagination/pagination.min.css');
