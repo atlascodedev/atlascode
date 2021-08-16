@@ -6,18 +6,21 @@ import { Box } from '@material-ui/core';
 export const MotionBoxBase = motion(Box);
 
 export type MotionBoxProps = typeof MotionBoxBase['defaultProps'] & {
-  transitionPreset?: TransitionPreset | Transition;
+  transitionPreset?: TransitionPreset;
 };
 
 export const MotionBox = React.forwardRef(
   ({ transitionPreset = 'default', ...props }: MotionBoxProps, ref) => {
-    const checkPresetMemo = React.useMemo(
-      () => checkIfIsAnimationPreset(transitionPreset),
-      [transitionPreset]
-    );
-
     return (
-      <MotionBoxBase ref={props.ref} {...props} transition={checkPresetMemo} />
+      <MotionBoxBase
+        ref={props.ref}
+        {...props}
+        transition={
+          props.transition
+            ? props.transition
+            : transitionPresetMap[transitionPreset]
+        }
+      />
     );
   }
 );

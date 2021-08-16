@@ -149,14 +149,14 @@ const KotaMenuItem = ({ action, label }: KotaMenuItem) => {
     <Box
       onClick={action}
       sx={{
-        color: (theme) => theme.palette.primary.main,
+        color: (theme) => theme.palette.primary.contrastText,
         fontSize: { xs: '4rem', lg: '6.5rem' },
         fontWeight: 800,
         cursor: 'pointer',
         textTransform: 'uppercase',
         transition: 'color 0.5s',
         ':hover': {
-          color: (theme) => theme.palette.primary.main,
+          color: (theme) => theme.palette.secondary.main,
         },
       }}
     >
