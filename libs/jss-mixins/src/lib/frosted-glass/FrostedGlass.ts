@@ -1,6 +1,7 @@
 import { isFirefox } from '@atlascode/helpers';
-import { AtlasCSSVariant } from '../../utility/atlas-theme-provider/theme-utilities';
-export const frostedGlassEffect = (): AtlasCSSVariant => {
+import { SxProps } from '@material-ui/system';
+
+export const frostedGlassEffect = (): SxProps => {
   if (isFirefox()) {
     return {
       ':before': {

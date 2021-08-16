@@ -62,8 +62,6 @@ export const parameters = {
   },
 };
 
-
-
 // eslint-disable-next-line @typescript-eslint/ban-types
 const withTheme = (StoryFn: Function, context: StoryContext) => {
   return (

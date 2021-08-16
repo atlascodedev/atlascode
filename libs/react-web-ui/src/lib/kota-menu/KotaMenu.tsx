@@ -1,4 +1,4 @@
-import { Box, Stack } from '@material-ui/core';
+import { Stack, Box } from '@material-ui/core';
 import { AnimationControls, useAnimation } from 'framer-motion';
 import _ from 'lodash';
 import React from 'react';
@@ -84,10 +84,6 @@ export const KotaMenu = ({
               list={items}
               customControl={listControls}
               flexDirection="column"
-              onAnimationStart={() =>
-                console.log('i once understood how this all worked')
-              }
-              onAnimationEnd={() => console.log('well shucks')}
             />
           </Box>
           <MotionBox
@@ -153,14 +149,14 @@ const KotaMenuItem = ({ action, label }: KotaMenuItem) => {
     <Box
       onClick={action}
       sx={{
-        color: (theme) => theme.palette.primary.contrastText,
+        color: (theme) => theme.palette.primary.main,
         fontSize: { xs: '4rem', lg: '6.5rem' },
         fontWeight: 800,
         cursor: 'pointer',
         textTransform: 'uppercase',
         transition: 'color 0.5s',
         ':hover': {
-          color: (theme) => theme.palette.secondary.main,
+          color: (theme) => theme.palette.primary.main,
         },
       }}
     >
@@ -197,7 +193,7 @@ const KotaMenuDropdown = ({
         position: 'absolute',
         top: 0,
         left: 0,
-        bgcolor: (theme) => theme.palette.primary.main,
+        backgroundColor: (theme) => theme.palette.primary.main,
         zIndex: 800,
       }}
     >

@@ -1,6 +1,5 @@
-import {defaultTheme} from './defaultTheme'
-import { Theme, CssBaseline } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { defaultTheme } from './defaultTheme';
+import { Theme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import { CacheProvider, Global, css } from '@emotion/react';
 import createCache from '@emotion/cache';

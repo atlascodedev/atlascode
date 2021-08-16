@@ -1,10 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export class Color {
-  r;
-  g;
-  b;
+  r: number;
+  g: number;
+  b: number;
 
-  constructor(r, g, b) {
-    this.set(r, g, b);
+  constructor(r: number, g: number, b: number) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+
+    this.set(this.r, this.g, this.b);
   }
 
   toString() {
@@ -13,7 +18,7 @@ export class Color {
     )})`;
   }
 
-  set(r, g, b) {
+  set(r: any, g: any, b: any) {
     this.r = this.clamp(r);
     this.g = this.clamp(g);
     this.b = this.clamp(b);
@@ -79,7 +84,7 @@ export class Color {
     ]);
   }
 
-  multiply(matrix) {
+  multiply(matrix: number[]) {
     const newR = this.clamp(
       this.r * matrix[0] + this.g * matrix[1] + this.b * matrix[2]
     );
@@ -120,7 +125,8 @@ export class Color {
     const b = this.b / 255;
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
-    let h, s;
+    let h = 0;
+    let s = 0;
     const l = (max + min) / 2;
 
     if (max === min) {
@@ -151,7 +157,7 @@ export class Color {
     };
   }
 
-  clamp(value) {
+  clamp(value: number) {
     if (value > 255) {
       value = 255;
     } else if (value < 0) {
@@ -162,11 +168,11 @@ export class Color {
 }
 
 export class Solver {
-  target;
-  targetHSL;
-  reusedColor;
+  target: { r: number; g: number; b: number };
+  targetHSL: { h: number; s: number; l: number };
+  reusedColor: Color;
 
-  constructor(target, baseColor?) {
+  constructor(target: Color, baseColor?: undefined) {
     this.target = target;
     this.targetHSL = target.hsl();
     this.reusedColor = new Color(0, 0, 0);
@@ -197,7 +203,7 @@ export class Solver {
     return best;
   }
 
-  solveNarrow(wide) {
+  solveNarrow(wide: { loss: any; values?: any }) {
     const A = wide.loss;
     const c = 2;
     const A1 = A + 1;
@@ -205,7 +211,7 @@ export class Solver {
     return this.spsa(A, a, c, wide.values, 500);
   }
 
-  spsa(A, a, c, values, iters) {
+  spsa(A: number, a: any, c: number, values: any, iters: number) {
     const alpha = 1;
     const gamma = 0.16666666666666666;
 
@@ -238,7 +244,7 @@ export class Solver {
     }
     return { values: best, loss: bestLoss };
 
-    function fix(value, idx) {
+    function fix(value: number, idx: number) {
       let max = 100;
       if (idx === 2 /* saturate */) {
         max = 7500;
@@ -261,7 +267,7 @@ export class Solver {
     }
   }
 
-  loss(filters) {
+  loss(filters: any[]) {
     // Argument is array of percentages.
     const color = this.reusedColor;
     color.set(0, 0, 0);
@@ -284,8 +290,8 @@ export class Solver {
     );
   }
 
-  css(filters) {
-    function fmt(idx, multiplier = 1) {
+  css(filters: { [x: string]: number }) {
+    function fmt(idx: number, multiplier = 1) {
       return Math.round(filters[idx] * multiplier);
     }
     return `filter: invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(
@@ -296,10 +302,10 @@ export class Solver {
   }
 }
 
-export function hexToRgbFilter(hex) {
+export function hexToRgbFilter(hex: string) {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+  hex = hex.replace(shorthandRegex, (m: any, r: any, g: any, b: any) => {
     return r + r + g + g + b + b;
   });
 
@@ -315,7 +321,7 @@ export function hexToRgbFilter(hex) {
 
 export const generateCSSFilter = (hexColor: string) => {
   const rgb = hexToRgbFilter(hexColor);
-  const color = new Color(rgb[0], rgb[1], rgb[2]);
+  const color = new Color(rgb![0], rgb![1], rgb![2]);
   const solver = new Solver(color);
 
   const result = solver.solve();

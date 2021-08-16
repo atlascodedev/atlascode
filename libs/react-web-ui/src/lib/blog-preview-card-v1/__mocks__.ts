@@ -1,6 +1,5 @@
 import faker from 'faker';
-import randomMockImage from '../../mock/random-mock-image/RandomMockImage';
-import { BlogPreviewCardProps } from './BlogPreviewCard';
+import { BlogPreviewCardProps } from './BlogPreviewCardV1';
 
 export const blogPreviewCardMockData = (amount: number) => {
   const outArray: BlogPreviewCardProps[] = [];
@@ -15,7 +14,7 @@ export const blogPreviewCardMockData = (amount: number) => {
         faker.commerce.department(),
         faker.commerce.department(),
       ],
-      thumbnail: randomMockImage(),
+      thumbnail: faker.image.business(500, 300),
     };
 
     outArray.push(blogPreviewCardLocal);

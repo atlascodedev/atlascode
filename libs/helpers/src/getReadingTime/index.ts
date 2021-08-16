@@ -6,7 +6,7 @@ const IMAGE_READ_TIME = 10; // in seconds
 
 const IMAGE_TAGS = ['img', 'Image'];
 
-function imageCount(imageTags, string) {
+function imageCount(imageTags: unknown[], string: string) {
   const combinedImageTags = imageTags.join('|');
   const pattern = `<(${combinedImageTags})([\\w\\W]+?)[\\/]?>`;
   const reg = new RegExp(pattern, 'g');
@@ -16,7 +16,7 @@ function imageCount(imageTags, string) {
 function imageReadTime(
   customImageTime = IMAGE_READ_TIME,
   tags = IMAGE_TAGS,
-  string
+  string: string
 ) {
   let seconds = 0;
   const count = imageCount(tags, string);
@@ -32,17 +32,17 @@ function imageReadTime(
   };
 }
 
-function stripTags(string) {
+function stripTags(string: string) {
   const pattern = '<\\w+(\\s+("[^"]*"|\\\'[^\\\']*\'|[^>])+)?>|<\\/\\w+>';
   const reg = new RegExp(pattern, 'gi');
   return string.replace(reg, '');
 }
 
-function stripWhitespace(string) {
+function stripWhitespace(string: string) {
   return string.replace(/^\s+/, '').replace(/\s+$/, '');
 }
 
-function wordsCount(string) {
+function wordsCount(string: string) {
   const pattern = '\\w+';
   const reg = new RegExp(pattern, 'g');
   return (string.match(reg) || []).length;

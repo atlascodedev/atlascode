@@ -1,25 +1,26 @@
 import { motion } from 'framer-motion';
-import { Transition, MotionProps } from 'framer-motion';
+import { Transition } from 'framer-motion';
 import React from 'react';
-import { BoxProps, Box } from '@material-ui/system';
-
-export type MotionBoxProps = typeof MotionBox;
+import { Box } from '@material-ui/core';
 
 export const MotionBoxBase = motion(Box);
 
-export const MotionBox = ({
-  transitionPreset = 'default',
-  ...props
-}: typeof MotionBoxBase['defaultProps'] & {
+export type MotionBoxProps = typeof MotionBoxBase['defaultProps'] & {
   transitionPreset?: TransitionPreset | Transition;
-}) => {
-  const checkPresetMemo = React.useMemo(
-    () => checkIfIsAnimationPreset(transitionPreset),
-    [transitionPreset]
-  );
-
-  return <MotionBoxBase {...props} transition={checkPresetMemo} />;
 };
+
+export const MotionBox = React.forwardRef(
+  ({ transitionPreset = 'default', ...props }: MotionBoxProps, ref) => {
+    const checkPresetMemo = React.useMemo(
+      () => checkIfIsAnimationPreset(transitionPreset),
+      [transitionPreset]
+    );
+
+    return (
+      <MotionBoxBase ref={props.ref} {...props} transition={checkPresetMemo} />
+    );
+  }
+);
 
 export default MotionBox;
 

@@ -1,4 +1,5 @@
-import { Box, BoxProps, ButtonBase, SvgIconTypeMap } from '@material-ui/core';
+import { BoxProps, ButtonBase, SvgIconTypeMap, Box } from '@material-ui/core';
+
 import { IconType } from 'react-icons';
 import React from 'react';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
@@ -45,21 +46,21 @@ const getVariant = (
   return {
     contained: {
       ...defaultStyles(size),
-      backgroundColor: (theme) => theme.palette.background.paper,
-      boxShadow: (theme) => (elevation ? theme.shadows[3] : theme.shadows[0]),
+      backgroundColor: 'background.paper',
+      boxShadow: 3,
 
       '& .Atlas-IconButtonRound-icon': {
-        color: (theme) => theme.palette[color].main,
+        color: 'primary.main',
       },
     },
     outlined: {
       ...defaultStyles(size),
       backgroundColor: 'transparent',
-      border: (theme) => `1.5px solid ${theme.palette[color].main}`,
-      boxShadow: (theme) => (elevation ? theme.shadows[3] : theme.shadows[0]),
+      border: `1.5px solid primary.main`,
+      boxShadow: 3,
 
       '& .Atlas-IconButtonRound-icon': {
-        color: (theme) => theme.palette[color].main,
+        color: 'primary.main',
       },
     },
   };
@@ -78,7 +79,10 @@ export function IconButtonCircle({
   }, [size, color, elevation]);
 
   return (
-    <Box component={ButtonBase} sx={{ ...variants[variant] }}>
+    <Box
+      component={ButtonBase}
+      sx={{ ...(variants[variant] as Record<string, unknown>) }}
+    >
       {href ? (
         <Box
           component="a"
