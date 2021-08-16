@@ -29,9 +29,9 @@ const Template: Story<OfferCardProps> = (args) => <OfferCard {...args} />;
 
 export const Primary = Template.bind({});
 
-// Primary.args = {
-//   img: randomMockImage(),
-//   items: offerCardItemMock(),
-//   redirectLink: faker.internet.domainName(),
-//   title: faker.name.jobArea(),
-// };
+Primary.args = {
+  img: faker.image.animals(),
+  items: [],
+  redirectLink: faker.internet.domainName(),
+  title: faker.name.jobArea(),
+};
