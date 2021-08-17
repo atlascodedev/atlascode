@@ -1,6 +1,6 @@
 import faker from 'faker';
 import randomMockImage from '../../mock/random-mock-image/RandomMockImage';
-import { BlogPreviewCardProps } from './BlogPreviewCard';
+import { BlogPreviewCardProps } from './BlogPreviewCardV1';
 
 export const blogPreviewCardMockData = (amount: number) => {
   const outArray: BlogPreviewCardProps[] = [];

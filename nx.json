@@ -33,6 +33,9 @@
     ]
   },
   "projects": {
+    "core": {
+      "tags": []
+    },
     "gnosis-core": {
       "tags": []
     },
@@ -44,9 +47,6 @@
       "tags": []
     },
     "jss-mixins": {
-      "tags": []
-    },
-    "lottie-react-wrapper": {
       "tags": []
     },
     "olympus-core": {
@@ -63,9 +63,6 @@
       "tags": []
     },
     "react-web-hooks": {
-      "tags": []
-    },
-    "react-web-layouts": {
       "tags": []
     },
     "react-web-sliders": {

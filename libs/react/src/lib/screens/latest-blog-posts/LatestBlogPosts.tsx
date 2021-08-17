@@ -1,7 +1,7 @@
 import { Box, Button } from '@material-ui/core';
 import BlogPreviewCard, {
   BlogPreviewCardProps,
-} from '../../components/blog-preview-card/BlogPreviewCard';
+} from '../../components/blog-preview-card/BlogPreviewCardV1';
 import useLoadMore from '../../hooks/use-load-more/UseLoadMore';
 import MotionBox from '../../utility/motion-box/MotionBox';
 
