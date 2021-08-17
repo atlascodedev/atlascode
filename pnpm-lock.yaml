@@ -71,6 +71,7 @@ specifiers:
   lodash: ^4.17.21
   lottie-web: ^5.7.11
   mini-css-extract-plugin: ^2.1.0
+  nanoid: ^3.1.25
   next: 10.2.0
   prettier: ^2.3.1
   react: 17.0.2
@@ -116,6 +117,7 @@ dependencies:
   immer: 9.0.5
   lodash: 4.17.21
   lottie-web: 5.7.13
+  nanoid: 3.1.25
   next: 10.2.0_a67c5f560431221225b3cb7345ff21ac
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
