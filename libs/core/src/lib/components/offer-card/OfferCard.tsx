@@ -7,9 +7,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { IconType } from 'react-icons/lib';
-import {backGroundZoom} from "@atlascode/jss-mixins"
-
-
+import backGroundZoom from '../../jss-mixins/background-zoom/BackgroundZoom';
 
 export function OfferCard({
   img,

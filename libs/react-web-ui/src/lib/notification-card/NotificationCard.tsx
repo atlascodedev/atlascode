@@ -7,8 +7,7 @@ import {
   MdCheckCircle,
   MdErrorOutline,
 } from 'react-icons/md';
-import { webkitVerticalTruncate } from "@atlascode/jss-mixins"
-import {ResponsiveStyleValue} from '@material-ui/system'
+import { ResponsiveStyleValue } from '@material-ui/system';
 
 type NotificationType = 'success' | 'error' | 'warning' | 'info';
 
@@ -92,7 +91,7 @@ export function NotificationCard({
               p: 0,
               alignSelf: 'center',
               fontSize: '2.5em',
-              ...(webkitVerticalTruncate(2) as Record<string, unknown>),
+              // ...(webkitVerticalTruncate(2) as Record<string, unknown>),
             }}
           >
             {title}

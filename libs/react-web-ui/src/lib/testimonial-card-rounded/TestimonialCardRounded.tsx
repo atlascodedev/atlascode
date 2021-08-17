@@ -1,6 +1,4 @@
 import { Avatar, Box, Paper, PaperProps, Stack } from '@material-ui/core';
-import { addQuotes } from  "@atlascode/jss-mixins";
-import { webkitVerticalTruncate } from '@atlascode/jss-mixins'
 
 export type TestimonialCardPaperProps = Pick<PaperProps, 'elevation'>;
 
@@ -40,7 +38,7 @@ export function TestimonialCardRounded({
       }}
       {...PaperProps}
     >
-      <Box
+      {/* <Box
         component="p"
         sx={{
           ...(addQuotes() as Record<string, unknown>),
@@ -59,7 +57,7 @@ export function TestimonialCardRounded({
         }}
       >
         {testimonial}
-      </Box>
+      </Box> */}
 
       <Stack sx={{ mt: '3rem' }} direction="row" gap="1.5rem">
         <Avatar sx={{ width: '6.5rem', height: '6.5rem' }} />

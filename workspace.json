@@ -181,38 +181,6 @@
         }
       }
     },
-    "jss-mixins": {
-      "root": "libs/jss-mixins",
-      "sourceRoot": "libs/jss-mixins/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/jss-mixins",
-            "tsConfig": "libs/jss-mixins/tsconfig.lib.json",
-            "packageJson": "libs/jss-mixins/package.json",
-            "main": "libs/jss-mixins/src/index.ts",
-            "assets": ["libs/jss-mixins/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/jss-mixins/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/jss-mixins"],
-          "options": {
-            "jestConfig": "libs/jss-mixins/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "olympus-core": {
       "root": "apps/olympus/core",
       "sourceRoot": "apps/olympus/core",

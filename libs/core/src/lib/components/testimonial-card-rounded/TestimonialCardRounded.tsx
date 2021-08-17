@@ -1,6 +1,6 @@
 import { Avatar, Box, Paper, PaperProps, Stack } from '@material-ui/core';
-import { addQuotes } from  "@atlascode/jss-mixins";
-import { webkitVerticalTruncate } from '@atlascode/jss-mixins'
+import { addQuotes } from '../../jss-mixins/add-quotes/AddQuotes';
+import { webkitVerticalTruncate } from '../../jss-mixins/webkit-vertical-truncate/WebkitVerticalTruncate';
 
 export type TestimonialCardPaperProps = Pick<PaperProps, 'elevation'>;
 

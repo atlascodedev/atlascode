@@ -7,9 +7,6 @@ import {
   Typography,
 } from '@material-ui/core';
 import { IconType } from 'react-icons/lib';
-import {backGroundZoom} from "@atlascode/jss-mixins"
-
-
 
 export function OfferCard({
   img,
@@ -26,7 +23,7 @@ export function OfferCard({
             width: '100%',
             height: '19em',
             // eslint-disable-next-line @typescript-eslint/ban-types
-            ...(zoomEffect ? (backGroundZoom('objectFit') as {}) : {}),
+            // ...(zoomEffect ? (backGroundZoom('objectFit') as {}) : {}),
           }}
         >
           <Box

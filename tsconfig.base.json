@@ -17,7 +17,6 @@
     "paths": {
       "@atlascode/core": ["libs/core/src/index.ts"],
       "@atlascode/helpers": ["libs/helpers/src/index.ts"],
-      "@atlascode/jss-mixins": ["libs/jss-mixins/src/index.ts"],
       "@atlascode/react-core": ["libs/react/src/index.ts"],
       "@atlascode/react-web-animations": [
         "libs/react-web-animations/src/index.ts"
