@@ -4,23 +4,20 @@ import _ from 'lodash';
 import CollapsableMenuItem, {
   CollapsableMenuItemProps,
 } from '../collapsable-menu-item/CollapsableMenuItem';
-import AtlasButton from '../button/Button';
+import AtlasButton, { AtlasButtonProps } from '../button/Button';
 
 /* eslint-disable-next-line */
 export interface ModernCleanMenuProps {
   logo?: string;
   items: CollapsableMenuItemProps[];
   onLogoClick?: (...args: unknown[]) => void;
-  CTAButton?: {
-    label: string;
-    onClick: (...args: unknown[]) => void;
-  };
+  ButtonProps?: AtlasButtonProps;
 }
 
 export function ModernCleanMenu({
   logo,
   items,
-  CTAButton,
+  ButtonProps: CTAButton,
   onLogoClick,
 }: ModernCleanMenuProps) {
   return (
@@ -67,13 +64,11 @@ export function ModernCleanMenu({
       {CTAButton && (
         <Box sx={{ width: '100%', height: 'auto' }}>
           <AtlasButton
-            onClick={CTAButton.onClick}
             sx={{ fontSize: '1.2rem' }}
             variant="kota"
             color="primary"
-          >
-            {CTAButton.label}
-          </AtlasButton>
+            {...CTAButton}
+          />
         </Box>
       )}
     </Box>
