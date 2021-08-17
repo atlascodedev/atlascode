@@ -1,6 +1,81 @@
 {
   "version": 2,
   "projects": {
+    "core": {
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/core",
+            "tsConfig": "libs/core/tsconfig.lib.json",
+            "project": "libs/core/package.json",
+            "entryFile": "libs/core/src/index.ts",
+              "external": [
+              "react/jsx-runtime",
+              "@emotion/styled/base",
+              "react-is"
+            ],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/core/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/core/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core"],
+          "options": {
+            "jestConfig": "libs/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/core/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/core",
+            "config": {
+              "configFolder": "libs/core/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
     "gnosis-core": {
       "root": "apps/gnosis/core",
       "sourceRoot": "apps/gnosis/core",
@@ -74,38 +149,6 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/gnosis/core-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "helpers": {
-      "root": "libs/helpers",
-      "sourceRoot": "libs/helpers/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/helpers",
-            "tsConfig": "libs/helpers/tsconfig.lib.json",
-            "packageJson": "libs/helpers/package.json",
-            "main": "libs/helpers/src/index.ts",
-            "assets": ["libs/helpers/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/helpers/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/helpers"],
-          "options": {
-            "jestConfig": "libs/helpers/jest.config.js",
-            "passWithNoTests": true
           }
         }
       }
@@ -253,6 +296,79 @@
             "outputPath": "dist/storybook/react",
             "config": {
               "configFolder": "libs/react/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "smooth-scrollbar-react-wrapper": {
+      "root": "libs/smooth-scrollbar-react-wrapper",
+      "sourceRoot": "libs/smooth-scrollbar-react-wrapper/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/smooth-scrollbar-react-wrapper",
+            "tsConfig": "libs/smooth-scrollbar-react-wrapper/tsconfig.lib.json",
+            "project": "libs/smooth-scrollbar-react-wrapper/package.json",
+            "entryFile": "libs/smooth-scrollbar-react-wrapper/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/smooth-scrollbar-react-wrapper/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smooth-scrollbar-react-wrapper/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/smooth-scrollbar-react-wrapper"],
+          "options": {
+            "jestConfig": "libs/smooth-scrollbar-react-wrapper/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/smooth-scrollbar-react-wrapper/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/smooth-scrollbar-react-wrapper",
+            "config": {
+              "configFolder": "libs/smooth-scrollbar-react-wrapper/.storybook"
             }
           },
           "configurations": {

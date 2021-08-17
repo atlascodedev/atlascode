@@ -33,15 +33,15 @@
     ]
   },
   "projects": {
+    "core": {
+      "tags": []
+    },
     "gnosis-core": {
       "tags": []
     },
     "gnosis-core-e2e": {
       "tags": [],
       "implicitDependencies": ["gnosis-core"]
-    },
-    "helpers": {
-      "tags": []
     },
     "olympus-core": {
       "tags": []
@@ -51,6 +51,9 @@
       "implicitDependencies": ["olympus-core"]
     },
     "react": {
+      "tags": []
+    },
+    "smooth-scrollbar-react-wrapper": {
       "tags": []
     }
   }

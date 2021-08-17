@@ -1,4 +1,4 @@
-import { NewsLetterInput } from '@atlascode/react-core';
+import { NewsLetterInput } from '@atlascode/core';
 import { Box } from '@material-ui/core';
 import React from 'react';
 

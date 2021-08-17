@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@atlascode/helpers": ["libs/helpers/src/index.ts"],
-      "@atlascode/react-core": ["libs/react/src/index.ts"]
+      "@atlascode/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

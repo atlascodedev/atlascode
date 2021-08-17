@@ -1,7 +1,4 @@
-import {
-  DefenseCardSection,
-  DefenseCardSectionProps,
-} from '@atlascode/react-core';
+import { DefenseCardSection, DefenseCardSectionProps } from '@atlascode/core';
 import React from 'react';
 import { GiDiploma } from 'react-icons/gi';
 import { FaChalkboardTeacher, FaClock, FaGraduationCap } from 'react-icons/fa';

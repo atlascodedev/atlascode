@@ -1,4 +1,4 @@
-import { BlogLayoutV1, BlogLayoutV1Props } from '@atlascode/react-core';
+import { BlogLayoutV1, BlogLayoutV1Props } from '@atlascode/core';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 
