@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core';
 import React from 'react';
-import { ScrollbarProvider } from '../../context/scrollbar-context/ScrollbarContext';
+import { ScrollbarProvider } from '../smooth-scrollbar-context/SmoothScrollbarContext';
 
 export interface ThemeSmoothScrollLayoutProps {
   children?: React.ReactNode;

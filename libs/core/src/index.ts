@@ -48,7 +48,6 @@ export * from './lib/animations/motion-box/MotionBox';
 
 // Hooks
 export * from './lib/hooks/use-load-more/UseLoadMore';
-export * from './lib/hooks/use-smooth-scrollbar/UseSmoothScrollbar';
 
 // JSS mixins
 export * from './lib/jss-mixins/add-quotes/AddQuotes';
@@ -79,6 +78,7 @@ export * from './lib/components/offer-card/OfferCard';
 export * from './lib/components/standard-footer/StandardFooter';
 export * from './lib/components/tab-panel/TabPanel';
 export * from './lib/components/testimonial-card-rounded/TestimonialCardRounded';
+export * from './lib/components/kota-menu/KotaMenu';
 
 // Sliders
 export * from './lib/sliders/offer-slider/OfferSlider';
@@ -87,4 +87,7 @@ export * from './lib/sliders/testimonial-slider/TestimonialSlider';
 
 // Layouts
 export * from './lib/layouts/blog-layout-v1/BlogLayoutV1';
-export * from './lib/layouts/theme-smooth-scroll-layout/ThemeSmoothScrollLayout';
+
+// Smooth scrol
+export * from './lib/utility/smooth-scroll-wrapper/use-smooth-scroll/UseSmoothScrollbar';
+export * from './lib/utility/smooth-scroll-wrapper/smooth-scrollbar-context/SmoothScrollbarContext';

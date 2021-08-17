@@ -1,14 +1,13 @@
-import {
-  ContactFormDialog,
-  KotaMenu,
-  ModernCleanMenu,
-  ModernCleanMenuProps,
-  useScrollbarContext,
-} from '@atlascode/react-core';
 import { Box, useTheme } from '@material-ui/core';
 import _ from 'lodash';
 import { useRouter } from 'next/dist/client/router';
-import { isBrowser } from '@atlascode/core';
+import {
+  ContactFormDialog,
+  isBrowser,
+  KotaMenu,
+  ModernCleanMenu,
+  useScrollbarContext,
+} from '@atlascode/core';
 import React from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
