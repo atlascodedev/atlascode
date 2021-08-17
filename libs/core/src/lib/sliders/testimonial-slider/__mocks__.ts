@@ -1,5 +1,5 @@
 import faker from 'faker';
-import { TestimonialCardRoundedProps } from '../testimonial-card-rounded/TestimonialCardRounded';
+import { TestimonialCardRoundedProps } from '../../components/testimonial-card-rounded/TestimonialCardRounded';
 
 export const testimonialCardRoundedMock = (
   amount: number,

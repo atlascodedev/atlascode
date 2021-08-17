@@ -1,4 +1,4 @@
-const convertToSlug = (str: string) => {
+const convertToSlug = (str: any) => {
   str = String(str).toString();
   str = str.replace(/^\s+|\s+$/g, ''); // trim
   str = str.toLowerCase();
@@ -574,8 +574,8 @@ const convertToSlug = (str: string) => {
     Zh: ['Ж'],
   };
 
-  Object.keys(swaps).forEach((swap) => {
-    swaps[swap].forEach((s: any) => {
+  Object.keys(swaps as Record<string, Array<string>>).forEach((swap: any) => {
+    (swaps as any)[swap].forEach((s: any) => {
       str = str.replace(new RegExp(s, 'g'), swap);
     });
   });
