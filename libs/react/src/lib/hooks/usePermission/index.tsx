@@ -1,52 +1,45 @@
-import React from "react";
-import {
-  noOperation,
-  windowAddListener,
-  windowRemoveListener,
-} from "@atlascode/helpers";
+// type PermissionDesc =
+//   | PermissionDescriptor
+//   | DevicePermissionDescriptor
+//   | MidiPermissionDescriptor
+//   | PushPermissionDescriptor;
 
-type PermissionDesc =
-  | PermissionDescriptor
-  | DevicePermissionDescriptor
-  | MidiPermissionDescriptor
-  | PushPermissionDescriptor;
+// type State = PermissionState | '';
 
-type State = PermissionState | "";
+// const usePermission = (permissionDesc: PermissionDesc): State => {
+//   let mounted = true;
+//   let permissionStatus: PermissionStatus | null = null;
 
-const usePermission = (permissionDesc: PermissionDesc): State => {
-  let mounted = true;
-  let permissionStatus: PermissionStatus | null = null;
+//   const [state, setState] = React.useState<State>('');
 
-  const [state, setState] = React.useState<State>("");
+//   const onChange = () => {
+//     if (mounted && permissionStatus) {
+//       setState(permissionStatus.state);
+//     }
+//   };
 
-  const onChange = () => {
-    if (mounted && permissionStatus) {
-      setState(permissionStatus.state);
-    }
-  };
+//   const changeState = () => {
+//     onChange();
+//     windowAddListener(permissionStatus, 'change', onChange);
+//   };
 
-  const changeState = () => {
-    onChange();
-    windowAddListener(permissionStatus, "change", onChange);
-  };
+//   React.useEffect(() => {
+//     navigator.permissions
+//       .query(permissionDesc)
+//       .then((status) => {
+//         permissionStatus = status;
+//         changeState();
+//       })
+//       .catch(noOperation);
 
-  React.useEffect(() => {
-    navigator.permissions
-      .query(permissionDesc)
-      .then((status) => {
-        permissionStatus = status;
-        changeState();
-      })
-      .catch(noOperation);
+//     return () => {
+//       mounted = false;
+//       permissionStatus &&
+//         windowRemoveListener(permissionStatus, 'change', onChange);
+//     };
+//   }, []);
 
-    return () => {
-      mounted = false;
-      permissionStatus &&
-        windowRemoveListener(permissionStatus, "change", onChange);
-    };
-  }, []);
+//   return state;
+// };
 
-  return state;
-};
-
-export default usePermission;
+// export default usePermission;

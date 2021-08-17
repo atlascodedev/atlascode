@@ -1,9 +1,9 @@
-import { isBrowser } from '@atlascode/helpers';
 import React from 'react';
 import { Scrollbar as IScrollbar } from 'smooth-scrollbar/scrollbar';
 import Scrollbar from 'smooth-scrollbar';
 import { isString } from 'lodash';
 import ScrollbarModalPlugin from './smooth-scroll-modal-plugin';
+import { isBrowser } from '../../../helpers/assertions';
 
 export type SmoothScrollHook = (
   ref: React.RefObject<HTMLElement>,

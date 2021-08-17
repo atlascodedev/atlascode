@@ -1,33 +1,31 @@
-import React from "react";
-import { isBrowser } from "@atlascode/helpers";
+// import React from 'react';
+// const useMediaQuery = (
+//   query: string,
+//   defaultState: boolean = false
+// ): boolean => {
+//   const [state, setState] = React.useState<boolean>(
+//     isBrowser ? () => window.matchMedia(query).matches : defaultState
+//   );
 
-const useMediaQuery = (
-  query: string,
-  defaultState: boolean = false
-): boolean => {
-  const [state, setState] = React.useState<boolean>(
-    isBrowser ? () => window.matchMedia(query).matches : defaultState
-  );
+//   React.useEffect(() => {
+//     let isMounted = true;
 
-  React.useEffect(() => {
-    let isMounted = true;
+//     const mediaQuery = window.matchMedia(query);
 
-    const mediaQuery = window.matchMedia(query);
+//     const onChange = () => {
+//       if (!isMounted) {
+//         return;
+//       }
 
-    const onChange = () => {
-      if (!isMounted) {
-        return;
-      }
+//       setState(!!mediaQuery.matches);
+//     };
 
-      setState(!!mediaQuery.matches);
-    };
+//     mediaQuery.addListener(onChange);
 
-    mediaQuery.addListener(onChange);
+//     setState(mediaQuery.matches);
+//   }, [query]);
 
-    setState(mediaQuery.matches);
-  }, [query]);
+//   return state;
+// };
 
-  return state;
-};
-
-export default useMediaQuery;
+// export default useMediaQuery;

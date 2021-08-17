@@ -1,6 +1,7 @@
 // Helpers
 export * from './lib/helpers/assertions/is-firefox/isFirefox';
 export * from './lib/helpers/assertions/is-mobile-browser/IsMobileBrowser';
+export * from './lib/helpers/getReadingTime/index';
 export * from './lib/helpers/assertions/isArray/index';
 export * from './lib/helpers/assertions/isBrowser/index';
 export * from './lib/helpers/assertions/isCssVariable/index';
@@ -38,6 +39,7 @@ export * from './lib/helpers/colorManipulation/recomposeColor';
 export * from './lib/helpers/colorManipulation/rgbToHex';
 export * from './lib/helpers/getReadingTime/index';
 export * from './lib/helpers/convertToSlug/index';
+export * from './lib/helpers/assertions/isBrowser';
 
 // Animations
 export * from './lib/animations/fade-in-list/FadeInList';

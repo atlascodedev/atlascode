@@ -1,4 +1,3 @@
-import { isBrowser } from '@atlascode/helpers';
 import {
   ContactFormDialog,
   KotaMenu,
@@ -9,6 +8,7 @@ import {
 import { Box, useTheme } from '@material-ui/core';
 import _ from 'lodash';
 import { useRouter } from 'next/dist/client/router';
+import { isBrowser } from '@atlascode/core';
 import React from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

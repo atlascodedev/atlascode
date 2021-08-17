@@ -43,9 +43,6 @@
       "tags": [],
       "implicitDependencies": ["gnosis-core"]
     },
-    "helpers": {
-      "tags": []
-    },
     "olympus-core": {
       "tags": []
     },
@@ -63,9 +60,6 @@
       "tags": []
     },
     "react-web-sliders": {
-      "tags": []
-    },
-    "react-web-ui": {
       "tags": []
     },
     "smooth-scrollbar-react-wrapper": {

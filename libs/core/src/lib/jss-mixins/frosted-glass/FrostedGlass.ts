@@ -1,5 +1,5 @@
-import { isFirefox } from '@atlascode/helpers';
 import { SxProps } from '@material-ui/system';
+import { isFirefox } from '../../helpers/assertions';
 
 export const frostedGlassEffect = (): SxProps => {
   if (isFirefox()) {

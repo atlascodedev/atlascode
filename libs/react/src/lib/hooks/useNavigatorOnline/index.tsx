@@ -1,23 +1,22 @@
-import React from "react";
-import { isOnline } from "@atlascode/helpers";
+// import React from 'react';
 
-const useNavigatorOnline = () => {
-  const [status, setStatus] = React.useState(isOnline());
+// const useNavigatorOnline = () => {
+//   const [status, setStatus] = React.useState(isOnline());
 
-  const setOnline = () => setStatus(true);
-  const setOffline = () => setStatus(false);
+//   const setOnline = () => setStatus(true);
+//   const setOffline = () => setStatus(false);
 
-  React.useEffect(() => {
-    window.addEventListener("online", setOnline);
-    window.addEventListener("offline", setOffline);
+//   React.useEffect(() => {
+//     window.addEventListener('online', setOnline);
+//     window.addEventListener('offline', setOffline);
 
-    return () => {
-      window.removeEventListener("online", setOnline);
-      window.removeEventListener("offline", setOffline);
-    };
-  }, []);
+//     return () => {
+//       window.removeEventListener('online', setOnline);
+//       window.removeEventListener('offline', setOffline);
+//     };
+//   }, []);
 
-  return status;
-};
+//   return status;
+// };
 
-export default useNavigatorOnline;
+// export default useNavigatorOnline;

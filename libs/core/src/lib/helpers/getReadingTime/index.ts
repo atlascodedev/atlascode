@@ -48,7 +48,7 @@ function wordsCount(string: string) {
   return (string.match(reg) || []).length;
 }
 
-const readingTime = (
+export const readingTime = (
   HTMLString: string
 ): { readTime: number; readTimeWithImages: number } => {
   const { count, time } = imageReadTime(

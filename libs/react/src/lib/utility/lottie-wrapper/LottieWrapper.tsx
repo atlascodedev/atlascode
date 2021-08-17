@@ -2,7 +2,6 @@ import React from 'react';
 import * as lottie from 'lottie-web';
 import { Box } from '@material-ui/core';
 import _ from 'lodash';
-import { isUndefined } from '@atlascode/helpers';
 import { ResponsiveStyleValue } from '../../typings/styling';
 import { Property } from 'csstype';
 

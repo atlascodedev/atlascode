@@ -149,38 +149,6 @@
         }
       }
     },
-    "helpers": {
-      "root": "libs/helpers",
-      "sourceRoot": "libs/helpers/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/helpers",
-            "tsConfig": "libs/helpers/tsconfig.lib.json",
-            "packageJson": "libs/helpers/package.json",
-            "main": "libs/helpers/src/index.ts",
-            "assets": ["libs/helpers/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/helpers/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/helpers"],
-          "options": {
-            "jestConfig": "libs/helpers/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "olympus-core": {
       "root": "apps/olympus/core",
       "sourceRoot": "apps/olympus/core",
@@ -539,77 +507,6 @@
             "outputPath": "dist/storybook/react-web-sliders",
             "config": {
               "configFolder": "libs/react-web-sliders/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        }
-      }
-    },
-    "react-web-ui": {
-      "root": "libs/react-web-ui",
-      "sourceRoot": "libs/react-web-ui/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/react-web-ui",
-            "tsConfig": "libs/react-web-ui/tsconfig.lib.json",
-            "project": "libs/react-web-ui/package.json",
-            "entryFile": "libs/react-web-ui/src/index.ts",
-            "external": ["react/jsx-runtime"],
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "libs/react-web-ui/README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/react-web-ui/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/react-web-ui"],
-          "options": {
-            "jestConfig": "libs/react-web-ui/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "storybook": {
-          "executor": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/react",
-            "port": 4400,
-            "config": {
-              "configFolder": "libs/react-web-ui/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "executor": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "uiFramework": "@storybook/react",
-            "outputPath": "dist/storybook/react-web-ui",
-            "config": {
-              "configFolder": "libs/react-web-ui/.storybook"
             }
           },
           "configurations": {

@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from 'react';
 import { alpha, Box, Container, Stack } from '@material-ui/core';
-import { getReadingTime } from '@atlascode/helpers';
 import {
   IoLogoFacebook,
   IoLogoInstagram,
   IoLogoWhatsapp,
   IoMdTime,
 } from 'react-icons/io';
-import BlogPreviewCard from '../../components/blog-preview-card/BlogPreviewCardV1';
 import _ from 'lodash';
 import { useInView } from 'react-intersection-observer';
-import MotionBox from '../../utility/motion-box/MotionBox';
 import { AnimatePresence } from 'framer-motion';
 import IconButtonCircle from '../../components/icon-button-circle/IconButtonCircle';
+import getReadingTime from '../../helpers/getReadingTime';
+import MotionBox from '../../animations/motion-box/MotionBox';
+import BlogPreviewCard from '../../components/blog-preview-card-v1/BlogPreviewCardV1';
 
 interface SocialMediaRef {
   facebook: string;

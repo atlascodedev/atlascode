@@ -1,4 +1,3 @@
-import { isBrowser } from '@atlascode/helpers';
 import React from 'react';
 import { Scrollbar as IScrollbar } from 'smooth-scrollbar/scrollbar';
 import Scrollbar from 'smooth-scrollbar';
@@ -18,7 +17,7 @@ export const useSmoothScrollbar = (
     React.useState<IScrollbar>();
 
   React.useEffect(() => {
-    if (isBrowser) {
+    if (typeof window !== 'undefined') {
       Scrollbar.use(ScrollbarModalPlugin);
 
       setScrollbarInstance(
@@ -74,7 +73,9 @@ export const useSmoothScrollbar = (
 const overscrollOptions = {
   enable: true,
   effect:
-    isBrowser && !navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
+    typeof window !== 'undefined' && !navigator.userAgent.match(/Android/)
+      ? 'glow'
+      : 'bounce',
   damping: 0.2,
   maxOverscroll: 150,
   glowColor: '#222a2d',

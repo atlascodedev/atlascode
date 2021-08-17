@@ -1,11 +1,10 @@
 import { Box, Fab } from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
 import SwiperSliderWrapper from '../swiper-react-wrapper/SwiperReactWrapper';
-import {
-  TestimonialCardRoundedProps,
-  TestimonialCardRounded,
-} from '@atlascode/react-web-ui';
 import useId from '@material-ui/core/utils/useId';
+import TestimonialCardRounded, {
+  TestimonialCardRoundedProps,
+} from '../../components/testimonial-card-rounded/TestimonialCardRounded';
 
 export interface TestimonialSliderProps {
   items: TestimonialCardRoundedProps[];
