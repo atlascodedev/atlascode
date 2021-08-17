@@ -1,10 +1,11 @@
 import { Box, Fab } from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
 import SwiperSliderWrapper from '../swiper-react-wrapper/SwiperReactWrapper';
-import useId from '@material-ui/core/utils/useId';
 import TestimonialCardRounded, {
   TestimonialCardRoundedProps,
 } from '../../components/testimonial-card-rounded/TestimonialCardRounded';
+import React from 'react';
+import { nanoid } from 'nanoid';
 
 export interface TestimonialSliderProps {
   items: TestimonialCardRoundedProps[];
@@ -17,7 +18,7 @@ export function TestimonialSlider({
   controlButtons = true,
   controlButtonsColor = 'primary',
 }: TestimonialSliderProps) {
-  const navigationID = useId();
+  const id = React.useMemo(() => nanoid(5), []);
 
   return (
     <Box>
@@ -32,8 +33,8 @@ export function TestimonialSlider({
         }}
         SwiperProps={{
           navigation: {
-            nextEl: `#nextTestimonial-${navigationID}`,
-            prevEl: `#prevTestimonial-${navigationID}`,
+            nextEl: `#nextTestimonial-${id}`,
+            prevEl: `#prevTestimonial-${id}`,
           },
           slidesPerView: 1,
           spaceBetween: 20,
@@ -65,19 +66,13 @@ export function TestimonialSlider({
             gap: '5rem',
           }}
         >
-          <Fab
-            id={`prevTestimonial-${navigationID}`}
-            color={controlButtonsColor}
-          >
+          <Fab id={`prevTestimonial-${id}`} color={controlButtonsColor}>
             <KeyboardArrowRight
               sx={{ fontSize: '3.5rem', transform: 'rotateY(180deg)' }}
             />
           </Fab>
 
-          <Fab
-            id={`nextTestimonial-${navigationID}`}
-            color={controlButtonsColor}
-          >
+          <Fab id={`nextTestimonial-${id}`} color={controlButtonsColor}>
             <KeyboardArrowRight sx={{ fontSize: '3.5rem' }} />
           </Fab>
         </Box>
