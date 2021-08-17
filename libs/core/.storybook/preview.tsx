@@ -1,5 +1,5 @@
 import React from 'react';
-import { AtlasCodeThemeProvider } from '../src/index';
+import { AtlasCodeThemeProvider } from '../src/lib/utility/atlas-theme/AtlasTheme';
 import { StoryContext } from '@storybook/react';
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

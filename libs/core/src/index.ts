@@ -36,11 +36,52 @@ export * from './lib/helpers/colorManipulation/intToHex';
 export * from './lib/helpers/colorManipulation/lighten';
 export * from './lib/helpers/colorManipulation/recomposeColor';
 export * from './lib/helpers/colorManipulation/rgbToHex';
+export * from './lib/helpers/getReadingTime/index';
+export * from './lib/helpers/convertToSlug/index';
 
 // Animations
 export * from './lib/animations/fade-in-list/FadeInList';
 export * from './lib/animations/image-crossfade/ImageCrossfade';
 export * from './lib/animations/motion-box/MotionBox';
 
+// Hooks
 export * from './lib/hooks/use-load-more/UseLoadMore';
 export * from './lib/hooks/use-smooth-scrollbar/UseSmoothScrollbar';
+
+// JSS mixins
+export * from './lib/jss-mixins/add-quotes/AddQuotes';
+export * from './lib/jss-mixins/background-pattern/BackgroundPattern';
+export * from './lib/jss-mixins/background-zoom/BackgroundZoom';
+export * from './lib/jss-mixins/fade-text-truncate/FadeTextTruncate';
+export * from './lib/jss-mixins/frosted-glass/FrostedGlass';
+export * from './lib/jss-mixins/webkit-vertical-truncate/WebkitVerticalTruncate';
+
+// Components
+export * from './lib/components/blog-preview-card-v1/BlogPreviewCardV1';
+export * from './lib/components/button/Button';
+export * from './lib/components/collapsable-menu-item/CollapsableMenuItem';
+export * from './lib/components/contact-thankyou-page/ContactThankyouPage';
+export * from './lib/components/defense-card/DefenseCard';
+export * from './lib/components/defense-card-section/DefenseCardSection';
+export * from './lib/components/icon-button-circle/IconButtonCircle';
+export * from './lib/components/kota-burguer/KotaBurguer';
+export * from './lib/components/large-notification-with-backdrop/LargeNotificationWithBackdrop';
+export * from './lib/components/minimal-contact-form/MinimalContactForm';
+export * from './lib/components/mui-rounded-menu/MuiRoundedMenu';
+export * from './lib/components/modern-clean-menu/ModernCleanMenu';
+export * from './lib/components/mui-rounded-menu/MuiRoundedMenu';
+export * from './lib/components/newsletter-input/NewsLetterInput';
+export * from './lib/components/notification-card/NotificationCard';
+export * from './lib/components/offer-card/OfferCard';
+export * from './lib/components/standard-footer/StandardFooter';
+export * from './lib/components/tab-panel/TabPanel';
+export * from './lib/components/testimonial-card-rounded/TestimonialCardRounded';
+
+// Sliders
+export * from './lib/sliders/offer-slider/OfferSlider';
+export * from './lib/sliders/swiper-react-wrapper/SwiperReactWrapper';
+export * from './lib/sliders/testimonial-slider/TestimonialSlider';
+
+// Layouts
+export * from './lib/layouts/blog-layout-v1/BlogLayoutV1';
+export * from './lib/layouts/theme-smooth-scroll-layout/ThemeSmoothScrollLayout';
