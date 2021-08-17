@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, ButtonProps, Container } from '@material-ui/core';
 import LottieAnimation from '../../utility/lottie-wrapper';
-import emailLottie from '../../lotties/EmailLooped/data.json';
+import emailLottie from './data.json';
 import _ from 'lodash';
 
 /* eslint-disable-next-line */
