@@ -6,7 +6,6 @@ module.exports = {
     '<rootDir>/apps/teste/core',
     '<rootDir>/libs/react',
     '<rootDir>/libs/react-web-hooks',
-    '<rootDir>/libs/react-web-animations',
     '<rootDir>/libs/jss-mixins',
     '<rootDir>/libs/smooth-scrollbar-react-wrapper',
     '<rootDir>/libs/mocks',

@@ -1,4 +1,4 @@
-import { MotionBox } from '@atlascode/react-web-animations';
+import MotionBox from '../../animations/motion-box/MotionBox';
 
 /* eslint-disable-next-line */
 export interface TabPanelProps {

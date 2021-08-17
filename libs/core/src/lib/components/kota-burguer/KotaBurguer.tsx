@@ -3,7 +3,7 @@ import { Property } from 'csstype';
 import { useAnimation, Variants } from 'framer-motion';
 import React from 'react';
 import { ResponsiveStyleValue } from '@material-ui/system';
-import { MotionBox } from '@atlascode/react-web-animations';
+import MotionBox from '../../animations/motion-box/MotionBox';
 
 const DEFAULT_COLOR = '#5a5a5a';
 const DEFAULT_HEIGHT = 1;

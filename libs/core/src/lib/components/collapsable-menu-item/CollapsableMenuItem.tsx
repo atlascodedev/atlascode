@@ -4,8 +4,8 @@ import { FaChevronUp } from 'react-icons/fa';
 import MuiRoundedMenu from '../mui-rounded-menu/MuiRoundedMenu';
 import React from 'react';
 import _ from 'lodash';
-import { MotionBox } from '@atlascode/react-web-animations';
 import { ResponsiveStyleValue } from '@material-ui/system';
+import MotionBox from '../../animations/motion-box/MotionBox';
 
 /* eslint-disable-next-line */
 export interface CollapsableMenuItemProps {
