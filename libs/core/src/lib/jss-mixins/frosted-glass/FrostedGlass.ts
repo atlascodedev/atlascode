@@ -1,5 +1,5 @@
 import { SxProps } from '@material-ui/system';
-import { isFirefox } from '../../helpers/assertions';
+import isFirefox from '../../helpers/assertions/is-firefox/isFirefox';
 
 export const frostedGlassEffect = (): SxProps => {
   if (isFirefox()) {

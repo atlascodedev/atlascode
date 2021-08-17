@@ -15,11 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@atlascode/core": ["libs/core/src/index.ts"],
-      "@atlascode/react-core": ["libs/react/src/index.ts"],
-      "@atlascode/smooth-scrollbar-react-wrapper": [
-        "libs/smooth-scrollbar-react-wrapper/src/index.ts"
-      ]
+      "@atlascode/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

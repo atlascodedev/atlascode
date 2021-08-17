@@ -14,7 +14,11 @@
             "tsConfig": "libs/core/tsconfig.lib.json",
             "project": "libs/core/package.json",
             "entryFile": "libs/core/src/index.ts",
-            "external": ["react/jsx-runtime"],
+              "external": [
+              "react/jsx-runtime",
+              "@emotion/styled/base",
+              "react-is"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
