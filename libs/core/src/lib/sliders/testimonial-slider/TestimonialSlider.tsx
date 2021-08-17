@@ -6,6 +6,7 @@ import TestimonialCardRounded, {
 } from '../../components/testimonial-card-rounded/TestimonialCardRounded';
 import React from 'react';
 import { nanoid } from 'nanoid';
+import { useIsomorphicLayoutEffect } from 'react-use';
 
 export interface TestimonialSliderProps {
   items: TestimonialCardRoundedProps[];
@@ -18,7 +19,11 @@ export function TestimonialSlider({
   controlButtons = true,
   controlButtonsColor = 'primary',
 }: TestimonialSliderProps) {
-  const id = React.useMemo(() => nanoid(5), []);
+  const id = React.useRef<string>('initial-id');
+
+  useIsomorphicLayoutEffect(() => {
+    id.current = nanoid(8);
+  }, []);
 
   return (
     <Box>
@@ -33,8 +38,8 @@ export function TestimonialSlider({
         }}
         SwiperProps={{
           navigation: {
-            nextEl: `#nextTestimonial-${id}`,
-            prevEl: `#prevTestimonial-${id}`,
+            nextEl: `#nextTestimonial-${id.current}`,
+            prevEl: `#prevTestimonial-${id.current}`,
           },
           slidesPerView: 1,
           spaceBetween: 20,
@@ -66,13 +71,13 @@ export function TestimonialSlider({
             gap: '5rem',
           }}
         >
-          <Fab id={`prevTestimonial-${id}`} color={controlButtonsColor}>
+          <Fab id={`prevTestimonial-${id.current}`} color={controlButtonsColor}>
             <KeyboardArrowRight
               sx={{ fontSize: '3.5rem', transform: 'rotateY(180deg)' }}
             />
           </Fab>
 
-          <Fab id={`nextTestimonial-${id}`} color={controlButtonsColor}>
+          <Fab id={`nextTestimonial-${id.current}`} color={controlButtonsColor}>
             <KeyboardArrowRight sx={{ fontSize: '3.5rem' }} />
           </Fab>
         </Box>

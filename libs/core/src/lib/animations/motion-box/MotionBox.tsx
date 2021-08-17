@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Transition } from 'framer-motion';
-import React from 'react';
+import React, { Ref } from 'react';
 import { Box } from '@material-ui/core';
 
 export const MotionBoxBase = motion(Box);
@@ -13,7 +13,7 @@ export const MotionBox = React.forwardRef(
   ({ transitionPreset = 'default', ...props }: MotionBoxProps, ref) => {
     return (
       <MotionBoxBase
-        ref={props.ref}
+        ref={ref as Ref<SVGElement | HTMLElement> | undefined}
         {...props}
         transition={
           props.transition
