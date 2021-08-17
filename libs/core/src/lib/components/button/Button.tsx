@@ -7,6 +7,7 @@ import {
   darken,
   Theme,
 } from '@material-ui/core';
+import { SxProps } from '@material-ui/system';
 import _ from 'lodash';
 import React from 'react';
 
@@ -60,12 +61,18 @@ export const AtlasButton = ({
 
 export default AtlasButton;
 
+const customVariantsBaseStyles = {
+  fontSize: '0.875rem',
+  textTransform: 'inherit',
+} as SxProps<Theme>;
+
 const roundedVariant = (color: AtlasButtonColor): BoxProps['sx'] => {
   return {
+    ...customVariantsBaseStyles,
     color: (theme) => theme.palette[color].contrastText,
     backgroundColor: (theme) => theme.palette[color].main,
     borderRadius: '15px',
-    textTransform: 'inherit',
+    px: '2.5em',
     ':hover': {
       backgroundColor: (theme) => darken(theme.palette[color].main, 0.2),
     },
@@ -74,6 +81,7 @@ const roundedVariant = (color: AtlasButtonColor): BoxProps['sx'] => {
 
 const roundedOutlinedVariant = (color: AtlasButtonColor): BoxProps['sx'] => {
   return {
+    ...customVariantsBaseStyles,
     ...roundedVariant(color),
     color: (theme) => theme.palette[color].main,
     backgroundColor: 'transparent',
@@ -87,13 +95,16 @@ const roundedOutlinedVariant = (color: AtlasButtonColor): BoxProps['sx'] => {
 
 const kotaVariant = (color: AtlasButtonColor): BoxProps['sx'] => {
   return {
+    ...customVariantsBaseStyles,
+    textTransform: 'uppercase',
+    fontWeight: 600,
+    fontSize: '0.675rem',
     color: (theme) => theme.palette[color].main,
     minWidth: '20em',
     padding: '1.8em 3.25em',
     border: (theme) => `0.2em solid ${theme.palette[color].main}`,
     background: 'transparent',
     letterSpacing: '0.1em',
-    fontSize: '1rem',
     borderRadius: '3em',
     ':hover': {
       backgroundColor: (theme) => theme.palette[color].main,
@@ -104,6 +115,7 @@ const kotaVariant = (color: AtlasButtonColor): BoxProps['sx'] => {
 
 const kotaInvertedVariant = (color: AtlasButtonColor): BoxProps['sx'] => {
   return {
+    ...customVariantsBaseStyles,
     ...kotaVariant(color),
     color: (theme) => theme.palette[color].contrastText,
     backgroundColor: (theme) => theme.palette[color].main,

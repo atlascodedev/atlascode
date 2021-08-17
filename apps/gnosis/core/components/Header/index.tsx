@@ -118,8 +118,9 @@ const Header = (props: HeaderProps) => {
       >
         <ModernCleanMenu
           onLogoClick={handleLogoClick}
-          CTAButton={{
-            label: 'Contate-nos',
+          ButtonProps={{
+            children: 'Contate-nos',
+            variant: 'kota',
             onClick: () => setContactFormDialogState(true),
           }}
           logo={'/images/gnosis-logo-blue.svg'}
