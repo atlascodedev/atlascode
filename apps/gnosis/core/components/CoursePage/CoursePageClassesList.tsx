@@ -1,4 +1,4 @@
-import { useSmoothScrollbar } from '@atlascode/react-core';
+import { useSmoothScrollbar } from '@atlascode/core';
 import { Box } from '@material-ui/core';
 import React from 'react';
 import CoursePageClassesListItem, {

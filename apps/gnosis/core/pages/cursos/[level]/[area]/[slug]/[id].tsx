@@ -11,7 +11,7 @@ import {
 } from '../../../../../components/CoursePage/CoursePageTabs';
 
 import faker from 'faker';
-import { polkaPattern } from '@atlascode/react-core';
+import { polkaPattern } from '@atlascode/core';
 import ProductDefense from '../../../../../components/ProductDefense';
 import NewsLetter from '../../../../../components/Newsletter';
 import Contact from '../../../../../components/Contact';

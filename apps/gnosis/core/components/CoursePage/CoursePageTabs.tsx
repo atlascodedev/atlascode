@@ -1,4 +1,4 @@
-import { TabPanel } from '@atlascode/react-core';
+import { TabPanel } from '@atlascode/core';
 import { Box, Button, Tab, Tabs } from '@material-ui/core';
 import { CourseClass } from '../../pages/cursos/[level]/[area]/[slug]/[id]';
 import CoursePageClassesList from './CoursePageClassesList';

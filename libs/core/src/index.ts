@@ -79,6 +79,7 @@ export * from './lib/components/standard-footer/StandardFooter';
 export * from './lib/components/tab-panel/TabPanel';
 export * from './lib/components/testimonial-card-rounded/TestimonialCardRounded';
 export * from './lib/components/kota-menu/KotaMenu';
+export * from './lib/components/latest-blog-posts/LatestBlogPosts';
 
 // Sliders
 export * from './lib/sliders/offer-slider/OfferSlider';
@@ -88,6 +89,11 @@ export * from './lib/sliders/testimonial-slider/TestimonialSlider';
 // Layouts
 export * from './lib/layouts/blog-layout-v1/BlogLayoutV1';
 
-// Smooth scrol
+// Smooth scroll
 export * from './lib/utility/smooth-scroll-wrapper/use-smooth-scroll/UseSmoothScrollbar';
 export * from './lib/utility/smooth-scroll-wrapper/smooth-scrollbar-context/SmoothScrollbarContext';
+export * from './lib/utility/smooth-scroll-wrapper/theme-smooth-scroll-layout/ThemeSmoothScrollLayout';
+
+// Theme
+
+export * from './lib/utility/atlas-theme/AtlasTheme';

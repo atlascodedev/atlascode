@@ -1,26 +1,21 @@
-import {
-  blogPreviewCardMockData,
-  GnosisLoader,
-  offerCardFullMock,
-  testimonialCardRoundedMock,
-  useScrollbarContext,
-} from '@atlascode/react-core';
+import { useScrollbarContext } from '@atlascode/core';
 import axios, { AxiosResponse } from 'axios';
 import { GetStaticProps } from 'next';
 import BlogPreview from '../components/BlogPreview';
 import Contact from '../components/Contact';
 import Courses from '../components/Courses';
 import HeroScreen from '../components/HeroScreen';
+import GnosisLoader from '../components/Loader';
 import Newsletter from '../components/Newsletter';
 import ProductDefense from '../components/ProductDefense';
 import Testimonials from '../components/Testimonials';
 import { CourseCollectionType } from '../types';
 
-const mockExt = offerCardFullMock(20);
-const mockMulti = offerCardFullMock(15);
-const mockPos = offerCardFullMock(50);
-const mockTestimonials = testimonialCardRoundedMock(20, 'primary');
-const mockBlogPreview = blogPreviewCardMockData(20);
+const mockExt = [];
+const mockMulti = [];
+const mockPos = [];
+const mockTestimonials = [];
+const mockBlogPreview = [];
 
 export interface IndexPageProps {
   courses: CourseCollectionType[];

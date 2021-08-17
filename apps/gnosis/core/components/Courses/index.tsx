@@ -3,7 +3,7 @@ import {
   OfferSliderProps,
   polkaPattern,
   TabPanel,
-} from '@atlascode/react-core';
+} from '@atlascode/core';
 import { Box, Tab, Tabs } from '@material-ui/core';
 import React from 'react';
 

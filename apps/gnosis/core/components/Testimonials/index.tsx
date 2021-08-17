@@ -1,7 +1,4 @@
-import {
-  TestimonialSlider,
-  TestimonialSliderProps,
-} from '@atlascode/react-core';
+import { TestimonialSlider, TestimonialSliderProps } from '@atlascode/core';
 import { Box } from '@material-ui/core';
 import React from 'react';
 

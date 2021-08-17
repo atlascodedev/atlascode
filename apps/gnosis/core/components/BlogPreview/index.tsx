@@ -2,7 +2,7 @@ import {
   LatestBlogPosts,
   LatestBlogPostsProps,
   polkaPattern,
-} from '@atlascode/react-core';
+} from '@atlascode/core';
 import { Box } from '@material-ui/core';
 import React from 'react';
 
