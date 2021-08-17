@@ -7,6 +7,7 @@ import {
   darken,
   Theme,
 } from '@material-ui/core';
+import _ from 'lodash';
 import React from 'react';
 
 type AtlasButtonVariants =
@@ -15,12 +16,19 @@ type AtlasButtonVariants =
   | 'kota'
   | 'kota-inverted';
 
+const customVariantsList: AtlasButtonVariants[] = [
+  'kota',
+  'kota-inverted',
+  'rounded',
+  'rounded-outlined',
+];
+
 type AtlasButtonColor = 'primary' | 'secondary';
 
 type MuiButtonProps = Omit<ButtonProps, 'variant' | 'color'>;
 
 export interface AtlasButtonProps extends MuiButtonProps {
-  variant: AtlasButtonVariants;
+  variant: AtlasButtonVariants | ButtonProps['variant'];
   color?: AtlasButtonColor;
 }
 
@@ -29,13 +37,25 @@ export const AtlasButton = ({
   color = 'primary',
   ...rest
 }: AtlasButtonProps) => {
-  return (
-    <Box
-      sx={{ ...atlasButtonMapWithColor(color)[variant] }}
-      component={Button}
-      {...rest}
-    />
-  );
+  if (_.includes(customVariantsList, variant)) {
+    return (
+      <Box
+        sx={{
+          ...atlasButtonMapWithColor(color)[variant as AtlasButtonVariants],
+        }}
+        component={Button}
+        {...rest}
+      />
+    );
+  } else {
+    return (
+      <Button
+        variant={variant as ButtonProps['variant']}
+        color={color}
+        {...rest}
+      />
+    );
+  }
 };
 
 export default AtlasButton;
