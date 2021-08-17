@@ -71,6 +71,7 @@ export * from './lib/components/large-notification-with-backdrop/LargeNotificati
 export * from './lib/components/minimal-contact-form/MinimalContactForm';
 export * from './lib/components/mui-rounded-menu/MuiRoundedMenu';
 export * from './lib/components/modern-clean-menu/ModernCleanMenu';
+export * from './lib/components/contact-form-dialog/ContactFormDialog';
 export * from './lib/components/mui-rounded-menu/MuiRoundedMenu';
 export * from './lib/components/newsletter-input/NewsLetterInput';
 export * from './lib/components/notification-card/NotificationCard';

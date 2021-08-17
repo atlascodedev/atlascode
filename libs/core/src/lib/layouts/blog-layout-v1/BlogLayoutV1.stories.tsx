@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { BlogLayoutV1, BlogLayoutV1Props } from './BlogLayoutV1';
 import faker from 'faker';
-import randomMockImage from '../../mock/random-mock-image/RandomMockImage';
 import { HTMLLorem } from './__mocks__';
 import { Box } from '@material-ui/core';
 
@@ -55,7 +54,7 @@ const blogPostData = {
   content: HTMLLorem,
   readingTime: true,
   date: faker.date.past(),
-  featuredImage: randomMockImage(1000, 600),
+  featuredImage: faker.image.abstract(1000, 600),
   socials: {
     facebook: 'https://facebok.com/lorem',
     instagram: 'https://instagram.com/lorem',
@@ -69,7 +68,7 @@ Primary.args = {
   content: HTMLLorem,
   readingTime: true,
   date: faker.date.past(),
-  featuredImage: randomMockImage(1000, 600),
+  featuredImage: faker.image.abstract(1000, 600),
   socials: {
     facebook: 'https://facebok.com/lorem',
     instagram: 'https://instagram.com/lorem',
