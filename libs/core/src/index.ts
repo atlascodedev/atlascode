@@ -1,3 +1,4 @@
+export * from './lib/utility/backdrop/Backdrop';
 // Helpers
 export * from './lib/helpers/assertions/is-firefox/isFirefox';
 export * from './lib/helpers/assertions/is-mobile-browser/IsMobileBrowser';

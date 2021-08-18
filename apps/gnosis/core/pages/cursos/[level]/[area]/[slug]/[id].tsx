@@ -15,6 +15,9 @@ import { polkaPattern } from '@atlascode/core';
 import ProductDefense from '../../../../../components/ProductDefense';
 import NewsLetter from '../../../../../components/Newsletter';
 import Contact from '../../../../../components/Contact';
+import { CourseCollectionType } from '../../../../../types';
+import axios, { AxiosResponse } from 'axios';
+import convertToSlug from '../../../../../utility/converToSlug';
 export interface CourseClass {
   duration: number | string;
   label: string;
@@ -115,17 +118,23 @@ export const getStaticPaths: CourseStaticPaths = async ({
   defaultLocale,
   locales,
 }) => {
+  const courseRequest: AxiosResponse<CourseCollectionType[]> = await axios.get(
+    'https://us-central1-gnosis-webapp.cloudfunctions.net/api/collections/entries/coursesNew'
+  );
+
+  const courseData = courseRequest.data;
+
   return {
-    paths: [
-      {
+    paths: courseData.map((value, index) => {
+      return {
         params: {
-          area: 'medicina',
-          level: 'pos-graduacao',
-          slug: 'alergia',
-          id: '123',
+          area: convertToSlug(value.courseArea),
+          level: convertToSlug(value.courseLevel),
+          slug: convertToSlug(value.courseName),
+          id: value.uuid,
         },
-      },
-    ],
+      };
+    }),
     fallback: false,
   };
 };
@@ -138,54 +147,11 @@ export const getStaticProps: GetStaticProps<CoursePageProps> = async ({
   preview,
   previewData,
 }) => {
-  const mockData = {};
+  const paramsData = params;
 
-  console.log(params);
+  console.log(paramsData);
 
   return {
-    props: {
-      courseEmec: {
-        imageURL: faker.image.abstract(1500, 600),
-        link: 'https://atlascode.dev',
-      },
-      coursePrerequisites: '',
-      courseDescription:
-        'A especialidade de pediatria é o ramo da medicina estuda e trata a saúde e os cuidados médicos das crianças e dos adolescentes, do nascimento até os 18 anos, atuando em aspectos curativos, preventivos e de pesquisa. O ramo pediátrico é relativamente novo, quando comparamos com a medicina de modo geral, sendo uma profissão que ganhou forma apenas em meados do século 19 e foi criada devido a maior importância dedicada as crianças e adolescentes. O médico pediatra deve estar sempre atualizado e conhecer interesses e habilidades das diferentes faixas etárias, sendo necessária sensibilidade de dedicação para a correta comunicação com o infante em atendimento.',
-      courseArea: 'Medicina',
-      courseLevel: 'Pós-graduação',
-      courseName: 'Pediatria',
-      courseDuration: '600 horas',
-      id: 'teste',
-      classes: [
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-        { duration: '25', label: faker.company.bs() },
-      ],
-      slug: 'teste',
-      courseImage: {
-        alt: 'Lorem ipsum',
-        url: faker.image.business(1000, 600),
-      },
-    },
+    props: {} as any,
   };
 };

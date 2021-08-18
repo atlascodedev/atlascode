@@ -6,6 +6,7 @@ import {
   CardContent,
   Typography,
 } from '@material-ui/core';
+import { SxProps, Theme } from '@material-ui/system';
 import { IconType } from 'react-icons/lib';
 import backGroundZoom from '../../jss-mixins/background-zoom/BackgroundZoom';
 
@@ -15,9 +16,12 @@ export function OfferCard({
   redirectLink,
   title,
   zoomEffect,
+  sx,
 }: OfferCardProps) {
   return (
-    <Box sx={{ maxWidth: { xs: '30rem', lg: '34rem' } }}>
+    <Box
+      sx={{ width: { xs: '30rem', lg: '34rem' }, fontSize: 'inherit', ...sx }}
+    >
       <Card sx={{ maxWidth: '100%', borderRadius: '11px' }}>
         <Box
           sx={{
@@ -119,4 +123,5 @@ export interface OfferCardProps {
   items: OfferCardItem[];
   redirectLink: string;
   zoomEffect?: boolean;
+  sx?: SxProps<Theme>;
 }

@@ -2,7 +2,7 @@ import { Box } from '@material-ui/core';
 import * as React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
+import Dialog, { DialogProps } from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
@@ -22,6 +22,7 @@ export interface ContactFormDialogProps {
   phoneInputProps?: Partial<FormInputProps>;
   emailInputProps?: Partial<FormInputProps>;
   messageInputProps?: Partial<FormInputProps>;
+  DialogProps?: DialogProps;
 }
 
 export function ContactFormDialog({
@@ -48,6 +49,7 @@ export function ContactFormDialog({
     label: 'Número',
     placeholder: 'Ex: (00) 0-0000-0000',
   },
+  DialogProps,
 }: ContactFormDialogProps) {
   return (
     <Dialog
@@ -59,6 +61,7 @@ export function ContactFormDialog({
       maxWidth={'xl'}
       open={open}
       onClose={handleClose}
+      {...DialogProps}
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
