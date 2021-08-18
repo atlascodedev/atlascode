@@ -10,14 +10,10 @@ import SwiperCore, {
   SwiperOptions,
 } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-require('swiper/swiper.min.css');
-require('swiper/components/navigation/navigation.min.css');
-require('swiper/components/pagination/pagination.min.css');
-require('swiper/components/scrollbar/scrollbar.min.css');
-require('swiper/components/effect-fade/effect-fade.min.css');
-require('swiper/components/scrollbar/scrollbar.min.css');
-require('swiper/components/lazy/lazy.min.css');
+import 'swiper/swiper.min.css';
+import 'swiper/components/navigation/navigation.min.css';
+import 'swiper/components/pagination/pagination.min.css';
+import 'swiper/components/lazy/lazy.min.css';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 

@@ -11,13 +11,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import OfferCard, {
   OfferCardProps,
 } from '../../components/offer-card/OfferCard';
-require('swiper/swiper.min.css');
-require('swiper/components/navigation/navigation.min.css');
-require('swiper/components/pagination/pagination.min.css');
-require('swiper/components/scrollbar/scrollbar.min.css');
-require('swiper/components/effect-fade/effect-fade.min.css');
-require('swiper/components/scrollbar/scrollbar.min.css');
-require('swiper/components/lazy/lazy.min.css');
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
